@@ -13,3 +13,8 @@ PIPI_CSHARP_WRAPPER_API PiPiOperator* CALLING_CONVENTION init(const char* pdfByt
 
   return op;
 }
+
+PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION release(PiPiOperator* op) {
+  delete op;
+  op = nullptr;
+}

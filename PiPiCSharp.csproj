@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	<Version>0.0.0</Version>
+	<AssemblyVersion>0.0.0</AssemblyVersion>
+	<Authors>pipiorg</Authors>
+	<Company>pipiorg</Company>
+	<Product>PiPiCSharp</Product>
+	<Description>C# version for PiPi implementation.</Description>
+	<DebugType>embedded</DebugType>
+	<DebugSymbols>true</DebugSymbols>
+	<PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop" Version="6.2.0" />
+  </ItemGroup>
 
 </Project>

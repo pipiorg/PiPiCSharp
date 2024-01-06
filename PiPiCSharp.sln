@@ -3,18 +3,44 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiPiCSharp", "PiPiCSharp.csproj", "{C2B0B374-B8A9-4B41-8D7C-FC3FFA7FD586}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PiPiCSharpWrapper", "PiPiCSharpWrapper\PiPiCSharpWrapper.vcxproj", "{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PiPiCSharp", "PiPiCSharp\PiPiCSharp.csproj", "{A5279A1A-35EC-4423-9A72-89E1F4018513}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C2B0B374-B8A9-4B41-8D7C-FC3FFA7FD586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2B0B374-B8A9-4B41-8D7C-FC3FFA7FD586}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2B0B374-B8A9-4B41-8D7C-FC3FFA7FD586}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2B0B374-B8A9-4B41-8D7C-FC3FFA7FD586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Debug|Any CPU.Build.0 = Debug|x64
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Debug|x64.ActiveCfg = Debug|x64
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Debug|x64.Build.0 = Debug|x64
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Debug|x86.ActiveCfg = Debug|Win32
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Debug|x86.Build.0 = Debug|Win32
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Release|Any CPU.ActiveCfg = Release|x64
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Release|Any CPU.Build.0 = Release|x64
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Release|x64.ActiveCfg = Release|x64
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Release|x64.Build.0 = Release|x64
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Release|x86.ActiveCfg = Release|Win32
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}.Release|x86.Build.0 = Release|Win32
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Debug|x64.Build.0 = Debug|Any CPU
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Debug|x86.Build.0 = Debug|Any CPU
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Release|x64.ActiveCfg = Release|Any CPU
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Release|x64.Build.0 = Release|Any CPU
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Release|x86.ActiveCfg = Release|Any CPU
+		{A5279A1A-35EC-4423-9A72-89E1F4018513}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

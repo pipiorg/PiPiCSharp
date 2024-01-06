@@ -29,5 +29,11 @@
     <ClCompile Include="pch.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="PiPiOperateWrapper.h">
+      <Filter>標頭檔</Filter>
+    </ClCompile>
+    <ClCompile Include="PiPiOperatorWrapper.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

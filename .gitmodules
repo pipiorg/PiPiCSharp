@@ -1,0 +1,3 @@
+[submodule "PiPi"]
+	path = PiPi
+	url = https://github.com/pipiorg/PiPi.git

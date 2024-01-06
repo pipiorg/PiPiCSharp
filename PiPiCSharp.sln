@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PiPiCSharpWrapper", "PiPiCSharpWrapper\PiPiCSharpWrapper.vcxproj", "{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PiPiCSharp", "PiPiCSharp\PiPiCSharp.csproj", "{A5279A1A-35EC-4423-9A72-89E1F4018513}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8} = {6D5ABE3B-7393-4478-ACBF-2BB31ABF76D8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiPiCSharpMain", "PiPiCSharpMain\PiPiCSharpMain.csproj", "{5F627505-2AB5-4835-941C-8D401AE90EBB}"
 EndProject

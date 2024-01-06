@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;netcoreapp3.1;net6.0</TargetFrameworks>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	  <Version>0.0.0</Version>
 	  <AssemblyVersion>0.0.0</AssemblyVersion>
 	  <Authors>pipiorg</Authors>
@@ -11,6 +12,7 @@
 	  <DebugType>embedded</DebugType>
 	  <DebugSymbols>true</DebugSymbols>
 	  <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,19 +23,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="..\README.md">
+      <pack>true</pack>
+      <PackagePath></PackagePath>
+    </Content>
     <Content Include="..\PiPi\out\build\x64-release\bin\pipi.dll">
-      <Pack>true</Pack>
-      <PackagePath>lib\$(TargetFramework)</PackagePath>
+      <pack>true</pack>
+      <Link>pipi.dll</Link>
+      <PackagePath>runtimes\win-x64\native</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\PiPi\out\build\x64-release\bin\podofo.dll">
-      <Pack>true</Pack>
-      <PackagePath>lib\$(TargetFramework)</PackagePath>
+      <pack>true</pack>
+      <Link>podofo.dll</Link>
+      <PackagePath>runtimes\win-x64\native</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\PiPiCSharpWrapper\x64\Release\PiPiCSharpWrapper.dll">
-      <Pack>true</Pack>
-      <PackagePath>lib\$(TargetFramework)</PackagePath>
+      <pack>true</pack>
+      <Link>PiPiCSharpWrapper.dll</Link>
+      <PackagePath>runtimes\win-x64\native</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

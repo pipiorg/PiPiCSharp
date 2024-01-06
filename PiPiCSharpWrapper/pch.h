@@ -1,7 +1,7 @@
 #ifndef PCH_H
 #define PCH_H
 
-#ifdef PIPI_CSHARP_WRAPPER_EXPORTS
+#ifdef PIPICSHARPWRAPPER_EXPORTS
 #define PIPI_CSHARP_WRAPPER_API __declspec(dllexport)
 #else
 #define PIPI_CSHARP_WRAPPER_API __declspec(dllimport)

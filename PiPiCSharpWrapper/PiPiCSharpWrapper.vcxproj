@@ -72,11 +72,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExternalIncludePath>..\PiPi\src\pipi;..\PiPi\ext\podofo\src;..\PiPi\ext-build\podofo\src\podofo;..\PiPi\ext\utfcpp\source</ExternalIncludePath>
-    <LibraryPath />
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ExternalIncludePath>..\PiPi\src\pipi;..\PiPi\ext\podofo\src;..\PiPi\ext-build\podofo\src\podofo;..\PiPi\ext\utfcpp\source</ExternalIncludePath>
-    <LibraryPath />
+    <LibraryPath>$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

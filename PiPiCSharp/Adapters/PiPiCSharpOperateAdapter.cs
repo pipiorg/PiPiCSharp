@@ -12,7 +12,11 @@ namespace PiPiCSharp.Adapters
     /// </summary>
     internal class PiPiCSharpOperateAdapter : IDisposable
     {
-        private readonly IntPtr op;
+        private readonly IntPtr cOp;
+        private readonly PiPiCSharpEditAdapter editAdapter;
+        private readonly PiPiCSharpExtractAdapter extractoAdapter;
+        private readonly PiPiCSharpFillAdapter fillAdapter;
+        private readonly PiPiCSharpFontManageAdapter fontManageAdapter;
         private bool disposedValue;
 
         /// <summary>
@@ -21,7 +25,19 @@ namespace PiPiCSharp.Adapters
         /// <param name="pdfBytes">The pdf binary bytes.</param>
         public PiPiCSharpOperateAdapter(byte[] pdfBytes)
         {
-            this.op = CreatePiPiOperator(pdfBytes, pdfBytes.Length);
+            this.cOp = CreatePiPiOperator(pdfBytes, pdfBytes.Length);
+
+            IntPtr cEditor = PiPiOperatorGetEditor(this.cOp);
+            this.editAdapter = new PiPiCSharpEditAdapter(cEditor);
+
+            IntPtr cFiller = PiPiOperatorGetFiller(this.cOp);
+            this.fillAdapter = new PiPiCSharpFillAdapter(cFiller);
+
+            IntPtr cExtractor = PiPiOperatorGetPiPiExtractor(this.cOp);
+            this.extractoAdapter = new PiPiCSharpExtractAdapter(cExtractor);
+
+            IntPtr cFontManager = PiPiOperatorGetPiPiFontManager(this.cOp);
+            this.fontManageAdapter = new PiPiCSharpFontManageAdapter(cFontManager);
         }
 
         /// <inheritdoc/>
@@ -48,6 +64,47 @@ namespace PiPiCSharp.Adapters
         internal static extern void DeletePiPiOperator(IntPtr op);
 
         /// <summary>
+        /// Invoke c++ PiPiOperator GetEditor.
+        /// </summary>
+        /// <param name="op">PiPiOperator instance pointer.</param>
+        /// <returns>PiPiEditor instance pointer.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorGetEditor")]
+        internal static extern IntPtr PiPiOperatorGetEditor(IntPtr op);
+
+        /// <summary>
+        /// Invoke c++ PiPiOperator GetFiller.
+        /// </summary>
+        /// <param name="op">PiPiOperator instance pointer.</param>
+        /// <returns>PiPiFiller instance pointer.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorGetFiller")]
+        internal static extern IntPtr PiPiOperatorGetFiller(IntPtr op);
+
+        /// <summary>
+        /// Invoke c++ PiPiOperator GetExtractor.
+        /// </summary>
+        /// <param name="op">PiPiOperator instance pointer.</param>
+        /// <returns>PiPiExtractor instance pointer.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorGetExtractor")]
+        internal static extern IntPtr PiPiOperatorGetPiPiExtractor(IntPtr op);
+
+        /// <summary>
+        /// Invoke c++ PiPiOperator GetFontManager.
+        /// </summary>
+        /// <param name="op">PiPiOperator instance pointer.</param>
+        /// <returns>PiPiFontManager instance pointer.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorGetFontManager")]
+        internal static extern IntPtr PiPiOperatorGetPiPiFontManager(IntPtr op);
+
+        /// <summary>
+        /// Get <see cref="PiPiCSharpOperateAdapter"/>.
+        /// </summary>
+        /// <returns><see cref="PiPiCSharpOperateAdapter"/> instance.</returns>
+        internal PiPiCSharpEditAdapter GetEditor()
+        {
+            return this.editAdapter;
+        }
+
+        /// <summary>
         /// Invoke inner dispose.
         /// </summary>
         /// <param name="disposing">The dispose status.</param>
@@ -57,7 +114,7 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    DeletePiPiOperator(this.op);
+                    DeletePiPiOperator(this.cOp);
                 }
 
                 this.disposedValue = true;

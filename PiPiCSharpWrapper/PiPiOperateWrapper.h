@@ -9,8 +9,8 @@ using namespace PiPi;
 extern "C" {
 #endif
 
-  PIPI_CSHARP_WRAPPER_API PiPiOperator* CALLING_CONVENTION init(const byte* pdfBytes, const size_t pdfSize);
-  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION release(PiPiOperator* op);
+  PIPI_CSHARP_WRAPPER_API PiPiOperator* CALLING_CONVENTION CreatePiPiOperator(byte* pdfBytes, size_t pdfSize);
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiOperator(PiPiOperator* op);
 
 #ifdef __cplusplus
 };

@@ -21,7 +21,7 @@ namespace PiPiCSharp.Adapters
         /// <param name="pdfBytes">The pdf binary bytes.</param>
         public PiPiCSharpOperateAdapter(byte[] pdfBytes)
         {
-            this.op = Init(pdfBytes, pdfBytes.Length);
+            this.op = CreatePiPiOperator(pdfBytes, pdfBytes.Length);
         }
 
         /// <inheritdoc/>
@@ -37,15 +37,15 @@ namespace PiPiCSharp.Adapters
         /// <param name="pdfBytes">The pdf binary bytes.</param>
         /// <param name="pdfSize">The pdf binary size.</param>
         /// <returns>PiPiOperator instance pointer.</returns>
-        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "init")]
-        internal static extern IntPtr Init(byte[] pdfBytes, int pdfSize);
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "CreatePiPiOperator")]
+        internal static extern IntPtr CreatePiPiOperator(byte[] pdfBytes, int pdfSize);
 
         /// <summary>
         /// Invoke c++ PiPiOperator deconstructor.
         /// </summary>
         /// <param name="op">PiPiOperator instance pointer.</param>
-        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "release")]
-        internal static extern void Release(IntPtr op);
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiOperator")]
+        internal static extern void DeletePiPiOperator(IntPtr op);
 
         /// <summary>
         /// Invoke inner dispose.
@@ -57,7 +57,7 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    Release(this.op);
+                    DeletePiPiOperator(this.op);
                 }
 
                 this.disposedValue = true;

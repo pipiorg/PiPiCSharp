@@ -28,6 +28,30 @@
       <pack>true</pack>
       <PackagePath></PackagePath>
     </Content>
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <Content Include="..\PiPi\out\build\x64-debug\bin\pipi.dll">
+      <pack>true</pack>
+      <Link>pipi.dll</Link>
+      <PackagePath>runtimes\win-x64\native</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\PiPi\out\build\x64-debug\bin\podofo.dll">
+      <pack>true</pack>
+      <Link>podofo.dll</Link>
+      <PackagePath>runtimes\win-x64\native</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\PiPiCSharpWrapper\x64\Debug\PiPiCSharpWrapper.dll">
+      <pack>true</pack>
+      <Link>PiPiCSharpWrapper.dll</Link>
+      <PackagePath>runtimes\win-x64\native</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)' == 'Release'">
     <Content Include="..\PiPi\out\build\x64-release\bin\pipi.dll">
       <pack>true</pack>
       <Link>pipi.dll</Link>

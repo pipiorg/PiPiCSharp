@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ExternalIncludePath>..\PiPi\src\pipi;..\PiPi\ext\podofo\src;..\PiPi\ext-build\podofo\src\podofo;..\PiPi\ext\utfcpp\source</ExternalIncludePath>
+    <ExternalIncludePath>..\PiPi\src\pipi;..\PiPi\ext\podofo\src;..\PiPi\ext-build\podofo\src\podofo;..\PiPi\ext\utfcpp\source;..\PiPi\ext\spdlog\include</ExternalIncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
     <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ExternalIncludePath>..\PiPi\src\pipi;..\PiPi\ext\podofo\src;..\PiPi\ext-build\podofo\src\podofo;..\PiPi\ext\utfcpp\source</ExternalIncludePath>
+    <ExternalIncludePath>..\PiPi\src\pipi;..\PiPi\ext\podofo\src;..\PiPi\ext-build\podofo\src\podofo;..\PiPi\ext\utfcpp\source;..\PiPi\ext\spdlog\include</ExternalIncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
     <OutDir>$(ProjectDir)$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
@@ -159,6 +159,7 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PiPiEditorWrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -168,6 +169,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="PiPiEditorWrapper.cpp" />
     <ClCompile Include="PiPiOperateWrapper.h">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
     </ClCompile>

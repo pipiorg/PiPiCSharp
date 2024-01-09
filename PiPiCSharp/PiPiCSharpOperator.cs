@@ -48,10 +48,19 @@ namespace PiPiCSharp
         }
 
         /// <summary>
+        /// Get PDF output.
+        /// </summary>
+        /// <returns>The PDF output binary bytes.</returns>
+        public byte[] Finalized()
+        {
+            return this.adapter.Finalize();
+        }
+
+        /// <summary>
         /// Get <see cref="PiPiCSharpEditor"/>.
         /// </summary>
         /// <returns><see cref="PiPiCSharpEditor"/> instance.</returns>
-        internal PiPiCSharpEditor GetEditor()
+        public PiPiCSharpEditor GetEditor()
         {
             return this.editor;
         }
@@ -60,7 +69,7 @@ namespace PiPiCSharp
         /// Get <see cref="PiPiCSharpExtractor"/>.
         /// </summary>
         /// <returns><see cref="PiPiCSharpExtractor"/> instance.</returns>
-        internal PiPiCSharpExtractor GetExtractor()
+        public PiPiCSharpExtractor GetExtractor()
         {
             return this.extractor;
         }
@@ -69,7 +78,7 @@ namespace PiPiCSharp
         /// Get <see cref="PiPiCSharpFiller"/>.
         /// </summary>
         /// <returns><see cref="PiPiCSharpFiller"/> instance.</returns>
-        internal PiPiCSharpFiller GetFiller()
+        public PiPiCSharpFiller GetFiller()
         {
             return this.filler;
         }
@@ -78,7 +87,7 @@ namespace PiPiCSharp
         /// Get <see cref="PiPiCSharpFontManager"/>.
         /// </summary>
         /// <returns><see cref="PiPiCSharpFontManager"/> instance.</returns>
-        internal PiPiCSharpFontManager GetFontManager()
+        public PiPiCSharpFontManager GetFontManager()
         {
             return this.fontManager;
         }

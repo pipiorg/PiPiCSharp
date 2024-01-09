@@ -10,7 +10,7 @@ namespace PiPiCSharp
     /// <summary>
     /// The PDF editor.
     /// </summary>
-    internal class PiPiCSharpFiller : IDisposable
+    public class PiPiCSharpFiller : IDisposable
     {
         private readonly PiPiCSharpFillAdapter adapter;
         private bool disposedValue;

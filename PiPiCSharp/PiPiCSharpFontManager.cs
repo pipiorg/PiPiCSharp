@@ -10,7 +10,7 @@ namespace PiPiCSharp
     /// <summary>
     /// The PDF font manager.
     /// </summary>
-    internal class PiPiCSharpFontManager : IDisposable
+    public class PiPiCSharpFontManager : IDisposable
     {
         private readonly PiPiCSharpFontManageAdapter adapter;
         private bool disposedValue;

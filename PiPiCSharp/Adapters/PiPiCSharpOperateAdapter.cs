@@ -4,6 +4,7 @@
 
 namespace PiPiCSharp.Adapters
 {
+    using PiPiCSharp.Exceptions;
     using System;
     using System.Runtime.InteropServices;
 
@@ -67,6 +68,29 @@ namespace PiPiCSharp.Adapters
         internal static extern void DeletePiPiOperator(IntPtr op);
 
         /// <summary>
+        /// Invoke c++ PiPiOperator Finalize bytes getter.
+        /// </summary>
+        /// <param name="output">The c++ finalize binary bytes pointer.</param>
+        /// <param name="newPdfBytes">The finalize binary bytes.</param>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorCopyFinalize")]
+        internal static extern void PiPiOperatorCopyFinalize(IntPtr output, byte[] newPdfBytes);
+
+        /// <summary>
+        /// Invoke c++ PiPiOperator Release Finalize.
+        /// </summary>
+        /// <param name="output">The c++ finalize binary bytes pointer.</param>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorDeleteFinalize")]
+        internal static extern void PiPiOperatorDeleteFinalize(IntPtr output);
+
+        /// <summary>
+        /// Invoke c++ PiPiOperator Finalize.
+        /// </summary>
+        /// <param name="op">PiPiOperator instance pointer.</param>
+        /// <returns>The output PDF binary c++ pointer.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorFinalize")]
+        internal static extern IntPtr PiPiOperatorFinalize(IntPtr op);
+
+        /// <summary>
         /// Invoke c++ PiPiOperator GetEditor.
         /// </summary>
         /// <param name="op">PiPiOperator instance pointer.</param>
@@ -97,6 +121,39 @@ namespace PiPiCSharp.Adapters
         /// <returns>PiPiFontManager instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorGetFontManager")]
         internal static extern IntPtr PiPiOperatorGetPiPiFontManager(IntPtr op);
+
+        /// <summary>
+        /// Invoke c++ PiPiOperator Finalize size getter.
+        /// </summary>
+        /// <param name="output">The c++ finalize binary bytes pointer.</param>
+        /// <returns>The finalize binary size.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorMeasureFinalize")]
+        internal static extern int PiPiOperatorMeasureFinalize(IntPtr output);
+
+        /// <summary>
+        /// Get PDF output.
+        /// </summary>
+        /// <exception cref="PiPiCSharpOperateException">Operate exception.</exception>
+        /// <returns>The output PDF binary bytes.</returns>
+        internal byte[] Finalize()
+        {
+            try
+            {
+                IntPtr cBytes = PiPiOperatorFinalize(this.cOp);
+
+                int newPdfSize = PiPiOperatorMeasureFinalize(cBytes);
+                byte[] newPdfBytes = new byte[newPdfSize];
+
+                PiPiOperatorCopyFinalize(cBytes, newPdfBytes);
+                PiPiOperatorDeleteFinalize(cBytes);
+
+                return newPdfBytes;
+            }
+            catch (Exception e)
+            {
+                throw new PiPiCSharpOperateException(PiPiCSharpOperateException.PiPiCSharpOperateExceptionCode.Unknown, e);
+            }
+        }
 
         /// <summary>
         /// Get <see cref="PiPiCSharpOperateAdapter"/>.

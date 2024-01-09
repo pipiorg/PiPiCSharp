@@ -30,3 +30,23 @@ PIPI_CSHARP_WRAPPER_API PiPiFontManager* CALLING_CONVENTION PiPiOperatorGetFontM
   PiPiFontManager* fontManager = op->GetFontManager();
   return fontManager;
 }
+
+PIPI_CSHARP_WRAPPER_API vector<char>* CALLING_CONVENTION PiPiOperatorFinalize(PiPiOperator* op) {
+  vector<char>* out;
+  op->Finalize(&out);
+  return out;
+}
+
+PIPI_CSHARP_WRAPPER_API size_t CALLING_CONVENTION PiPiOperatorMeasureFinalize(vector<char>* out) {
+  return out->size();
+}
+PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiOperatorCopyFinalize(vector<char>* out, byte* newPdfBytes) {
+  for (size_t i = 0; i < out->size(); i++) {
+    newPdfBytes[i] = (byte)out->at(i);
+  }
+}
+
+PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiOperatorDeleteFinalize(vector<char>* out) {
+  delete out;
+  out = nullptr;
+}

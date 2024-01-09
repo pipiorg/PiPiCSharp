@@ -11,7 +11,7 @@ namespace PiPiCSharp
     /// <summary>
     /// The PDF extractor.
     /// </summary>
-    internal class PiPiCSharpExtractor : IDisposable
+    public class PiPiCSharpExtractor : IDisposable
     {
         private readonly PiPiCSharpExtractAdapter adapter;
         private bool disposedValue;

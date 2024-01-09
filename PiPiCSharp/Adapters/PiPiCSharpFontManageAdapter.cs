@@ -77,7 +77,7 @@ namespace PiPiCSharp.Adapters
         /// Register font.
         /// </summary>
         /// <param name="fontBytes">The font binary bytes.</param>
-        /// <returns>The current font manage instance.</returns>
+        /// <returns>The current font manage adapter instance.</returns>
         /// <exception cref="PiPiCSharpFontManageException">Font manage exception.</exception>
         internal PiPiCSharpFontManageAdapter RegisterFont(byte[] fontBytes)
         {

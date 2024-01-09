@@ -1,26 +1,25 @@
-// <copyright file="PiPiCSharpExtractor.cs" company="PlaceholderCompany">
+// <copyright file="PiPiCSharpFontManager.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace PiPiCSharp
 {
     using System;
-    using System.Collections.Generic;
     using PiPiCSharp.Adapters;
 
     /// <summary>
-    /// The PDF extractor.
+    /// The PDF font manager.
     /// </summary>
-    internal class PiPiCSharpExtractor : IDisposable
+    internal class PiPiCSharpFontManager : IDisposable
     {
-        private readonly PiPiCSharpExtractAdapter adapter;
+        private readonly PiPiCSharpFontManageAdapter adapter;
         private bool disposedValue;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PiPiCSharpExtractor"/> class.
+        /// Initializes a new instance of the <see cref="PiPiCSharpFontManager"/> class.
         /// </summary>
-        /// <param name="adapter">The extractor adapter.</param>
-        internal PiPiCSharpExtractor(PiPiCSharpExtractAdapter adapter)
+        /// <param name="adapter">The filler adapter.</param>
+        internal PiPiCSharpFontManager(PiPiCSharpFontManageAdapter adapter)
         {
             this.adapter = adapter;
         }
@@ -33,30 +32,23 @@ namespace PiPiCSharp
         }
 
         /// <summary>
-        /// Extract fields in pdf.
-        /// </summary>
-        /// <returns>Extracted fields.</returns>
-        public List<PiPiCSharpField> ExtractField()
-        {
-            return this.adapter.ExtractField();
-        }
-
-        /// <summary>
-        /// Extract pages in pdf.
-        /// </summary>
-        /// <returns>Extracted pages.</returns>
-        public List<PiPiCSharpPage> ExtractPage()
-        {
-            return this.adapter.ExtractPage();
-        }
-
-        /// <summary>
         /// Get operable status.
         /// </summary>
         /// <returns>The operable status.</returns>
         public bool IsOperable()
         {
             return this.adapter.IsOperable();
+        }
+
+        /// <summary>
+        /// Register font.
+        /// </summary>
+        /// <param name="fontBytes">The font binary bytes.</param>
+        /// <returns>The current font manage instance.</returns>
+        internal PiPiCSharpFontManager RegisterFont(byte[] fontBytes)
+        {
+            this.adapter.RegisterFont(fontBytes);
+            return this;
         }
 
         /// <summary>

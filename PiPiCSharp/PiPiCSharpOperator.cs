@@ -13,6 +13,10 @@ namespace PiPiCSharp
     public class PiPiCSharpOperator : IDisposable
     {
         private readonly PiPiCSharpOperateAdapter adapter;
+        private readonly PiPiCSharpEditor editor;
+        private readonly PiPiCSharpExtractor extractor;
+        private readonly PiPiCSharpFiller filler;
+        private readonly PiPiCSharpFontManager fontManager;
         private bool disposedValue;
 
         /// <summary>
@@ -22,6 +26,18 @@ namespace PiPiCSharp
         public PiPiCSharpOperator(byte[] pdfBytes)
         {
             this.adapter = new PiPiCSharpOperateAdapter(pdfBytes);
+
+            PiPiCSharpEditAdapter editAdapter = this.adapter.GetEditor();
+            this.editor = new PiPiCSharpEditor(editAdapter);
+
+            PiPiCSharpFillAdapter fillAdapter = this.adapter.GetFiller();
+            this.filler = new PiPiCSharpFiller(fillAdapter);
+
+            PiPiCSharpExtractAdapter extractAdapter = this.adapter.GetExtractor();
+            this.extractor = new PiPiCSharpExtractor(extractAdapter);
+
+            PiPiCSharpFontManageAdapter fontManageAdapter = this.adapter.GetFontManager();
+            this.fontManager = new PiPiCSharpFontManager(fontManageAdapter);
         }
 
         /// <inheritdoc/>
@@ -29,6 +45,42 @@ namespace PiPiCSharp
         {
             this.Dispose(disposing: true);
             GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Get <see cref="PiPiCSharpEditor"/>.
+        /// </summary>
+        /// <returns><see cref="PiPiCSharpEditor"/> instance.</returns>
+        internal PiPiCSharpEditor GetEditor()
+        {
+            return this.editor;
+        }
+
+        /// <summary>
+        /// Get <see cref="PiPiCSharpExtractor"/>.
+        /// </summary>
+        /// <returns><see cref="PiPiCSharpExtractor"/> instance.</returns>
+        internal PiPiCSharpExtractor GetExtractor()
+        {
+            return this.extractor;
+        }
+
+        /// <summary>
+        /// Get <see cref="PiPiCSharpFiller"/>.
+        /// </summary>
+        /// <returns><see cref="PiPiCSharpFiller"/> instance.</returns>
+        internal PiPiCSharpFiller GetFiller()
+        {
+            return this.filler;
+        }
+
+        /// <summary>
+        /// Get <see cref="PiPiCSharpFontManager"/>.
+        /// </summary>
+        /// <returns><see cref="PiPiCSharpFontManager"/> instance.</returns>
+        internal PiPiCSharpFontManager GetFontManager()
+        {
+            return this.fontManager;
         }
 
         /// <summary>

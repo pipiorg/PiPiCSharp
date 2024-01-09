@@ -57,6 +57,14 @@ namespace PiPiCSharp.Adapters
         internal static extern IntPtr PiPiExtractorExtractPage(IntPtr cExtractor);
 
         /// <summary>
+        /// Invoke c++ PiPiExtractor IsOperable.
+        /// </summary>
+        /// <param name="cExtractor">PiPiExtractor instance pointer.</param>
+        /// <returns>The operable status.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorIsOperable")]
+        internal static extern bool PiPiExtractorIsOperable(IntPtr cExtractor);
+
+        /// <summary>
         /// Extract fields in pdf.
         /// </summary>
         /// <returns>Extracted fields.</returns>
@@ -93,6 +101,23 @@ namespace PiPiCSharp.Adapters
                 var pages = new List<PiPiCSharpPage>();
 
                 return pages;
+            }
+            catch (Exception e)
+            {
+                throw new PiPiCSharpExtractException(PiPiCSharpExtractException.PiPiCSharpExtractExceptionCode.Unknown, e);
+            }
+        }
+
+        /// <summary>
+        /// Get operable status.
+        /// </summary>
+        /// <exception cref="PiPiCSharpExtractException">Extract exception.</exception>
+        /// <returns>The operable status.</returns>
+        internal bool IsOperable()
+        {
+            try
+            {
+                return PiPiExtractorIsOperable(this.cExtractor);
             }
             catch (Exception e)
             {

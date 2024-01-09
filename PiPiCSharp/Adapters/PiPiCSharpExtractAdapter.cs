@@ -293,6 +293,7 @@ namespace PiPiCSharp.Adapters
                 DeletePiPiExtractorExtractedPages(cPages);
 
                 return pages;
+            }
             catch (Exception e)
             {
                 throw new PiPiCSharpExtractException(PiPiCSharpExtractException.PiPiCSharpExtractExceptionCode.Unknown, e);

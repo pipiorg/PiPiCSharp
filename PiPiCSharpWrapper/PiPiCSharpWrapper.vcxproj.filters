@@ -21,7 +21,16 @@
     <ClInclude Include="framework.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="PiPiEditorWrapper.h">
+    <ClInclude Include="PiPiEditWrapper.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="PiPiFillWrapper.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="PiPiFontManageWrapper.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="PiPiExtractWrapper.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,10 +44,19 @@
     <ClCompile Include="PiPiOperateWrapper.h">
       <Filter>標頭檔</Filter>
     </ClCompile>
-    <ClCompile Include="PiPiOperatorWrapper.cpp">
+    <ClCompile Include="PiPiOperateWrapper.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
-    <ClCompile Include="PiPiEditorWrapper.cpp">
+    <ClCompile Include="PiPiEditWrapper.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="PiPiFillWrapper.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="PiPiFontManageWrapper.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="PiPiExtractWrapper.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
   </ItemGroup>

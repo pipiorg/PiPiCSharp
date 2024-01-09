@@ -159,7 +159,10 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="PiPiEditorWrapper.h" />
+    <ClInclude Include="PiPiEditWrapper.h" />
+    <ClInclude Include="PiPiExtractWrapper.h" />
+    <ClInclude Include="PiPiFillWrapper.h" />
+    <ClInclude Include="PiPiFontManageWrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -169,11 +172,14 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="PiPiEditorWrapper.cpp" />
+    <ClCompile Include="PiPiEditWrapper.cpp" />
+    <ClCompile Include="PiPiExtractWrapper.cpp" />
+    <ClCompile Include="PiPiFillWrapper.cpp" />
+    <ClCompile Include="PiPiFontManageWrapper.cpp" />
     <ClCompile Include="PiPiOperateWrapper.h">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="PiPiOperatorWrapper.cpp">
+    <ClCompile Include="PiPiOperateWrapper.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>

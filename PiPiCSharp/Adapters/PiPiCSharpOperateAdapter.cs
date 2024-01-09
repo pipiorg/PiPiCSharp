@@ -17,6 +17,7 @@ namespace PiPiCSharp.Adapters
         private readonly PiPiCSharpExtractAdapter extractoAdapter;
         private readonly PiPiCSharpFillAdapter fillAdapter;
         private readonly PiPiCSharpFontManageAdapter fontManageAdapter;
+        private readonly bool multiManaged;
         private bool disposedValue;
 
         /// <summary>
@@ -25,6 +26,8 @@ namespace PiPiCSharp.Adapters
         /// <param name="pdfBytes">The pdf binary bytes.</param>
         public PiPiCSharpOperateAdapter(byte[] pdfBytes)
         {
+            this.multiManaged = false;
+
             this.cOp = CreatePiPiOperator(pdfBytes, pdfBytes.Length);
 
             IntPtr cEditor = PiPiOperatorGetEditor(this.cOp);
@@ -57,7 +60,7 @@ namespace PiPiCSharp.Adapters
         internal static extern IntPtr CreatePiPiOperator(byte[] pdfBytes, int pdfSize);
 
         /// <summary>
-        /// Invoke c++ PiPiOperator deconstructor.
+        /// Invoke c++ PiPiOperator destructor.
         /// </summary>
         /// <param name="op">PiPiOperator instance pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiOperator")]
@@ -105,6 +108,33 @@ namespace PiPiCSharp.Adapters
         }
 
         /// <summary>
+        /// Get <see cref="PiPiCSharpExtractAdapter"/>.
+        /// </summary>
+        /// <returns><see cref="PiPiCSharpExtractAdapter"/> instance.</returns>
+        internal PiPiCSharpExtractAdapter GetExtractor()
+        {
+            return this.extractoAdapter;
+        }
+
+        /// <summary>
+        /// Get <see cref="PiPiCSharpFillAdapter"/>.
+        /// </summary>
+        /// <returns><see cref="PiPiCSharpFillAdapter"/> instance.</returns>
+        internal PiPiCSharpFillAdapter GetFiller()
+        {
+            return this.fillAdapter;
+        }
+
+        /// <summary>
+        /// Get <see cref="PiPiCSharpFontManageAdapter"/>.
+        /// </summary>
+        /// <returns><see cref="PiPiCSharpFontManageAdapter"/> instance.</returns>
+        internal PiPiCSharpFontManageAdapter GetFontManager()
+        {
+            return this.fontManageAdapter;
+        }
+
+        /// <summary>
         /// Invoke inner dispose.
         /// </summary>
         /// <param name="disposing">The dispose status.</param>
@@ -114,7 +144,10 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    DeletePiPiOperator(this.cOp);
+                    if (!this.multiManaged)
+                    {
+                        DeletePiPiOperator(this.cOp);
+                    }
                 }
 
                 this.disposedValue = true;

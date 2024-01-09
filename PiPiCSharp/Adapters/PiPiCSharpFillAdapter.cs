@@ -82,11 +82,13 @@ namespace PiPiCSharp.Adapters
         /// <param name="fieldName">The field name.</param>
         /// <param name="imageBytes">The value.</param>
         /// <exception cref="PiPiCSharpFillException">Fill exception.</exception>
-        internal void FillImage(string fieldName, byte[] imageBytes)
+        /// <returns>The current PDF fill adapter instance.</returns>
+        internal PiPiCSharpFillAdapter FillImage(string fieldName, byte[] imageBytes)
         {
             try
             {
                 PiPiFillerFillImage(this.cFiller, fieldName, imageBytes, imageBytes.Length);
+                return this;
             }
             catch (Exception e)
             {
@@ -101,11 +103,13 @@ namespace PiPiCSharp.Adapters
         /// <param name="value">The value.</param>
         /// <param name="ellipsis">The ellipsis.</param>
         /// <exception cref="PiPiCSharpFillException">Fill exception.</exception>
-        internal void FillValue(string fieldName, string value, bool ellipsis)
+        /// <returns>The current PDF fill adapter instance.</returns>
+        internal PiPiCSharpFillAdapter FillValue(string fieldName, string value, bool ellipsis)
         {
             try
             {
                 PiPiFillerFillEllipsisValue(this.cFiller, fieldName, value, ellipsis);
+                return this;
             }
             catch (Exception e)
             {
@@ -119,11 +123,13 @@ namespace PiPiCSharp.Adapters
         /// <param name="fieldName">The field name.</param>
         /// <param name="value">The value.</param>
         /// <exception cref="PiPiCSharpFillException">Fill exception.</exception>
-        internal void FillValue(string fieldName, string value)
+        /// <returns>The current PDF fill adapter instance.</returns>
+        internal PiPiCSharpFillAdapter FillValue(string fieldName, string value)
         {
             try
             {
                 PiPiFillerFillValue(this.cFiller, fieldName, value);
+                return this;
             }
             catch (Exception e)
             {

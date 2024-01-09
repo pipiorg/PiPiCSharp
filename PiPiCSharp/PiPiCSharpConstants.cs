@@ -30,6 +30,16 @@ namespace PiPiCSharp
         /// <summary>
         /// The field type map.
         /// </summary>
+        internal static readonly Dictionary<ushort, PiPiCSharpFieldType> FieldTypeInvertMap = new Dictionary<ushort, PiPiCSharpFieldType>()
+        {
+            { 0, PiPiCSharpFieldType.TextBox },
+            { 1, PiPiCSharpFieldType.CheckBox },
+            { 2, PiPiCSharpFieldType.Unknown },
+        };
+
+        /// <summary>
+        /// The field type map.
+        /// </summary>
         internal static readonly Dictionary<PiPiCSharpFieldType, ushort> FieldTypeMap = new Dictionary<PiPiCSharpFieldType, ushort>()
         {
             { PiPiCSharpFieldType.TextBox, 0 },

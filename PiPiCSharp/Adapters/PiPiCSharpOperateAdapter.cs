@@ -4,9 +4,9 @@
 
 namespace PiPiCSharp.Adapters
 {
-    using PiPiCSharp.Exceptions;
     using System;
     using System.Runtime.InteropServices;
+    using PiPiCSharp.Exceptions;
 
     /// <summary>
     /// PDF operate adapter.
@@ -25,11 +25,34 @@ namespace PiPiCSharp.Adapters
         /// Initializes a new instance of the <see cref="PiPiCSharpOperateAdapter"/> class.
         /// </summary>
         /// <param name="pdfBytes">The pdf binary bytes.</param>
-        public PiPiCSharpOperateAdapter(byte[] pdfBytes)
+        internal PiPiCSharpOperateAdapter(byte[] pdfBytes)
         {
             this.multiManaged = false;
 
             this.cOp = CreatePiPiOperator(pdfBytes, pdfBytes.Length);
+
+            IntPtr cEditor = PiPiOperatorGetEditor(this.cOp);
+            this.editAdapter = new PiPiCSharpEditAdapter(cEditor);
+
+            IntPtr cFiller = PiPiOperatorGetFiller(this.cOp);
+            this.fillAdapter = new PiPiCSharpFillAdapter(cFiller);
+
+            IntPtr cExtractor = PiPiOperatorGetPiPiExtractor(this.cOp);
+            this.extractoAdapter = new PiPiCSharpExtractAdapter(cExtractor);
+
+            IntPtr cFontManager = PiPiOperatorGetPiPiFontManager(this.cOp);
+            this.fontManageAdapter = new PiPiCSharpFontManageAdapter(cFontManager);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PiPiCSharpOperateAdapter"/> class.
+        /// </summary>
+        /// <param name="cOp">The c++ operate pointer.</param>
+        internal PiPiCSharpOperateAdapter(IntPtr cOp)
+        {
+            this.multiManaged = true;
+
+            this.cOp = cOp;
 
             IntPtr cEditor = PiPiOperatorGetEditor(this.cOp);
             this.editAdapter = new PiPiCSharpEditAdapter(cEditor);

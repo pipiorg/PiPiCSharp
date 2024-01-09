@@ -40,6 +40,27 @@ namespace PiPiCSharp
             this.fontManager = new PiPiCSharpFontManager(fontManageAdapter);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PiPiCSharpOperator"/> class.
+        /// </summary>
+        /// <param name="adapter">The PDF operate adapter.</param>
+        internal PiPiCSharpOperator(PiPiCSharpOperateAdapter adapter)
+        {
+            this.adapter = adapter;
+
+            PiPiCSharpEditAdapter editAdapter = this.adapter.GetEditor();
+            this.editor = new PiPiCSharpEditor(editAdapter);
+
+            PiPiCSharpFillAdapter fillAdapter = this.adapter.GetFiller();
+            this.filler = new PiPiCSharpFiller(fillAdapter);
+
+            PiPiCSharpExtractAdapter extractAdapter = this.adapter.GetExtractor();
+            this.extractor = new PiPiCSharpExtractor(extractAdapter);
+
+            PiPiCSharpFontManageAdapter fontManageAdapter = this.adapter.GetFontManager();
+            this.fontManager = new PiPiCSharpFontManager(fontManageAdapter);
+        }
+
         /// <inheritdoc/>
         public void Dispose()
         {

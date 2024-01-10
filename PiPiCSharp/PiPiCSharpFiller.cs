@@ -52,7 +52,7 @@ namespace PiPiCSharp
         /// <returns>The current PDF fill instance.</returns>
         public PiPiCSharpFiller FillValue(string fieldName, string value, bool ellipsis)
         {
-            this.FillValue(fieldName, value, ellipsis);
+            this.adapter.FillValue(fieldName, value, ellipsis);
             return this;
         }
 
@@ -64,7 +64,7 @@ namespace PiPiCSharp
         /// <returns>The current PDF fill instance.</returns>
         public PiPiCSharpFiller FillValue(string fieldName, string value)
         {
-            this.FillValue(fieldName, value);
+            this.adapter.FillValue(fieldName, value);
             return this;
         }
 

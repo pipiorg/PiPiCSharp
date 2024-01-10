@@ -23,6 +23,15 @@ namespace PiPiCSharp
         /// <param name="fontSize">The field font size.</param>
         public PiPiCSharpField(string name, PiPiCSharpFieldType type, ushort pageIndex, double x, double y, double width, double height, string fontName, float fontSize)
         {
+            this.Name = name;
+            this.Type = type;
+            this.PageIndex = pageIndex;
+            this.X = x;
+            this.Y = y;
+            this.Width = width;
+            this.Height = height;
+            this.FontName = fontName;
+            this.FontSize = fontSize;
         }
 
         /// <summary>

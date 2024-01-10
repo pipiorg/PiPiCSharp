@@ -6,6 +6,7 @@ namespace PiPiCSharp.Adapters
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.InteropServices;
     using PiPiCSharp.Exceptions;
     using PiPiCSharp.Wrappers;
 
@@ -51,8 +52,11 @@ namespace PiPiCSharp.Adapters
                 {
                     IntPtr cField = PiPiExtractWrapper.PiPiExtractorGetExtractedField(cFields, i);
 
-                    string name = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldName(cField);
-                    string fontName = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldFontName(cField);
+                    IntPtr cName = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldName(cField);
+                    string name = Marshal.PtrToStringUTF8(cName);
+
+                    IntPtr cFontName = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldFontName(cField);
+                    string fontName = Marshal.PtrToStringUTF8(cFontName);
 
                     float fontSize = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldFontSize(cField);
 

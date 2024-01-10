@@ -47,9 +47,6 @@
     <ClCompile Include="PiPiOperateWrapper.h">
       <Filter>標頭檔</Filter>
     </ClCompile>
-    <ClCompile Include="PiPiOperateWrapper.cpp">
-      <Filter>來源檔案</Filter>
-    </ClCompile>
     <ClCompile Include="PiPiEditWrapper.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
@@ -66,6 +63,9 @@
       <Filter>標頭檔</Filter>
     </ClCompile>
     <ClCompile Include="PiPiMultiOperateWrapper.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="PiPiOperateWrapper.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
   </ItemGroup>

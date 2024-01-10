@@ -179,10 +179,8 @@
     <ClCompile Include="PiPiFontManageWrapper.cpp" />
     <ClCompile Include="PiPiMultiOperateWrapper.cpp" />
     <ClCompile Include="PiPiMultiOperateWrapper.h" />
+    <ClCompile Include="PiPiOperateWrapper.cpp" />
     <ClCompile Include="PiPiOperateWrapper.h">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="PiPiOperateWrapper.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>

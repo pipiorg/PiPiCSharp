@@ -33,8 +33,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cFontManager">PiPiFontManager instance pointer.</param>
         /// <param name="fontBytes">The font binary bytes.</param>
         /// <param name="fontSize">The font binary size.</param>
+        /// <returns>The registered font name.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiFontManagerRegisterFont")]
-        internal static extern void PiPiFontManagerRegisterFont(IntPtr cFontManager, byte[] fontBytes, int fontSize);
+        internal static extern IntPtr PiPiFontManagerRegisterFont(IntPtr cFontManager, byte[] fontBytes, int fontSize);
 
     }
 }

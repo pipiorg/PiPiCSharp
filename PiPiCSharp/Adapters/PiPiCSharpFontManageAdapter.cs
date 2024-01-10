@@ -5,6 +5,7 @@
 namespace PiPiCSharp.Adapters
 {
     using System;
+    using System.Runtime.InteropServices;
     using PiPiCSharp.Exceptions;
     using PiPiCSharp.Wrappers;
 
@@ -55,12 +56,13 @@ namespace PiPiCSharp.Adapters
         /// <param name="fontBytes">The font binary bytes.</param>
         /// <returns>The current font manage adapter instance.</returns>
         /// <exception cref="PiPiCSharpFontManageException">Font manage exception.</exception>
-        internal PiPiCSharpFontManageAdapter RegisterFont(byte[] fontBytes)
+        internal string RegisterFont(byte[] fontBytes)
         {
             try
             {
-                PiPiFontManageWrapper.PiPiFontManagerRegisterFont(this.cFontManager, fontBytes, fontBytes.Length);
-                return this;
+                IntPtr cFontName = PiPiFontManageWrapper.PiPiFontManagerRegisterFont(this.cFontManager, fontBytes, fontBytes.Length);
+                string fontName = Marshal.PtrToStringUTF8(cFontName);
+                return fontName;
             }
             catch (Exception e)
             {

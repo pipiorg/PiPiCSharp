@@ -9,6 +9,9 @@ PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiFontManager(PiPiFontMa
 PIPI_CSHARP_WRAPPER_API bool CALLING_CONVENTION PiPiFontManagerIsOperable(PiPiFontManager* fontManager) {
   return fontManager->IsOperable();
 }
-PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiFontManagerRegisterFont(PiPiFontManager* fontManager, byte* fontBytes, size_t fontSize) {
-  fontManager->RegisterFont((char*)fontBytes, fontSize);
+PIPI_CSHARP_WRAPPER_API char* CALLING_CONVENTION PiPiFontManagerRegisterFont(PiPiFontManager* fontManager, byte* fontBytes, size_t fontSize) {
+  std::string fontName = fontManager->RegisterFont((char*)fontBytes, fontSize);
+  char* cFontName = new char[fontName.length() + 1];
+  strcpy(cFontName, fontName.c_str());
+  return cFontName;
 }

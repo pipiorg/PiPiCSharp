@@ -45,10 +45,9 @@ namespace PiPiCSharp
         /// </summary>
         /// <param name="fontBytes">The font binary bytes.</param>
         /// <returns>The current font manage instance.</returns>
-        internal PiPiCSharpFontManager RegisterFont(byte[] fontBytes)
+        public string RegisterFont(byte[] fontBytes)
         {
-            this.adapter.RegisterFont(fontBytes);
-            return this;
+            return this.adapter.RegisterFont(fontBytes);
         }
 
         /// <summary>

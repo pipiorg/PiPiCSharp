@@ -15,27 +15,35 @@ namespace PiPiCSharp.Wrappers
         /// <summary>
         /// Invoke c++ PiPiFontManager destructor.
         /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Retrun ex sub code.</param>
         /// <param name="cFontManager">PiPiFontManager instance pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiFontManager")]
-        internal static extern void DeletePiPiFontManager(IntPtr cFontManager);
+        internal static extern void DeletePiPiFontManager(ref int code, ref int exCode, ref int exSubCode, IntPtr cFontManager);
 
         /// <summary>
         /// Invoke c++ PiPiFontManager IsOperable.
         /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Retrun ex sub code.</param>
         /// <param name="cFontManager">PiPiFontManager instance pointer.</param>
         /// <returns>The operable status.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiFontManagerIsOperable")]
-        internal static extern bool PiPiFontManagerIsOperable(IntPtr cFontManager);
+        internal static extern bool PiPiFontManagerIsOperable(ref int code, ref int exCode, ref int exSubCode, IntPtr cFontManager);
 
         /// <summary>
         /// Invoke c++ PiPiFontManager RegisterFont.
         /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Retrun ex sub code.</param>
         /// <param name="cFontManager">PiPiFontManager instance pointer.</param>
         /// <param name="fontBytes">The font binary bytes.</param>
         /// <param name="fontSize">The font binary size.</param>
         /// <returns>The registered font name.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiFontManagerRegisterFont")]
-        internal static extern IntPtr PiPiFontManagerRegisterFont(IntPtr cFontManager, byte[] fontBytes, int fontSize);
-
+        internal static extern IntPtr PiPiFontManagerRegisterFont(ref int code, ref int exCode, ref int exSubCode, IntPtr cFontManager, byte[] fontBytes, int fontSize);
     }
 }

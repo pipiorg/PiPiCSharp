@@ -9,5 +9,6 @@
 #define CALLING_CONVENTION __cdecl
 
 #include "framework.h"
+#include "pipi.h"
 
 #endif

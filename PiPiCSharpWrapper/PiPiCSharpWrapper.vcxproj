@@ -164,6 +164,7 @@
     <ClInclude Include="PiPiFillWrapper.h" />
     <ClInclude Include="PiPiFontManageWrapper.h" />
     <ClInclude Include="PiPiPageWrapper.h" />
+    <ClInclude Include="PiPiWrapperShare.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -182,6 +183,7 @@
     <ClCompile Include="PiPiOperateWrapper.cpp" />
     <ClCompile Include="PiPiOperateWrapper.h" />
     <ClCompile Include="PiPiPageWrapper.cpp" />
+    <ClCompile Include="PiPiWrapperShare.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

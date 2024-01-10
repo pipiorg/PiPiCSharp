@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pch.h"
+#include "PiPiWrapperShare.h"
 
 using namespace PiPi;
 
@@ -8,12 +9,12 @@ using namespace PiPi;
 extern "C" {
 #endif
 
-  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiFiller(PiPiFiller* filler);
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiFiller(int* code, int* exCode, int* exSubCode, PiPiFiller* filler);
 
-  PIPI_CSHARP_WRAPPER_API bool CALLING_CONVENTION PiPiFillerIsOperable(PiPiFiller* filler);
-  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiFillerFillValue(PiPiFiller* filler, char* fieldName, char* value);
-  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiFillerFillEllipsisValue(PiPiFiller* filler, char* fieldName, char* value, bool ellipsis);
-  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiFillerFillImage(PiPiFiller* filler, char* fieldName, char* imageBytes, size_t imageSize);
+  PIPI_CSHARP_WRAPPER_API bool CALLING_CONVENTION PiPiFillerIsOperable(int* code, int* exCode, int* exSubCode, PiPiFiller* filler);
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiFillerFillValue(int* code, int* exCode, int* exSubCode, PiPiFiller* filler, char* fieldName, char* value);
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiFillerFillEllipsisValue(int* code, int* exCode, int* exSubCode, PiPiFiller* filler, char* fieldName, char* value, bool ellipsis);
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiFillerFillImage(int* code, int* exCode, int* exSubCode, PiPiFiller* filler, char* fieldName, char* imageBytes, size_t imageSize);
 
 #ifdef __cplusplus
 };

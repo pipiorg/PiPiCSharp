@@ -5,7 +5,6 @@
 namespace PiPiCSharp.Wrappers
 {
     using System;
-    using System.Runtime.InteropServices;
     using PiPiCSharp.Utils;
 
     /// <summary>

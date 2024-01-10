@@ -180,9 +180,8 @@
     <ClCompile Include="PiPiMultiOperateWrapper.cpp" />
     <ClCompile Include="PiPiMultiOperateWrapper.h" />
     <ClCompile Include="PiPiOperateWrapper.cpp" />
-    <ClCompile Include="PiPiOperateWrapper.h">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="PiPiOperateWrapper.h" />
+    <ClCompile Include="PiPiPageWrapper.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

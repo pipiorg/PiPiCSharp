@@ -27,7 +27,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="value">The value.</param>
         /// <param name="ellipsis">The ellipsis.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiFillerFillEllipsisValue")]
-        internal static extern void PiPiFillerFillEllipsisValue(IntPtr cFiller, string fieldName, string value, bool ellipsis);
+        internal static extern void PiPiFillerFillEllipsisValue(IntPtr cFiller, [MarshalAs(UnmanagedType.LPStr)] string fieldName, [MarshalAs(UnmanagedType.LPStr)] string value, bool ellipsis);
 
         /// <summary>
         /// Invoke c++ PiPiFiller FillImage.
@@ -37,7 +37,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="imageBytes">The image binary bytes.</param>
         /// <param name="imageSize">The image binary size.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiFillerFillImage")]
-        internal static extern void PiPiFillerFillImage(IntPtr cFiller, string fieldName, byte[] imageBytes, int imageSize);
+        internal static extern void PiPiFillerFillImage(IntPtr cFiller, [MarshalAs(UnmanagedType.LPStr)] string fieldName, byte[] imageBytes, int imageSize);
 
         /// <summary>
         /// Invoke c++ PiPiFiller FillValue.
@@ -46,7 +46,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="fieldName">The field name.</param>
         /// <param name="value">The value.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiFillerFillValue")]
-        internal static extern void PiPiFillerFillValue(IntPtr cFiller, string fieldName, string value);
+        internal static extern void PiPiFillerFillValue(IntPtr cFiller, [MarshalAs(UnmanagedType.LPStr)] string fieldName, [MarshalAs(UnmanagedType.LPStr)] string value);
 
         /// <summary>
         /// Invoke c++ PiPiFiller IsOperable.

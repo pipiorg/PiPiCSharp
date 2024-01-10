@@ -17,7 +17,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractor">PiPiExtractor instance pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiExtractor")]
         internal static extern void DeletePiPiExtractor(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractor);
@@ -27,7 +27,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiExtractorExtractedField")]
         internal static extern void DeletePiPiExtractorExtractedField(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
@@ -37,7 +37,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedFields">Extracted fields pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiExtractorExtractedFields")]
         internal static extern void DeletePiPiExtractorExtractedFields(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedFields);
@@ -54,7 +54,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedPages">Extracted pages pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiExtractorExtractedPages")]
         internal static extern void DeletePiPiExtractorExtractedPages(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedPages);
@@ -64,7 +64,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedFields">Extracted fields pointer.</param>
         /// <returns>>The extracted fields size.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorExtractedFieldsSize")]
@@ -83,7 +83,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractor">PiPiExtractor instance pointer.</param>
         /// <returns>The c++ extracted field pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorExtractField")]
@@ -94,7 +94,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractor">PiPiExtractor instance pointer.</param>
         /// <returns>The c++ extracted page pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorExtractPage")]
@@ -105,7 +105,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedFields">Extracted fields pointer.</param>
         /// <param name="index">The index of extracted field.</param>
         /// <returns>The extracted field pointer.</returns>
@@ -117,7 +117,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field font name.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldFontName")]
@@ -128,7 +128,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field font size.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldFontSize")]
@@ -139,7 +139,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field height.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldHeight")]
@@ -150,7 +150,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field name.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldName")]
@@ -161,7 +161,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field page index.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldPageIndex")]
@@ -172,7 +172,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field type.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldType")]
@@ -183,7 +183,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field width.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldWidth")]
@@ -194,7 +194,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field x.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldX")]
@@ -205,7 +205,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field y.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldY")]
@@ -216,7 +216,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedPages">Extracted pages pointer.</param>
         /// <param name="index">The index of extracted page.</param>
         /// <returns>The extracted page pointer.</returns>
@@ -228,7 +228,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedPage">Extracted page pointer.</param>
         /// <returns>The extracted page height.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedPageHeight")]
@@ -239,7 +239,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedPage">Extracted page pointer.</param>
         /// <returns>The extracted page width.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedPageWidth")]
@@ -250,7 +250,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractor">PiPiExtractor instance pointer.</param>
         /// <returns>The operable status.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorIsOperable")]

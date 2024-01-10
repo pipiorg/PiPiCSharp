@@ -17,7 +17,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <returns>PiPiMultiOperator instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "CreatePiPiMultiOperator")]
         internal static extern IntPtr CreatePiPiMultiOperator(ref int code, ref int exCode, ref int exSubCode);
@@ -27,7 +27,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cMultiOp">The PiPiMultiOperator instance pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiMultiOperator")]
         internal static extern void DeletePiPiMultiOperator(ref int code, ref int exCode, ref int exSubCode, IntPtr cMultiOp);
@@ -37,7 +37,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cMultiOp">The PiPiMultiOperator instance pointer.</param>
         /// <param name="pdfBytes">The PDF binary bytes.</param>
         /// <param name="pdfSize">The PDF binary size.</param>
@@ -50,7 +50,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cMultiOp">The PiPiMultiOperator instance pointer.</param>
         /// <param name="index">The index of PDF.</param>
         /// <returns>PiPiOperator instance pointer.</returns>
@@ -62,7 +62,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cMultiOp">The PiPiMultiOperator instance pointer.</param>
         /// <returns>PiPiPager instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiMultiOperatorGetPager")]

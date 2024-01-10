@@ -17,7 +17,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiEditor")]
         internal static extern void DeletePiPiEditor(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor);
@@ -27,7 +27,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldName">The added field name.</param>
         /// <param name="type">The added field type.</param>
@@ -44,7 +44,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiEditorFlatten")]
         internal static extern void PiPiEditorFlatten(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor);
@@ -54,7 +54,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <returns>The operable status.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiEditorIsOperable")]
@@ -65,7 +65,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldName">The added field name.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiEditorRemoveField")]
@@ -76,7 +76,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldName">The added field name.</param>
         /// <param name="pageIndex">The added field page located index.</param>
@@ -88,7 +88,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldName">The added field name.</param>
         /// <param name="pageIndex">The added field page located index.</param>
@@ -102,7 +102,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldName">The added field name.</param>
         /// <param name="pageIndex">The added field page located index.</param>
@@ -118,7 +118,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="oldFieldName">The old field name.</param>
         /// <param name="newFieldName">The new field name.</param>
@@ -130,7 +130,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldname">The field name.</param>
         /// <param name="red">The red value between 0.0 to 1.0.</param>
@@ -144,7 +144,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldname">The field name.</param>
         /// <param name="red">The red value between 0.0 to 1.0.</param>
@@ -158,7 +158,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldname">The field name.</param>
         /// <param name="red">The red value between 0.0 to 1.0.</param>
@@ -172,7 +172,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldname">The field name.</param>
         /// <param name="fontName">The font name.</param>
@@ -184,7 +184,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldname">The field name.</param>
         /// <param name="fontSize">The font size.</param>
@@ -196,7 +196,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldname">The field name.</param>
         /// <param name="multiline">The multi line value.</param>
@@ -208,7 +208,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldname">The field name.</param>
         /// <param name="alignment">The horizontal alignment.</param>

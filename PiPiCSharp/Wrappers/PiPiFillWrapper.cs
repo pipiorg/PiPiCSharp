@@ -17,7 +17,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cFiller">PiPiFiller instance pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiFiller")]
         internal static extern void DeletePiPiFiller(ref int code, ref int exCode, ref int exSubCode, IntPtr cFiller);
@@ -27,7 +27,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cFiller">PiPiFiller instance pointer.</param>
         /// <param name="fieldName">The field name.</param>
         /// <param name="value">The value.</param>
@@ -40,7 +40,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cFiller">PiPiFiller instance pointer.</param>
         /// <param name="fieldName">The field name.</param>
         /// <param name="imageBytes">The image binary bytes.</param>
@@ -53,7 +53,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cFiller">PiPiFiller instance pointer.</param>
         /// <param name="fieldName">The field name.</param>
         /// <param name="value">The value.</param>
@@ -65,7 +65,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cFiller">PiPiFiller instance pointer.</param>
         /// <returns>The operable status.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiFillerIsOperable")]

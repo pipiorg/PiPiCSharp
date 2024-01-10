@@ -17,7 +17,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="pdfBytes">The pdf binary bytes.</param>
         /// <param name="pdfSize">The pdf binary size.</param>
         /// <returns>PiPiOperator instance pointer.</returns>
@@ -29,7 +29,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="op">PiPiOperator instance pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiOperator")]
         internal static extern void DeletePiPiOperator(ref int code, ref int exCode, ref int exSubCode, IntPtr op);
@@ -39,7 +39,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="output">The c++ finalize binary bytes pointer.</param>
         /// <param name="newPdfBytes">The finalize binary bytes.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorCopyFinalize")]
@@ -50,7 +50,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="output">The c++ finalize binary bytes pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorDeleteFinalize")]
         internal static extern void PiPiOperatorDeleteFinalize(ref int code, ref int exCode, ref int exSubCode, IntPtr output);
@@ -60,7 +60,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="op">PiPiOperator instance pointer.</param>
         /// <returns>The output PDF binary c++ pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorFinalize")]
@@ -71,7 +71,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="op">PiPiOperator instance pointer.</param>
         /// <returns>PiPiEditor instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorGetEditor")]
@@ -82,7 +82,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="op">PiPiOperator instance pointer.</param>
         /// <returns>PiPiFiller instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorGetFiller")]
@@ -93,7 +93,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="op">PiPiOperator instance pointer.</param>
         /// <returns>PiPiExtractor instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorGetExtractor")]
@@ -104,7 +104,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="op">PiPiOperator instance pointer.</param>
         /// <returns>PiPiFontManager instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorGetFontManager")]
@@ -115,7 +115,7 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
-        /// <param name="exSubCode">Retrun ex sub code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="output">The c++ finalize binary bytes pointer.</param>
         /// <returns>The finalize binary size.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorMeasureFinalize")]

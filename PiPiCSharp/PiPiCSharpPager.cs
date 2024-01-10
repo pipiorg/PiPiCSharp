@@ -5,6 +5,7 @@
 namespace PiPiCSharp
 {
     using System;
+    using System.Collections.Generic;
     using PiPiCSharp.Adapters;
 
     /// <summary>
@@ -30,6 +31,27 @@ namespace PiPiCSharp
         {
             this.Dispose(disposing: true);
             GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Merge PDF.
+        /// </summary>
+        /// <param name="indexs">The index of PDF.</param>
+        /// <returns>The merged PDF binary bytes.</returns>
+        public byte[] Merge(List<int> indexs)
+        {
+            return this.adapter.Merge(indexs);
+        }
+
+        /// <summary>
+        /// Split PDF.
+        /// </summary>
+        /// <param name="index">The index of PDF.</param>
+        /// <param name="instruction">The split instruction.</param>
+        /// <returns>The splitted PDF binary bytes.</returns>
+        public List<byte[]> Split(int index, string instruction)
+        {
+            return this.adapter.Split(index, instruction);
         }
 
         /// <summary>

@@ -5,8 +5,8 @@
 namespace PiPiCSharp.Adapters
 {
     using System;
-    using System.Runtime.InteropServices;
     using PiPiCSharp.Exceptions;
+    using PiPiCSharp.Wrappers;
 
     /// <summary>
     /// PDF font manager adapter.
@@ -33,30 +33,6 @@ namespace PiPiCSharp.Adapters
         }
 
         /// <summary>
-        /// Invoke c++ PiPiFontManager destructor.
-        /// </summary>
-        /// <param name="cFontManager">PiPiFontManager instance pointer.</param>
-        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiFontManager")]
-        internal static extern void DeletePiPiFontManager(IntPtr cFontManager);
-
-        /// <summary>
-        /// Invoke c++ PiPiFontManager IsOperable.
-        /// </summary>
-        /// <param name="cFontManager">PiPiFontManager instance pointer.</param>
-        /// <returns>The operable status.</returns>
-        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiFontManagerIsOperable")]
-        internal static extern bool PiPiFontManagerIsOperable(IntPtr cFontManager);
-
-        /// <summary>
-        /// Invoke c++ PiPiFontManager RegisterFont.
-        /// </summary>
-        /// <param name="cFontManager">PiPiFontManager instance pointer.</param>
-        /// <param name="fontBytes">The font binary bytes.</param>
-        /// <param name="fontSize">The font binary size.</param>
-        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiFontManagerRegisterFont")]
-        internal static extern void PiPiFontManagerRegisterFont(IntPtr cFontManager, byte[] fontBytes, int fontSize);
-
-        /// <summary>
         /// Get operable status.
         /// </summary>
         /// <exception cref="PiPiCSharpFontManageException">Font manage exception.</exception>
@@ -65,7 +41,7 @@ namespace PiPiCSharp.Adapters
         {
             try
             {
-                return PiPiFontManagerIsOperable(this.cFontManager);
+                return PiPiFontManageWrapper.PiPiFontManagerIsOperable(this.cFontManager);
             }
             catch (Exception e)
             {
@@ -83,7 +59,7 @@ namespace PiPiCSharp.Adapters
         {
             try
             {
-                PiPiFontManagerRegisterFont(this.cFontManager, fontBytes, fontBytes.Length);
+                PiPiFontManageWrapper.PiPiFontManagerRegisterFont(this.cFontManager, fontBytes, fontBytes.Length);
                 return this;
             }
             catch (Exception e)
@@ -102,7 +78,7 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    DeletePiPiFontManager(this.cFontManager);
+                    PiPiFontManageWrapper.DeletePiPiFontManager(this.cFontManager);
                 }
 
                 this.disposedValue = true;

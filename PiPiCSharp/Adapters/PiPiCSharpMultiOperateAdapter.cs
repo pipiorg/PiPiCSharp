@@ -6,8 +6,8 @@ namespace PiPiCSharp.Adapters
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.InteropServices;
     using PiPiCSharp.Exceptions;
+    using PiPiCSharp.Wrappers;
 
     /// <summary>
     /// The multiple PDF operate adapter.
@@ -25,9 +25,9 @@ namespace PiPiCSharp.Adapters
         /// </summary>
         internal PiPiCSharpMultiOperateAdapter()
         {
-            this.cMultiOp = CreatePiPiMultiOperator();
+            this.cMultiOp = PiPiMultiOperateWrapper.CreatePiPiMultiOperator();
 
-            IntPtr cPager = PiPiMultiOperatorGetPager(this.cMultiOp);
+            IntPtr cPager = PiPiMultiOperateWrapper.PiPiMultiOperatorGetPager(this.cMultiOp);
             this.pageAdapter = new PiPiCSharpPageAdapter(cPager);
 
             this.operateAdapterMap = new Dictionary<int, int>();
@@ -42,47 +42,6 @@ namespace PiPiCSharp.Adapters
         }
 
         /// <summary>
-        /// Invoke c++ PiPiMultiOperator constructor.
-        /// </summary>
-        /// <returns>PiPiMultiOperator instance pointer.</returns>
-        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "CreatePiPiMultiOperator")]
-        internal static extern IntPtr CreatePiPiMultiOperator();
-
-        /// <summary>
-        /// Invoke c++ PiPiMultiOperator destructor.
-        /// </summary
-        /// <param name="cMultiOp">The PiPiMultiOperator instance pointer.</param>
-        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiMultiOperator")]
-        internal static extern void DeletePiPiMultiOperator(IntPtr cMultiOp);
-
-        /// <summary>
-        /// Invoke c++ PiPiMultiOperator Add.
-        /// </summary
-        /// <param name="cMultiOp">The PiPiMultiOperator instance pointer.</param>
-        /// <param name="pdfBytes">The PDF binary bytes.</param>
-        /// <param name="pdfSize">The PDF binary size.</param>
-        /// <returns>The index of PDF.</returns>
-        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiMultiOperatorAdd")]
-        internal static extern int PiPiMultiOperatorAdd(IntPtr cMultiOp, byte[] pdfBytes, int pdfSize);
-
-        /// <summary>
-        /// Invoke c++ PiPiMultiOperator GetPointer.
-        /// </summary>
-        /// <param name="cMultiOp">The PiPiMultiOperator instance pointer.</param>
-        /// <param name="index">The index of PDF.</param>
-        /// <returns>PiPiOperator instance pointer.</returns>
-        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiMultiOperatorGetOperator")]
-        internal static extern IntPtr PiPiMultiOperatorGetOperator(IntPtr cMultiOp, int index);
-
-        /// <summary>
-        /// Invoke c++ PiPiMultiOperator GetPager.
-        /// </summary>
-        /// <param name="cMultiOp">The PiPiMultiOperator instance pointer.</param>
-        /// <returns>PiPiPager instance pointer.</returns>
-        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiMultiOperatorGetPager")]
-        internal static extern IntPtr PiPiMultiOperatorGetPager(IntPtr cMultiOp);
-
-        /// <summary>
         /// Add PDF to multi operator.
         /// </summary>
         /// <param name="pdfBytes">The PDF binary bytes.</param>
@@ -92,10 +51,10 @@ namespace PiPiCSharp.Adapters
         {
             try
             {
-                int cIndex = PiPiMultiOperatorAdd(this.cMultiOp, pdfBytes, pdfBytes.Length);
+                int cIndex = PiPiMultiOperateWrapper.PiPiMultiOperatorAdd(this.cMultiOp, pdfBytes, pdfBytes.Length);
                 int index = this.operateAdapters.Count;
 
-                IntPtr cOp = PiPiMultiOperatorGetOperator(this.cMultiOp, cIndex);
+                IntPtr cOp = PiPiMultiOperateWrapper.PiPiMultiOperatorGetOperator(this.cMultiOp, cIndex);
                 PiPiCSharpOperateAdapter opAdapter = new PiPiCSharpOperateAdapter(cOp);
 
                 this.operateAdapters.Add(opAdapter);
@@ -146,7 +105,7 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    DeletePiPiMultiOperator(this.cMultiOp);
+                    PiPiMultiOperateWrapper.DeletePiPiMultiOperator(this.cMultiOp);
                 }
 
                 this.disposedValue = true;

@@ -30,6 +30,10 @@ namespace PiPiCSharp.Adapters
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Invoke inner dispose.
+        /// </summary>
+        /// <param name="disposing">The dispose status.</param>
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposedValue)

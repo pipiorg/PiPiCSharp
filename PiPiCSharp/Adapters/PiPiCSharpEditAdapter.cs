@@ -42,7 +42,7 @@ namespace PiPiCSharp.Adapters
         /// <param name="y">The added field y position.</param>
         /// <param name="width">The added field width.</param>
         /// <param name="height">The added field height.</param>
-        /// <exception cref="PiPiCSharpEditException">Edit exception.</exception>
+        /// <exception cref="PiPiCSharpEditFieldException">Edit exception.</exception>
         /// <returns>The current PDF edit adatper instance.</returns>
         internal PiPiCSharpEditAdapter AddField(string fieldName, PiPiCSharpFieldType type, uint pageIndex, double x, double y, double width, double height)
         {

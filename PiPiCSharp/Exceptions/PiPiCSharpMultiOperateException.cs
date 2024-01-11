@@ -17,6 +17,7 @@ namespace PiPiCSharp.Exceptions
         /// </summary>
         public static readonly Dictionary<PiPiCSharpEditExceptionCode, string> PiPiCSharpEditExceptionCodeMap = new Dictionary<PiPiCSharpEditExceptionCode, string>()
         {
+            { PiPiCSharpEditExceptionCode.IndexOutOfRange, "Index out of range" },
             { PiPiCSharpEditExceptionCode.Unknown, "Unknown error" },
         };
 
@@ -46,6 +47,11 @@ namespace PiPiCSharp.Exceptions
         /// </summary>
         public enum PiPiCSharpEditExceptionCode
         {
+            /// <summary>
+            /// Index out of range.
+            /// </summary>
+            IndexOutOfRange = 1,
+
             /// <summary>
             /// Unknown.
             /// </summary>

@@ -17,6 +17,9 @@ namespace PiPiCSharp.Exceptions
         /// </summary>
         public static readonly Dictionary<PiPiCSharpEditExceptionCode, string> PiPiCSharpEditExceptionCodeMap = new Dictionary<PiPiCSharpEditExceptionCode, string>()
         {
+            { PiPiCSharpEditExceptionCode.InOperable, "In operable" },
+            { PiPiCSharpEditExceptionCode.InvalidSplitInstruction, "Invalid split instruction" },
+            { PiPiCSharpEditExceptionCode.IndexOutOfRange, "Index out of range" },
             { PiPiCSharpEditExceptionCode.Unknown, "Unknown error" },
         };
 
@@ -46,6 +49,21 @@ namespace PiPiCSharp.Exceptions
         /// </summary>
         public enum PiPiCSharpEditExceptionCode
         {
+            /// <summary>
+            /// In operable.
+            /// </summary>
+            InOperable = 1,
+
+            /// <summary>
+            /// Invalid split instruction.
+            /// </summary>
+            InvalidSplitInstruction = 2,
+
+            /// <summary>
+            /// Index out of range.
+            /// </summary>
+            IndexOutOfRange = 3,
+
             /// <summary>
             /// Unknown.
             /// </summary>

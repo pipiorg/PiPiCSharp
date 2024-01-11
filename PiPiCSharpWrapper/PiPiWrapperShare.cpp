@@ -12,6 +12,164 @@ T handleException(int* code, int* exCode, int* exSubCode, std::function<T()> fun
 
     return res;
   }
+  catch (PiPi::PiPiAppearanceException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpAppearanceExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiAppearanceException::CreateFormObjectFromAppearanceFail:
+      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeCreateFormObjectFromAppearanceFail;
+      break;
+    case PiPi::PiPiAppearanceException::UnsupportedFieldType:
+      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeUnsupportedFieldType;
+      break;
+    default:
+      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeUnknown;
+    }
+
+    return T();
+  }
+  catch (PiPi::PiPiEditFieldException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpEditFieldExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiEditFieldException::InOperable:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeInOperable;
+      break;
+    case PiPi::PiPiEditFieldException::InvalidColor:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeInvalidColor;
+      break;
+    case PiPi::PiPiEditFieldException::MultilineNotSupported:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeMultilineNotSupported;
+      break;
+    case PiPi::PiPiEditFieldException::NotImplementate:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeNotImplementate;
+      break;
+    case PiPi::PiPiEditFieldException::NotRegisterFont:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeNotRegisterFont;
+      break;
+    default:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeUnknown;
+      break;
+    }
+
+    return T();
+  }
+  catch (PiPi::PiPiExtractException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpExtractExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiExtractException::InOperable:
+      *exSubCode = PiPiCSharpExtractExceptionSubCodeInOperable;
+      break;
+    }
+
+    return T();
+  }
+  catch (PiPi::PiPiFieldCompatibilityException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpFieldCompatibilityExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiFieldCompatibilityException::FixDotFieldFail:
+      *exSubCode = PiPiCSharpFieldCompatibilityExceptionSubCodeFixDotFieldFail;
+      break;
+    }
+
+    return T();
+  }
+  catch (PiPi::PiPiFillFieldException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpFillFieldExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiFillFieldException::InOperable:
+      *exSubCode = PiPiCSharpFillFieldExceptionSubCodeInOperable;
+      break;
+    case PiPi::PiPiFillFieldException::UnsupportedPdfFieldType:
+      *exSubCode = PiPiCSharpFillFieldExceptionSubCodeUnsupportedPdfFieldType;
+      break;
+    }
+
+    return T();
+  }
+  catch (PiPi::PiPiFontManageException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpFontManageExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiFontManageException::InOperable:
+      *exSubCode = PiPiCSharpFontManageExceptionSubCodeInOperable;
+      break;
+    }
+
+    return T();
+  }
+  catch (PiPi::PiPiManageFieldException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpManageFieldExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiManageFieldException::DuplicateFieldExists:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeDuplicateFieldExists;
+      break;
+    case PiPi::PiPiManageFieldException::InvalidPageIndex:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeInvalidPageIndex;
+      break;
+    case PiPi::PiPiManageFieldException::InvalidPdfFieldObject:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeInvalidPdfFieldObject;
+      break;
+    case PiPi::PiPiManageFieldException::InvalidPdfFieldType:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeInvalidPdfFieldType;
+      break;
+    case PiPi::PiPiManageFieldException::InvalidRealStatus:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeInvalidRealStatus;
+      break;
+    case PiPi::PiPiManageFieldException::InvalidRestrictFieldOperation:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeInvalidRestrictFieldOperation;
+      break;
+    case PiPi::PiPiManageFieldException::UnsupportRemoveFakeField:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeUnsupportRemoveFakeField;
+      break;
+    case PiPi::PiPiManageFieldException::UnsupportRenameFakeField:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeUnsupportRenameFakeField;
+      break;
+    }
+
+    return T();
+  }
+  catch (PiPi::PiPiMultiOperateException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpMultiOperateExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiMultiOperateException::IndexOutOfRange:
+      *exSubCode = PiPiCSharpMultiOperateExceptionSubCodeIndexOutOfRange;
+      break;
+    }
+
+    return T();
+  }
+  catch (PiPi::PiPiPageException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpPageExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiPageException::IndexOutOfRange:
+      *exSubCode = PiPiCSharpPageExceptionSubCodeIndexOutOfRange;
+      break;
+    case PiPi::PiPiPageException::InOperable:
+      *exSubCode = PiPiCSharpPageExceptionSubCodeInOperable;
+      break;
+    case PiPi::PiPiPageException::InvalidSplitInstruction:
+      *exSubCode = PiPiCSharpPageExceptionSubCodeInvalidSplitInstruction;
+      break;
+    }
+
+    return T();
+  }
   catch (std::exception& e) {
     *code = 0;
     *exCode = -1;
@@ -28,6 +186,146 @@ void handleVoidException(int* code, int* exCode, int* exSubCode, std::function<v
     *code = 1;
     *exCode = -1;
     *exSubCode = -1;
+  }
+  catch (PiPi::PiPiAppearanceException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpAppearanceExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiAppearanceException::CreateFormObjectFromAppearanceFail:
+      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeCreateFormObjectFromAppearanceFail;
+      break;
+    case PiPi::PiPiAppearanceException::UnsupportedFieldType:
+      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeUnsupportedFieldType;
+      break;
+    default:
+      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeUnknown;
+    }
+  }
+  catch (PiPi::PiPiEditFieldException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpEditFieldExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiEditFieldException::InOperable:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeInOperable;
+      break;
+    case PiPi::PiPiEditFieldException::InvalidColor:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeInvalidColor;
+      break;
+    case PiPi::PiPiEditFieldException::MultilineNotSupported:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeMultilineNotSupported;
+      break;
+    case PiPi::PiPiEditFieldException::NotImplementate:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeNotImplementate;
+      break;
+    case PiPi::PiPiEditFieldException::NotRegisterFont:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeNotRegisterFont;
+      break;
+    default:
+      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeUnknown;
+      break;
+    }
+  }
+  catch (PiPi::PiPiExtractException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpExtractExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiExtractException::InOperable:
+      *exSubCode = PiPiCSharpExtractExceptionSubCodeInOperable;
+      break;
+    }
+  }
+  catch (PiPi::PiPiFieldCompatibilityException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpFieldCompatibilityExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiFieldCompatibilityException::FixDotFieldFail:
+      *exSubCode = PiPiCSharpFieldCompatibilityExceptionSubCodeFixDotFieldFail;
+      break;
+    }
+  }
+  catch (PiPi::PiPiFillFieldException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpFillFieldExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiFillFieldException::InOperable:
+      *exSubCode = PiPiCSharpFillFieldExceptionSubCodeInOperable;
+      break;
+    case PiPi::PiPiFillFieldException::UnsupportedPdfFieldType:
+      *exSubCode = PiPiCSharpFillFieldExceptionSubCodeUnsupportedPdfFieldType;
+      break;
+    }
+  }
+  catch (PiPi::PiPiFontManageException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpFontManageExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiFontManageException::InOperable:
+      *exSubCode = PiPiCSharpFontManageExceptionSubCodeInOperable;
+      break;
+    }
+  }
+  catch (PiPi::PiPiManageFieldException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpManageFieldExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiManageFieldException::DuplicateFieldExists:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeDuplicateFieldExists;
+      break;
+    case PiPi::PiPiManageFieldException::InvalidPageIndex:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeInvalidPageIndex;
+      break;
+    case PiPi::PiPiManageFieldException::InvalidPdfFieldObject:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeInvalidPdfFieldObject;
+      break;
+    case PiPi::PiPiManageFieldException::InvalidPdfFieldType:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeInvalidPdfFieldType;
+      break;
+    case PiPi::PiPiManageFieldException::InvalidRealStatus:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeInvalidRealStatus;
+      break;
+    case PiPi::PiPiManageFieldException::InvalidRestrictFieldOperation:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeInvalidRestrictFieldOperation;
+      break;
+    case PiPi::PiPiManageFieldException::UnsupportRemoveFakeField:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeUnsupportRemoveFakeField;
+      break;
+    case PiPi::PiPiManageFieldException::UnsupportRenameFakeField:
+      *exSubCode = PiPiCSharpManageFieldExceptionSubCodeUnsupportRenameFakeField;
+      break;
+    }
+  }
+  catch (PiPi::PiPiMultiOperateException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpMultiOperateExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiMultiOperateException::IndexOutOfRange:
+      *exSubCode = PiPiCSharpMultiOperateExceptionSubCodeIndexOutOfRange;
+      break;
+    }
+  }
+  catch (PiPi::PiPiPageException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpPageExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiPageException::IndexOutOfRange:
+      *exSubCode = PiPiCSharpPageExceptionSubCodeIndexOutOfRange;
+      break;
+    case PiPi::PiPiPageException::InOperable:
+      *exSubCode = PiPiCSharpPageExceptionSubCodeInOperable;
+      break;
+    case PiPi::PiPiPageException::InvalidSplitInstruction:
+      *exSubCode = PiPiCSharpPageExceptionSubCodeInvalidSplitInstruction;
+      break;
+    }
   }
   catch (std::exception& e) {
     *code = 0;

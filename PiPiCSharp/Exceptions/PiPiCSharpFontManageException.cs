@@ -17,6 +17,7 @@ namespace PiPiCSharp.Exceptions
         /// </summary>
         public static readonly Dictionary<PiPiCSharpFontManageExceptionCode, string> PiPiCSharpFontManageExceptionCodeMap = new Dictionary<PiPiCSharpFontManageExceptionCode, string>()
         {
+            { PiPiCSharpFontManageExceptionCode.InOperable, "In operable" },
             { PiPiCSharpFontManageExceptionCode.Unknown, "Unknown error" },
         };
 
@@ -46,6 +47,11 @@ namespace PiPiCSharp.Exceptions
         /// </summary>
         public enum PiPiCSharpFontManageExceptionCode
         {
+            /// <summary>
+            /// In operable.
+            /// </summary>
+            InOperable = 1,
+
             /// <summary>
             /// Unknown.
             /// </summary>

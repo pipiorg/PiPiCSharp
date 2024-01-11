@@ -37,7 +37,7 @@ namespace PiPiCSharp.Adapters
         /// </summary>
         /// <param name="fieldName">The field name.</param>
         /// <param name="imageBytes">The value.</param>
-        /// <exception cref="PiPiCSharpFillException">Fill exception.</exception>
+        /// <exception cref="PiPiCSharpFillFieldException">Fill exception.</exception>
         /// <returns>The current PDF fill adapter instance.</returns>
         internal PiPiCSharpFillAdapter FillImage(string fieldName, byte[] imageBytes)
         {
@@ -51,7 +51,7 @@ namespace PiPiCSharp.Adapters
         /// <param name="fieldName">The field name.</param>
         /// <param name="value">The value.</param>
         /// <param name="ellipsis">The ellipsis.</param>
-        /// <exception cref="PiPiCSharpFillException">Fill exception.</exception>
+        /// <exception cref="PiPiCSharpFillFieldException">Fill exception.</exception>
         /// <returns>The current PDF fill adapter instance.</returns>
         internal PiPiCSharpFillAdapter FillValue(string fieldName, string value, bool ellipsis)
         {
@@ -64,7 +64,7 @@ namespace PiPiCSharp.Adapters
         /// </summary>
         /// <param name="fieldName">The field name.</param>
         /// <param name="value">The value.</param>
-        /// <exception cref="PiPiCSharpFillException">Fill exception.</exception>
+        /// <exception cref="PiPiCSharpFillFieldException">Fill exception.</exception>
         /// <returns>The current PDF fill adapter instance.</returns>
         internal PiPiCSharpFillAdapter FillValue(string fieldName, string value)
         {
@@ -75,7 +75,7 @@ namespace PiPiCSharp.Adapters
         /// <summary>
         /// Get operable status.
         /// </summary>
-        /// <exception cref="PiPiCSharpFillException">Fill exception.</exception>
+        /// <exception cref="PiPiCSharpFillFieldException">Fill exception.</exception>
         /// <returns>The operable status.</returns>
         internal bool IsOperable()
         {

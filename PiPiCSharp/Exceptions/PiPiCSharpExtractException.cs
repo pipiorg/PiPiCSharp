@@ -17,6 +17,7 @@ namespace PiPiCSharp.Exceptions
         /// </summary>
         public static readonly Dictionary<PiPiCSharpExtractExceptionCode, string> PiPiCSharpExtractExceptionCodeMap = new Dictionary<PiPiCSharpExtractExceptionCode, string>()
         {
+            { PiPiCSharpExtractExceptionCode.InOperable, "In operate" },
             { PiPiCSharpExtractExceptionCode.Unknown, "Unknown error" },
         };
 
@@ -46,6 +47,11 @@ namespace PiPiCSharp.Exceptions
         /// </summary>
         public enum PiPiCSharpExtractExceptionCode
         {
+            /// <summary>
+            /// In operate.
+            /// </summary>
+            InOperable = 1,
+
             /// <summary>
             /// Unknown.
             /// </summary>

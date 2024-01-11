@@ -19,29 +19,20 @@ namespace PiPiCSharp.Utils
         /// <exception cref="PiPiCSharpUnknownException">The unknown exception.</exception>
         internal static void Invoke(PiPiCSharpVoidResultDelegate func)
         {
+            int code = 0;
+            int exCode = -1;
+            int exSubCode = -1;
+
             try
             {
-                int code = 0;
-                int exCode = -1;
-                int exSubCode = -1;
-
                 func(ref code, ref exCode, ref exSubCode);
-
-                if (code != 0)
-                {
-                    return;
-                }
-
-                switch (exCode)
-                {
-                    default:
-                        throw new PiPiCSharpUnknownException("Unknown exception");
-                }
             }
             catch (Exception e)
             {
                 throw new PiPiCSharpUnknownException("Unknown exception", e);
             }
+
+            PiPiCSharpExceptionDispatcher.Dispatch(code, exCode, exSubCode);
         }
 
         /// <summary>
@@ -53,29 +44,24 @@ namespace PiPiCSharp.Utils
         /// <exception cref="PiPiCSharpUnknownException">The unknown exception.</exception>
         internal static TResult Invoke<TResult>(PiPiCSharpResultDelegate<TResult> func)
         {
+            int code = 0;
+            int exCode = -1;
+            int exSubCode = -1;
+
+            TResult result;
+
             try
             {
-                int code = 0;
-                int exCode = -1;
-                int exSubCode = -1;
-
-                TResult result = func(ref code, ref exCode, ref exSubCode);
-
-                if (code != 0)
-                {
-                    return result;
-                }
-
-                switch (exCode)
-                {
-                    default:
-                        throw new PiPiCSharpUnknownException("Unknown exception");
-                }
+                result = func(ref code, ref exCode, ref exSubCode);
             }
             catch (Exception e)
             {
                 throw new PiPiCSharpUnknownException("Unknown exception", e);
             }
+
+            PiPiCSharpExceptionDispatcher.Dispatch(code, exCode, exSubCode);
+
+            return result;
         }
     }
 }

@@ -22,7 +22,7 @@ PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorFlatten(int* code, int
 
 PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorAddField(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, char* fieldName, unsigned int type, unsigned int pageIndex, double x, double y, double width, double height) {
   handleVoidException(code, exCode, exSubCode, [&]() {
-    PiPiFieldType rType = fieldTypeMap.at(type);
+    PiPiFieldType rType = FieldTypeMap.at(type);
     editor->AddField(fieldName, rType, pageIndex, x, y, width, height);
     });
 }
@@ -71,7 +71,7 @@ PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldFontSize(int* 
 
 PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldTextHorizontalAlignment(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, char* fieldname, unsigned int alignment) {
   handleVoidException(code, exCode, exSubCode, [&] {
-    PiPiTextHorizontalAlignment rAlignment = textHorizontalAlignmentMap.at(alignment);
+    PiPiTextHorizontalAlignment rAlignment = TextHorizontalAlignmentMap.at(alignment);
     editor->SetFieldTextHorizontalAlignment(fieldname, rAlignment);
     });
 }

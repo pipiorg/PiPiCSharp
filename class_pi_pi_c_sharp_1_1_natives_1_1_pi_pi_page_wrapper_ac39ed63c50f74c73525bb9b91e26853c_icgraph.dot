@@ -1,0 +1,13 @@
+digraph "PiPiCSharp.Natives.PiPiPageWrapper.CreatePiPiPagerMergeIndexs"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="PiPiCSharp.Natives.PiPiPage\lWrapper.CreatePiPiPagerMergeIndexs",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Invoke c++ PiPiPager to create a merge index list."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="PiPiCSharp.Invokers.PiPi\lCSharpPageInvoker.InvokeCreate\lPiPiPagerMergeIndexs",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_page_invoker.html#a4329318467d8ca8cc2301d7736a44104",tooltip="Invoke PiPiPageWrapper CreatePiPiPagerMergeIndexs."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="PiPiCSharp.Adapters.PiPi\lCSharpPageAdapter.Merge",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_adapters_1_1_pi_pi_c_sharp_page_adapter.html#abcfe79967d72d2ca54966a28c39f87d1",tooltip="Merge specific index PDF."];
+}

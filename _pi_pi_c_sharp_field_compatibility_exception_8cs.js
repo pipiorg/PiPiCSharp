@@ -1,0 +1,4 @@
+var _pi_pi_c_sharp_field_compatibility_exception_8cs =
+[
+    [ "PiPiCSharp.Exceptions.PiPiCSharpFieldCompatibilityException", "class_pi_pi_c_sharp_1_1_exceptions_1_1_pi_pi_c_sharp_field_compatibility_exception.html", "class_pi_pi_c_sharp_1_1_exceptions_1_1_pi_pi_c_sharp_field_compatibility_exception" ]
+];

@@ -1,0 +1,26 @@
+var class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker =
+[
+    [ "InvokeDeletePiPiExtractor", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#aa5bd631a380714805e3bd50c97588a65", null ],
+    [ "InvokeDeletePiPiExtractorExtractedField", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a6efc39a65182a4c45fc5cd6fbfa64e94", null ],
+    [ "InvokeDeletePiPiExtractorExtractedFields", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a26cdbc1d90ebaf92beb90728373c9dc2", null ],
+    [ "InvokeDeletePiPiExtractorExtractedPage", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#af75082bde5f97529cb2c30ad7c39788e", null ],
+    [ "InvokeDeletePiPiExtractorExtractedPages", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a16a5b377fa7d772bbd5b31ec063f2e07", null ],
+    [ "InvokePiPiExtractorExtractedFieldsSize", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a667d56ba62a10e0105bab9eb3b98722d", null ],
+    [ "InvokePiPiExtractorExtractedPagesSize", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#aca3b121eebd8c44263d6d77ca2b70f5e", null ],
+    [ "InvokePiPiExtractorExtractField", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a3530853725aeb8eb666dc3f213020761", null ],
+    [ "InvokePiPiExtractorExtractPage", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a2176d251dd0cd885e8d95329b3df728b", null ],
+    [ "InvokePiPiExtractorGetExtractedField", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#ab481dc9a7a847a233300003ad4b985b4", null ],
+    [ "InvokePiPiExtractorGetExtractedFieldFontName", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#ab59ab056f34ee7ad494239e8e30e8c82", null ],
+    [ "InvokePiPiExtractorGetExtractedFieldFontSize", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#adc625b937bf50952ce89973f476470ad", null ],
+    [ "InvokePiPiExtractorGetExtractedFieldHeight", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a83eba66ea5333eca737ce3116a4627b5", null ],
+    [ "InvokePiPiExtractorGetExtractedFieldName", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a583f5df1ae3660aceac9732c51495024", null ],
+    [ "InvokePiPiExtractorGetExtractedFieldPageIndex", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a403cf083d7cccf8ea76eeda28e0c8ef0", null ],
+    [ "InvokePiPiExtractorGetExtractedFieldType", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a443eddca57bb16ca3774f33ddd89d2f6", null ],
+    [ "InvokePiPiExtractorGetExtractedFieldWidth", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a9ca6d2b5a65ca4e154b056b84ee59748", null ],
+    [ "InvokePiPiExtractorGetExtractedFieldX", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a45259f98430af8c862a8ddd40c834e3d", null ],
+    [ "InvokePiPiExtractorGetExtractedFieldY", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#ad3472f877ab8a43c0c0dda580270231d", null ],
+    [ "InvokePiPiExtractorGetExtractedPage", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#ab395e40c0b61a47a33bab2cdbdf5e8ac", null ],
+    [ "InvokePiPiExtractorGetExtractedPageHeight", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#af1643db8c099d1b409f3992cf7d73320", null ],
+    [ "InvokePiPiExtractorGetExtractedPageWidth", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#a58807dd06d12fe075a2b285a93fbb661", null ],
+    [ "InvokePiPiExtractorIsOperable", "class_pi_pi_c_sharp_1_1_invokers_1_1_pi_pi_c_sharp_extract_invoker.html#af98804001ce2a12ccaef6a033b96b5de", null ]
+];

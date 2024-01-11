@@ -1,0 +1,42 @@
+digraph "PiPiCSharp.PiPiCSharpOperator"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="PiPiCSharp.PiPiCSharpOperator",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="PDF Operator."];
+  Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="IDisposable",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node1 [id="edge2_Node000001_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" adapter",fontcolor="grey" ];
+  Node3 [id="Node000003",label="PiPiCSharp.Adapters.PiPi\lCSharpOperateAdapter",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_adapters_1_1_pi_pi_c_sharp_operate_adapter.html",tooltip="PDF operate adapter."];
+  Node2 -> Node3 [id="edge3_Node000003_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node3 [id="edge4_Node000003_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" editAdapter",fontcolor="grey" ];
+  Node4 [id="Node000004",label="PiPiCSharp.Adapters.PiPi\lCSharpEditAdapter",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_adapters_1_1_pi_pi_c_sharp_edit_adapter.html",tooltip="PDF edit adapter."];
+  Node2 -> Node4 [id="edge5_Node000004_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 -> Node3 [id="edge6_Node000003_Node000005",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" extractoAdapter",fontcolor="grey" ];
+  Node5 [id="Node000005",label="PiPiCSharp.Adapters.PiPi\lCSharpExtractAdapter",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_adapters_1_1_pi_pi_c_sharp_extract_adapter.html",tooltip="PDF extractor adapter."];
+  Node2 -> Node5 [id="edge7_Node000005_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 -> Node3 [id="edge8_Node000003_Node000006",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" fillAdapter",fontcolor="grey" ];
+  Node6 [id="Node000006",label="PiPiCSharp.Adapters.PiPi\lCSharpFillAdapter",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_adapters_1_1_pi_pi_c_sharp_fill_adapter.html",tooltip="PDF fill adapter."];
+  Node2 -> Node6 [id="edge9_Node000006_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 -> Node3 [id="edge10_Node000003_Node000007",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" fontManageAdapter",fontcolor="grey" ];
+  Node7 [id="Node000007",label="PiPiCSharp.Adapters.PiPi\lCSharpFontManageAdapter",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_adapters_1_1_pi_pi_c_sharp_font_manage_adapter.html",tooltip="PDF font manager adapter."];
+  Node2 -> Node7 [id="edge11_Node000007_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node8 -> Node1 [id="edge12_Node000001_Node000008",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" editor",fontcolor="grey" ];
+  Node8 [id="Node000008",label="PiPiCSharp.PiPiCSharpEditor",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_pi_pi_c_sharp_editor.html",tooltip="The PDF editor."];
+  Node2 -> Node8 [id="edge13_Node000008_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node8 [id="edge14_Node000008_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" adapter",fontcolor="grey" ];
+  Node9 -> Node1 [id="edge15_Node000001_Node000009",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" extractor",fontcolor="grey" ];
+  Node9 [id="Node000009",label="PiPiCSharp.PiPiCSharpExtractor",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_pi_pi_c_sharp_extractor.html",tooltip="The PDF extractor."];
+  Node2 -> Node9 [id="edge16_Node000009_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 -> Node9 [id="edge17_Node000009_Node000005",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" adapter",fontcolor="grey" ];
+  Node10 -> Node1 [id="edge18_Node000001_Node000010",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" filler",fontcolor="grey" ];
+  Node10 [id="Node000010",label="PiPiCSharp.PiPiCSharpFiller",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_pi_pi_c_sharp_filler.html",tooltip="The PDF editor."];
+  Node2 -> Node10 [id="edge19_Node000010_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 -> Node10 [id="edge20_Node000010_Node000006",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" adapter",fontcolor="grey" ];
+  Node11 -> Node1 [id="edge21_Node000001_Node000011",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" fontManager",fontcolor="grey" ];
+  Node11 [id="Node000011",label="PiPiCSharp.PiPiCSharpFont\lManager",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_pi_pi_c_sharp_font_manager.html",tooltip="The PDF font manager."];
+  Node2 -> Node11 [id="edge22_Node000011_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 -> Node11 [id="edge23_Node000011_Node000007",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" adapter",fontcolor="grey" ];
+}

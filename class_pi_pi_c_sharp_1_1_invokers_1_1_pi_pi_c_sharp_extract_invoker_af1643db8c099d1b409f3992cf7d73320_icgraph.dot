@@ -1,0 +1,11 @@
+digraph "PiPiCSharp.Invokers.PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedPageHeight"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="PiPiCSharp.Invokers.PiPi\lCSharpExtractInvoker.InvokePi\lPiExtractorGetExtractedPageHeight",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Invoke PiPiEditWrapper PiPiExtractorGetExtractedPageHeight."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="PiPiCSharp.Adapters.PiPi\lCSharpExtractAdapter.ExtractPage",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_pi_pi_c_sharp_1_1_adapters_1_1_pi_pi_c_sharp_extract_adapter.html#afa6013bf7a8620a12e3d7bd21b8e1d4a",tooltip="Extract pages in pdf."];
+}

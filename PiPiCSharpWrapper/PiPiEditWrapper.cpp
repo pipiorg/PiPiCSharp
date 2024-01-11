@@ -21,7 +21,10 @@ PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorFlatten(int* code, int
 }
 
 PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorAddField(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, char* fieldName, unsigned int type, unsigned int pageIndex, double x, double y, double width, double height) {
-  // FIXME: solve issue
+  handleVoidException(code, exCode, exSubCode, [&]() {
+    PiPiFieldType rType = fieldTypeMap.at(type);
+    editor->AddField(fieldName, rType, pageIndex, x, y, width, height);
+    });
 }
 
 PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorRemoveField(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, char* fieldName) {
@@ -67,7 +70,10 @@ PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldFontSize(int* 
 }
 
 PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldTextHorizontalAlignment(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, char* fieldname, unsigned int alignment) {
-  // FIXME: solve issue
+  handleVoidException(code, exCode, exSubCode, [&] {
+    PiPiTextHorizontalAlignment rAlignment = textHorizontalAlignmentMap.at(alignment);
+    editor->SetFieldTextHorizontalAlignment(fieldname, rAlignment);
+    });
 }
 
 PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldColor(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, char* fieldname, float red, float green, float blue) {

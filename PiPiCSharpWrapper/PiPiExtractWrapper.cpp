@@ -92,15 +92,7 @@ PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldF
 
 PIPI_CSHARP_WRAPPER_API unsigned int CALLING_CONVENTION PiPiExtractorGetExtractedFieldType(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
   return handleException<unsigned int>(code, exCode, exSubCode, [&]() {
-    switch (extractedField->type) {
-    case PiPiFieldType::TextBox:
-      return 0;
-    case PiPiFieldType::CheckBox:
-      return 1;
-    case PiPiFieldType::Unknown:
-    default:
-      return 2;
-    }
+    return invertFieldTypeMap.at(extractedField->type);
     });
 }
 

@@ -199,7 +199,7 @@ namespace PiPiCSharp
         /// <returns>The current PDF edit instance.</returns>
         public PiPiCSharpEditor SetFieldFontName(string fieldName, string fontName)
         {
-            this.SetFieldFontName(fieldName, fontName);
+            this.adapter.SetFieldFontName(fieldName, fontName);
             return this;
         }
 
@@ -211,7 +211,7 @@ namespace PiPiCSharp
         /// <returns>The current PDF edit instance.</returns>
         public PiPiCSharpEditor SetFieldFontSize(string fieldName, float fontSize)
         {
-            this.SetFieldFontSize(fieldName, fontSize);
+            this.adapter.SetFieldFontSize(fieldName, fontSize);
             return this;
         }
 
@@ -223,7 +223,7 @@ namespace PiPiCSharp
         /// <returns>The current PDF edit instance.</returns>
         public PiPiCSharpEditor SetFieldMultiline(string fieldName, bool multiline)
         {
-            this.SetFieldMultiline(fieldName, multiline);
+            this.adapter.SetFieldMultiline(fieldName, multiline);
             return this;
         }
 
@@ -235,7 +235,7 @@ namespace PiPiCSharp
         /// <returns>The current PDF edit instance.</returns>
         public PiPiCSharpEditor SetFieldTextHorizontalAlignment(string fieldName, PiPiCSharpTextHorizontalAlignment alignment)
         {
-            this.SetFieldTextHorizontalAlignment(fieldName, alignment);
+            this.adapter.SetFieldTextHorizontalAlignment(fieldName, alignment);
             return this;
         }
     }

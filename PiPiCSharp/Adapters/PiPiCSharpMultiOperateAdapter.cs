@@ -7,7 +7,7 @@ namespace PiPiCSharp.Adapters
     using System;
     using System.Collections.Generic;
     using PiPiCSharp.Exceptions;
-    using PiPiCSharp.Wrappers;
+    using PiPiCSharp.Invokers;
 
     /// <summary>
     /// The multiple PDF operate adapter.
@@ -15,7 +15,7 @@ namespace PiPiCSharp.Adapters
     internal class PiPiCSharpMultiOperateAdapter : IDisposable
     {
         private readonly IntPtr cMultiOp;
-        private readonly Dictionary<int, int> operateAdapterMap;
+        private readonly Dictionary<int, uint> operateAdapterMap;
         private readonly List<PiPiCSharpOperateAdapter> operateAdapters;
         private readonly PiPiCSharpPageAdapter pageAdapter;
         private bool disposedValue;
@@ -25,12 +25,12 @@ namespace PiPiCSharp.Adapters
         /// </summary>
         internal PiPiCSharpMultiOperateAdapter()
         {
-            this.cMultiOp = PiPiMultiOperateWrapper.CreatePiPiMultiOperator();
+            this.cMultiOp = PiPiCSharpMultiOperateInvoker.InvokeCreatePiPiMultiOperator();
 
-            IntPtr cPager = PiPiMultiOperateWrapper.PiPiMultiOperatorGetPager(this.cMultiOp);
+            IntPtr cPager = PiPiCSharpMultiOperateInvoker.InvokePiPiMultiOperatorGetPager(this.cMultiOp);
             this.pageAdapter = new PiPiCSharpPageAdapter(cPager);
 
-            this.operateAdapterMap = new Dictionary<int, int>();
+            this.operateAdapterMap = new Dictionary<int, uint>();
             this.operateAdapters = new List<PiPiCSharpOperateAdapter>();
         }
 
@@ -49,23 +49,16 @@ namespace PiPiCSharp.Adapters
         /// <exception cref="PiPiCSharpMultiOperateException">Multi operate exception.</exception>
         internal int Add(byte[] pdfBytes)
         {
-            try
-            {
-                int cIndex = PiPiMultiOperateWrapper.PiPiMultiOperatorAdd(this.cMultiOp, pdfBytes, pdfBytes.Length);
-                int index = this.operateAdapters.Count;
+            uint cIndex = PiPiCSharpMultiOperateInvoker.InvokePiPiMultiOperatorAdd(this.cMultiOp, pdfBytes, Convert.ToUInt32(pdfBytes.Length));
+            int index = this.operateAdapters.Count;
 
-                IntPtr cOp = PiPiMultiOperateWrapper.PiPiMultiOperatorGetOperator(this.cMultiOp, cIndex);
-                PiPiCSharpOperateAdapter opAdapter = new PiPiCSharpOperateAdapter(cOp);
+            IntPtr cOp = PiPiCSharpMultiOperateInvoker.InvokePiPiMultiOperatorGetOperator(this.cMultiOp, cIndex);
+            PiPiCSharpOperateAdapter opAdapter = new PiPiCSharpOperateAdapter(cOp);
 
-                this.operateAdapters.Add(opAdapter);
-                this.operateAdapterMap.Add(index, cIndex);
+            this.operateAdapters.Add(opAdapter);
+            this.operateAdapterMap.Add(index, cIndex);
 
-                return index;
-            }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpMultiOperateException(PiPiCSharpMultiOperateException.PiPiCSharpEditExceptionCode.Unknown, e);
-            }
+            return index;
         }
 
         /// <summary>
@@ -76,14 +69,7 @@ namespace PiPiCSharp.Adapters
         /// <exception cref="PiPiCSharpMultiOperateException">Multi operate exception.</exception>
         internal PiPiCSharpOperateAdapter GetOperator(int index)
         {
-            try
-            {
-                return this.operateAdapters[index];
-            }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpMultiOperateException(PiPiCSharpMultiOperateException.PiPiCSharpEditExceptionCode.Unknown, e);
-            }
+            return this.operateAdapters[index];
         }
 
         /// <summary>
@@ -105,7 +91,7 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    PiPiMultiOperateWrapper.DeletePiPiMultiOperator(this.cMultiOp);
+                    PiPiCSharpMultiOperateInvoker.InvokeDeletePiPiMultiOperator(this.cMultiOp);
                 }
 
                 this.disposedValue = true;

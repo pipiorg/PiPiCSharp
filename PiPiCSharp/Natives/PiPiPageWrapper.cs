@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PiPiCSharp.Wrappers
+namespace PiPiCSharp.Natives
 {
     using System;
     using System.Runtime.InteropServices;
@@ -81,7 +81,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cMergeIndexs">The merge index list pointer.</param>
         /// <param name="mergeIndex">The merge index to add.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiPagerAddMergeIndex")]
-        internal static extern void PiPiPagerAddMergeIndex(ref int code, ref int exCode, ref int exSubCode, IntPtr cMergeIndexs, int mergeIndex);
+        internal static extern void PiPiPagerAddMergeIndex(ref int code, ref int exCode, ref int exSubCode, IntPtr cMergeIndexs, uint mergeIndex);
 
         /// <summary>
         /// Invoke c++ PiPiPager to copy merged.
@@ -115,7 +115,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="index">The item index of splitted.</param>
         /// <returns>The splitted item instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiPagerGetSplitItem")]
-        internal static extern IntPtr PiPiPagerGetSplitItem(ref int code, ref int exCode, ref int exSubCode, IntPtr split, int index);
+        internal static extern IntPtr PiPiPagerGetSplitItem(ref int code, ref int exCode, ref int exSubCode, IntPtr split, uint index);
 
         /// <summary>
         /// Invoke c++ PiPiPager Merge.
@@ -138,7 +138,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cMerged">The merged instance pointer.</param>
         /// <returns>The size of merged instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiPagerMergeSize")]
-        internal static extern int PiPiPagerMergeSize(ref int code, ref int exCode, ref int exSubCode, IntPtr cMerged);
+        internal static extern uint PiPiPagerMergeSize(ref int code, ref int exCode, ref int exSubCode, IntPtr cMerged);
 
         /// <summary>
         /// Invoke c++ PiPiPager Split.
@@ -151,7 +151,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="instruction">The split instruction.</param>
         /// <returns>The splitted instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiPagerSplit")]
-        internal static extern IntPtr PiPiPagerSplit(ref int code, ref int exCode, ref int exSubCode, IntPtr cPager, int index, string instruction);
+        internal static extern IntPtr PiPiPagerSplit(ref int code, ref int exCode, ref int exSubCode, IntPtr cPager, uint index, string instruction);
 
         /// <summary>
         /// Invoke c++ PiPiPager get the splitted item size.
@@ -162,7 +162,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="splitItem">The splitted item instance pointer.</param>
         /// <returns>The splitted item size.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiPagerSplitItemSize")]
-        internal static extern int PiPiPagerSplitItemSize(ref int code, ref int exCode, ref int exSubCode, IntPtr splitItem);
+        internal static extern uint PiPiPagerSplitItemSize(ref int code, ref int exCode, ref int exSubCode, IntPtr splitItem);
 
         /// <summary>
         /// Invoke c++ PiPiPager get splitted size.
@@ -173,6 +173,6 @@ namespace PiPiCSharp.Wrappers
         /// <param name="split">The splitted instance pointer.</param>
         /// <returns>The splitted size.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiPagerSplitSize")]
-        internal static extern int PiPiPagerSplitSize(ref int code, ref int exCode, ref int exSubCode, IntPtr split);
+        internal static extern uint PiPiPagerSplitSize(ref int code, ref int exCode, ref int exSubCode, IntPtr split);
     }
 }

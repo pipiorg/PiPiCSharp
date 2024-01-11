@@ -24,7 +24,6 @@ namespace PiPiCSharp.Exceptions
         public PiPiCSharpUnknownException(string message, Exception innerException)
             : base(message, innerException)
         {
-
         }
     }
 }

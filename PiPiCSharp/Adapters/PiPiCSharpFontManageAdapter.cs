@@ -7,7 +7,7 @@ namespace PiPiCSharp.Adapters
     using System;
     using System.Runtime.InteropServices;
     using PiPiCSharp.Exceptions;
-    using PiPiCSharp.Wrappers;
+    using PiPiCSharp.Invokers;
 
     /// <summary>
     /// PDF font manager adapter.
@@ -40,14 +40,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The operable status.</returns>
         internal bool IsOperable()
         {
-            try
-            {
-                return PiPiFontManageWrapper.PiPiFontManagerIsOperable(this.cFontManager);
-            }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpFontManageException(PiPiCSharpFontManageException.PiPiCSharpFontManageExceptionCode.Unknown, e);
-            }
+            return PiPiCSharpFontManageInvoker.InvokePiPiFontManagerIsOperable(this.cFontManager);
         }
 
         /// <summary>
@@ -58,16 +51,9 @@ namespace PiPiCSharp.Adapters
         /// <exception cref="PiPiCSharpFontManageException">Font manage exception.</exception>
         internal string RegisterFont(byte[] fontBytes)
         {
-            try
-            {
-                IntPtr cFontName = PiPiFontManageWrapper.PiPiFontManagerRegisterFont(this.cFontManager, fontBytes, fontBytes.Length);
-                string fontName = Marshal.PtrToStringUTF8(cFontName);
-                return fontName;
-            }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpFontManageException(PiPiCSharpFontManageException.PiPiCSharpFontManageExceptionCode.Unknown, e);
-            }
+            IntPtr cFontName = PiPiCSharpFontManageInvoker.InvokePiPiFontManagerRegisterFont(this.cFontManager, fontBytes, Convert.ToUInt32(fontBytes.Length));
+            string fontName = Marshal.PtrToStringUTF8(cFontName);
+            return fontName;
         }
 
         /// <summary>
@@ -80,7 +66,7 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    PiPiFontManageWrapper.DeletePiPiFontManager(this.cFontManager);
+                    PiPiCSharpFontManageInvoker.InvokeDeletePiPiFontManager(this.cFontManager);
                 }
 
                 this.disposedValue = true;

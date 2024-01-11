@@ -1,24 +1,36 @@
-// <copyright file="PiPiCSharpExtractWrapper.cs" company="PlaceholderCompany">
+// <copyright file="PiPiCSharpExtractInvoker.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PiPiCSharp.Wrappers
+namespace PiPiCSharp.Invokers
 {
     using System;
+    using System.Runtime.InteropServices;
+    using PiPiCSharp.Natives;
     using PiPiCSharp.Utils;
 
     /// <summary>
-    /// Wrapper for PiPiExtractWrapper.
+    /// Invoker for PiPiExtractWrapper.
     /// </summary>
-    internal static class PiPiCSharpExtractWrapper
+    internal static class PiPiCSharpExtractInvoker
     {
+        /// <summary>
+        /// Invoke PiPiEditWrapper DeletePiPiExtractor.
+        /// </summary>
+        /// <param name="cExtractor">PiPiExtractor instance pointer.</param>
+        internal static void InvokeDeletePiPiExtractor(IntPtr cExtractor)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiExtractWrapper.DeletePiPiExtractor, cExtractor);
+            PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
         /// <summary>
         /// Invoke PiPiEditWrapper DeletePiPiExtractorExtractedField.
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
-        internal static void DeletePiPiExtractorExtractedField(IntPtr cExtractedField)
+        internal static void InvokeDeletePiPiExtractorExtractedField(IntPtr cExtractedField)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr>(PiPiExtractWrapper.DeletePiPiExtractorExtractedField, cExtractedField);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiExtractWrapper.DeletePiPiExtractorExtractedField, cExtractedField);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -26,9 +38,9 @@ namespace PiPiCSharp.Wrappers
         /// Invoke PiPiEditWrapper DeletePiPiExtractorExtractedFields.
         /// </summary>
         /// <param name="cExtractedFields">Extracted fields pointer.</param>
-        internal static void DeletePiPiExtractorExtractedFields(IntPtr cExtractedFields)
+        internal static void InvokeDeletePiPiExtractorExtractedFields(IntPtr cExtractedFields)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr>(PiPiExtractWrapper.DeletePiPiExtractorExtractedFields, cExtractedFields);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiExtractWrapper.DeletePiPiExtractorExtractedFields, cExtractedFields);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -36,9 +48,9 @@ namespace PiPiCSharp.Wrappers
         /// Invoke PiPiEditWrapper DeletePiPiExtractorExtractedPage.
         /// </summary>
         /// <param name="cExtractedPage">Extracted page pointer.</param>
-        internal static void DeletePiPiExtractorExtractedPage(IntPtr cExtractedPage)
+        internal static void InvokeDeletePiPiExtractorExtractedPage(IntPtr cExtractedPage)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr>(PiPiExtractWrapper.DeletePiPiExtractorExtractedPage, cExtractedPage);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiExtractWrapper.DeletePiPiExtractorExtractedPage, cExtractedPage);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -46,9 +58,9 @@ namespace PiPiCSharp.Wrappers
         /// Invoke PiPiEditWrapper DeletePiPiExtractorExtractedPages.
         /// </summary>
         /// <param name="cExtractedPages">Extracted pages pointer.</param>
-        internal static void DeletePiPiExtractorExtractedPages(IntPtr cExtractedPages)
+        internal static void InvokeDeletePiPiExtractorExtractedPages(IntPtr cExtractedPages)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr>(PiPiExtractWrapper.DeletePiPiExtractorExtractedPages, cExtractedPages);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiExtractWrapper.DeletePiPiExtractorExtractedPages, cExtractedPages);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -57,9 +69,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedFields">Extracted fields pointer.</param>
         /// <returns>>The extracted fields size.</returns>
-        internal static ushort PiPiExtractorExtractedFieldsSize(IntPtr cExtractedFields)
+        internal static uint InvokePiPiExtractorExtractedFieldsSize(IntPtr cExtractedFields)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<ushort, IntPtr>(PiPiExtractWrapper.PiPiExtractorExtractedFieldsSize, cExtractedFields);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorExtractedFieldsSize, cExtractedFields);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -68,9 +80,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedPages">Extracted pages pointer.</param>
         /// <returns>The extracted pages size.</returns>
-        internal static ushort PiPiExtractorExtractedPagesSize(IntPtr cExtractedPages)
+        internal static uint InvokePiPiExtractorExtractedPagesSize(IntPtr cExtractedPages)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<ushort, IntPtr>(PiPiExtractWrapper.PiPiExtractorExtractedPagesSize, cExtractedPages);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorExtractedPagesSize, cExtractedPages);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -79,9 +91,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractor">PiPiExtractor instance pointer.</param>
         /// <returns>The c++ extracted field pointer.</returns>
-        internal static IntPtr PiPiExtractorExtractField(IntPtr cExtractor)
+        internal static IntPtr InvokePiPiExtractorExtractField(IntPtr cExtractor)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<IntPtr, IntPtr>(PiPiExtractWrapper.PiPiExtractorExtractField, cExtractor);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorExtractField, cExtractor);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -90,9 +102,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractor">PiPiExtractor instance pointer.</param>
         /// <returns>The c++ extracted page pointer.</returns>
-        internal static IntPtr PiPiExtractorExtractPage(IntPtr cExtractor)
+        internal static IntPtr InvokePiPiExtractorExtractPage(IntPtr cExtractor)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<IntPtr, IntPtr>(PiPiExtractWrapper.PiPiExtractorExtractPage, cExtractor);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorExtractPage, cExtractor);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -102,9 +114,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cExtractedFields">Extracted fields pointer.</param>
         /// <param name="index">The index of extracted field.</param>
         /// <returns>The extracted field pointer.</returns>
-        internal static IntPtr PiPiExtractorGetExtractedField(IntPtr cExtractedFields, int index)
+        internal static IntPtr InvokePiPiExtractorGetExtractedField(IntPtr cExtractedFields, uint index)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<IntPtr, IntPtr, int>(PiPiExtractWrapper.PiPiExtractorGetExtractedField, cExtractedFields, index);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedField, cExtractedFields, index);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -113,9 +125,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field font name.</returns>
-        internal static IntPtr PiPiExtractorGetExtractedFieldFontName(IntPtr cExtractedField)
+        internal static IntPtr InvokePiPiExtractorGetExtractedFieldFontName(IntPtr cExtractedField)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<IntPtr, IntPtr>(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldFontName, cExtractedField);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldFontName, cExtractedField);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -124,9 +136,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field font size.</returns>
-        internal static float PiPiExtractorGetExtractedFieldFontSize(IntPtr cExtractedField)
+        internal static float InvokePiPiExtractorGetExtractedFieldFontSize(IntPtr cExtractedField)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<float, IntPtr>(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldFontSize, cExtractedField);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldFontSize, cExtractedField);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -135,9 +147,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field height.</returns>
-        internal static double PiPiExtractorGetExtractedFieldHeight(IntPtr cExtractedField)
+        internal static double InvokePiPiExtractorGetExtractedFieldHeight(IntPtr cExtractedField)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<double, IntPtr>(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldHeight, cExtractedField);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldHeight, cExtractedField);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -146,9 +158,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field name.</returns>
-        internal static IntPtr PiPiExtractorGetExtractedFieldName(IntPtr cExtractedField)
+        internal static IntPtr InvokePiPiExtractorGetExtractedFieldName(IntPtr cExtractedField)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<IntPtr, IntPtr>(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldName, cExtractedField);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldName, cExtractedField);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -157,9 +169,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field page index.</returns>
-        internal static ushort PiPiExtractorGetExtractedFieldPageIndex(IntPtr cExtractedField)
+        internal static uint InvokePiPiExtractorGetExtractedFieldPageIndex(IntPtr cExtractedField)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<ushort, IntPtr>(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldPageIndex, cExtractedField);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldPageIndex, cExtractedField);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -168,9 +180,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field type.</returns>
-        internal static ushort PiPiExtractorGetExtractedFieldType(IntPtr cExtractedField)
+        internal static uint InvokePiPiExtractorGetExtractedFieldType(IntPtr cExtractedField)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<ushort, IntPtr>(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldType, cExtractedField);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldType, cExtractedField);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -179,9 +191,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field width.</returns>
-        internal static double PiPiExtractorGetExtractedFieldWidth(IntPtr cExtractedField)
+        internal static double InvokePiPiExtractorGetExtractedFieldWidth(IntPtr cExtractedField)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<double, IntPtr>(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldWidth, cExtractedField);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldWidth, cExtractedField);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -190,9 +202,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field x.</returns>
-        internal static double PiPiExtractorGetExtractedFieldX(IntPtr cExtractedField)
+        internal static double InvokePiPiExtractorGetExtractedFieldX(IntPtr cExtractedField)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<double, IntPtr>(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldX, cExtractedField);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldX, cExtractedField);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -201,9 +213,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field y.</returns>
-        internal static double PiPiExtractorGetExtractedFieldY(IntPtr cExtractedField)
+        internal static double InvokePiPiExtractorGetExtractedFieldY(IntPtr cExtractedField)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<double, IntPtr>(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldY, cExtractedField);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldY, cExtractedField);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -213,9 +225,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cExtractedPages">Extracted pages pointer.</param>
         /// <param name="index">The index of extracted page.</param>
         /// <returns>The extracted page pointer.</returns>
-        internal static IntPtr PiPiExtractorGetExtractedPage(IntPtr cExtractedPages, int index)
+        internal static IntPtr InvokePiPiExtractorGetExtractedPage(IntPtr cExtractedPages, uint index)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<IntPtr, IntPtr, int>(PiPiExtractWrapper.PiPiExtractorGetExtractedPage, cExtractedPages, index);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedPage, cExtractedPages, index);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -224,9 +236,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedPage">Extracted page pointer.</param>
         /// <returns>The extracted page height.</returns>
-        internal static double PiPiExtractorGetExtractedPageHeight(IntPtr cExtractedPage)
+        internal static double InvokePiPiExtractorGetExtractedPageHeight(IntPtr cExtractedPage)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<double, IntPtr>(PiPiExtractWrapper.PiPiExtractorGetExtractedPageHeight, cExtractedPage);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedPageHeight, cExtractedPage);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -235,9 +247,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractedPage">Extracted page pointer.</param>
         /// <returns>The extracted page width.</returns>
-        internal static double PiPiExtractorGetExtractedPageWidth(IntPtr cExtractedPage)
+        internal static double InvokePiPiExtractorGetExtractedPageWidth(IntPtr cExtractedPage)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<double, IntPtr>(PiPiExtractWrapper.PiPiExtractorGetExtractedPageWidth, cExtractedPage);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedPageWidth, cExtractedPage);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -246,9 +258,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cExtractor">PiPiExtractor instance pointer.</param>
         /// <returns>The operable status.</returns>
-        internal static bool PiPiExtractorIsOperable(IntPtr cExtractor)
+        internal static bool InvokePiPiExtractorIsOperable(IntPtr cExtractor)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<bool, IntPtr>(PiPiExtractWrapper.PiPiExtractorIsOperable, cExtractor);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorIsOperable, cExtractor);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
     }

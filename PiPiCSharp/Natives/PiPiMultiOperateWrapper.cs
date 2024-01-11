@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PiPiCSharp.Wrappers
+namespace PiPiCSharp.Natives
 {
     using System;
     using System.Runtime.InteropServices;
@@ -43,7 +43,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="pdfSize">The PDF binary size.</param>
         /// <returns>The index of PDF.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiMultiOperatorAdd")]
-        internal static extern int PiPiMultiOperatorAdd(ref int code, ref int exCode, ref int exSubCode, IntPtr cMultiOp, byte[] pdfBytes, int pdfSize);
+        internal static extern uint PiPiMultiOperatorAdd(ref int code, ref int exCode, ref int exSubCode, IntPtr cMultiOp, byte[] pdfBytes, uint pdfSize);
 
         /// <summary>
         /// Invoke c++ PiPiMultiOperator GetPointer.
@@ -55,7 +55,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="index">The index of PDF.</param>
         /// <returns>PiPiOperator instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiMultiOperatorGetOperator")]
-        internal static extern IntPtr PiPiMultiOperatorGetOperator(ref int code, ref int exCode, ref int exSubCode, IntPtr cMultiOp, int index);
+        internal static extern IntPtr PiPiMultiOperatorGetOperator(ref int code, ref int exCode, ref int exSubCode, IntPtr cMultiOp, uint index);
 
         /// <summary>
         /// Invoke c++ PiPiMultiOperator GetPager.

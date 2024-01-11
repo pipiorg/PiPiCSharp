@@ -30,7 +30,7 @@ namespace PiPiCSharp
         /// <summary>
         /// The field type map.
         /// </summary>
-        internal static readonly Dictionary<ushort, PiPiCSharpFieldType> FieldTypeInvertMap = new Dictionary<ushort, PiPiCSharpFieldType>()
+        internal static readonly Dictionary<uint, PiPiCSharpFieldType> FieldTypeInvertMap = new Dictionary<uint, PiPiCSharpFieldType>()
         {
             { 0, PiPiCSharpFieldType.TextBox },
             { 1, PiPiCSharpFieldType.CheckBox },
@@ -40,7 +40,7 @@ namespace PiPiCSharp
         /// <summary>
         /// The field type map.
         /// </summary>
-        internal static readonly Dictionary<PiPiCSharpFieldType, ushort> FieldTypeMap = new Dictionary<PiPiCSharpFieldType, ushort>()
+        internal static readonly Dictionary<PiPiCSharpFieldType, uint> FieldTypeMap = new Dictionary<PiPiCSharpFieldType, uint>()
         {
             { PiPiCSharpFieldType.TextBox, 0 },
             { PiPiCSharpFieldType.CheckBox, 1 },
@@ -50,7 +50,7 @@ namespace PiPiCSharp
         /// <summary>
         /// The text horizontal alignment map.
         /// </summary>
-        internal static readonly Dictionary<PiPiCSharpTextHorizontalAlignment, ushort> TextHorizontalAlignmentMap = new Dictionary<PiPiCSharpTextHorizontalAlignment, ushort>()
+        internal static readonly Dictionary<PiPiCSharpTextHorizontalAlignment, uint> TextHorizontalAlignmentMap = new Dictionary<PiPiCSharpTextHorizontalAlignment, uint>()
         {
             { PiPiCSharpTextHorizontalAlignment.Left, 0 },
             { PiPiCSharpTextHorizontalAlignment.Center, 1 },

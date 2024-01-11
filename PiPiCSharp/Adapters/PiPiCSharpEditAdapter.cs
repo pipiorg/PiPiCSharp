@@ -6,7 +6,7 @@ namespace PiPiCSharp.Adapters
 {
     using System;
     using PiPiCSharp.Exceptions;
-    using PiPiCSharp.Wrappers;
+    using PiPiCSharp.Invokers;
 
     /// <summary>
     /// PDF edit adapter.
@@ -44,10 +44,10 @@ namespace PiPiCSharp.Adapters
         /// <param name="height">The added field height.</param>
         /// <exception cref="PiPiCSharpEditException">Edit exception.</exception>
         /// <returns>The current PDF edit adatper instance.</returns>
-        internal PiPiCSharpEditAdapter AddField(string fieldName, PiPiCSharpFieldType type, ushort pageIndex, double x, double y, double width, double height)
+        internal PiPiCSharpEditAdapter AddField(string fieldName, PiPiCSharpFieldType type, uint pageIndex, double x, double y, double width, double height)
         {
-            ushort cType = PiPiCSharpConstants.FieldTypeMap[type];
-            PiPiCSharpEditWrapper.PiPiEditorAddField(this.cEditor, fieldName, cType, pageIndex, x, y, width, height);
+            uint cType = PiPiCSharpConstants.FieldTypeMap[type];
+            PiPiCSharpEditInvoker.InvokePiPiEditorAddField(this.cEditor, fieldName, cType, pageIndex, x, y, width, height);
             return this;
         }
 
@@ -57,7 +57,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter Flatten()
         {
-            PiPiCSharpEditWrapper.PiPiEditorFlatten(this.cEditor);
+            PiPiCSharpEditInvoker.InvokePiPiEditorFlatten(this.cEditor);
             return this;
         }
 
@@ -67,7 +67,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The operable status.</returns>
         internal bool IsOperable()
         {
-            return PiPiCSharpEditWrapper.PiPiEditorIsOperable(this.cEditor);
+            return PiPiCSharpEditInvoker.InvokePiPiEditorIsOperable(this.cEditor);
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter RemoveField(string fieldName)
         {
-            PiPiCSharpEditWrapper.PiPiEditorRemoveField(this.cEditor, fieldName);
+            PiPiCSharpEditInvoker.InvokePiPiEditorRemoveField(this.cEditor, fieldName);
             return this;
         }
 
@@ -89,7 +89,14 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter RemoveField(string fieldName, int pageIndex)
         {
-            PiPiCSharpEditWrapper.PiPiEditorRemoveField(this.cEditor, fieldName, pageIndex);
+            if (pageIndex < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            uint uPageIndex = Convert.ToUInt32(pageIndex);
+
+            PiPiCSharpEditInvoker.InvokePiPiEditorRemoveField(this.cEditor, fieldName, uPageIndex);
             return this;
         }
 
@@ -103,7 +110,14 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter RemoveField(string fieldName, int pageIndex, double x, double y)
         {
-            PiPiCSharpEditWrapper.PiPiEditorRemoveField(this.cEditor, fieldName, pageIndex, x, y);
+            if (pageIndex < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            uint uPageIndex = Convert.ToUInt32(pageIndex);
+
+            PiPiCSharpEditInvoker.InvokePiPiEditorRemoveField(this.cEditor, fieldName, uPageIndex, x, y);
             return this;
         }
 
@@ -119,7 +133,14 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter RemoveField(string fieldName, int pageIndex, double x, double y, double width, double height)
         {
-            PiPiCSharpEditWrapper.PiPiEditorRemoveField(this.cEditor, fieldName, pageIndex, x, y, width, height);
+            if (pageIndex < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            uint uPageIndex = Convert.ToUInt32(pageIndex);
+
+            PiPiCSharpEditInvoker.InvokePiPiEditorRemoveField(this.cEditor, fieldName, uPageIndex, x, y, width, height);
             return this;
         }
 
@@ -131,7 +152,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter RenameField(string oldFieldName, string newFieldName)
         {
-            PiPiCSharpEditWrapper.PiPiEditorRenameField(this.cEditor, oldFieldName, newFieldName);
+            PiPiCSharpEditInvoker.InvokePiPiEditorRenameField(this.cEditor, oldFieldName, newFieldName);
             return this;
         }
 
@@ -145,7 +166,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter SetFieldBackgroundColor(string fieldName, float red, float green, float blue)
         {
-            PiPiCSharpEditWrapper.PiPiEditorSetFieldBackgroundColor(this.cEditor, fieldName, red, green, blue);
+            PiPiCSharpEditInvoker.InvokePiPiEditorSetFieldBackgroundColor(this.cEditor, fieldName, red, green, blue);
             return this;
         }
 
@@ -159,7 +180,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter SetFieldBorderColor(string fieldName, float red, float green, float blue)
         {
-            PiPiCSharpEditWrapper.PiPiEditorSetFieldBorderColor(this.cEditor, fieldName, red, green, blue);
+            PiPiCSharpEditInvoker.InvokePiPiEditorSetFieldBorderColor(this.cEditor, fieldName, red, green, blue);
             return this;
         }
 
@@ -173,7 +194,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter SetFieldColor(string fieldName, float red, float green, float blue)
         {
-            PiPiCSharpEditWrapper.PiPiEditorSetFieldColor(this.cEditor, fieldName, red, green, blue);
+            PiPiCSharpEditInvoker.InvokePiPiEditorSetFieldColor(this.cEditor, fieldName, red, green, blue);
             return this;
         }
 
@@ -185,7 +206,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter SetFieldFontName(string fieldName, string fontName)
         {
-            PiPiCSharpEditWrapper.PiPiEditorSetFieldFontName(this.cEditor, fieldName, fontName);
+            PiPiCSharpEditInvoker.InvokePiPiEditorSetFieldFontName(this.cEditor, fieldName, fontName);
             return this;
         }
 
@@ -197,7 +218,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter SetFieldFontSize(string fieldName, float fontSize)
         {
-            PiPiCSharpEditWrapper.PiPiEditorSetFieldFontSize(this.cEditor, fieldName, fontSize);
+            PiPiCSharpEditInvoker.InvokePiPiEditorSetFieldFontSize(this.cEditor, fieldName, fontSize);
             return this;
         }
 
@@ -209,7 +230,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter SetFieldMultiline(string fieldName, bool multiline)
         {
-            PiPiCSharpEditWrapper.PiPiEditorSetFieldMultiline(this.cEditor, fieldName, multiline);
+            PiPiCSharpEditInvoker.InvokePiPiEditorSetFieldMultiline(this.cEditor, fieldName, multiline);
             return this;
         }
 
@@ -221,8 +242,8 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF edit adapter instance.</returns>
         internal PiPiCSharpEditAdapter SetFieldTextHorizontalAlignment(string fieldName, PiPiCSharpTextHorizontalAlignment alignment)
         {
-            ushort cAlignment = PiPiCSharpConstants.TextHorizontalAlignmentMap[alignment];
-            PiPiCSharpEditWrapper.PiPiEditorSetFieldTextHorizontalAlignment(this.cEditor, fieldName, cAlignment);
+            uint cAlignment = PiPiCSharpConstants.TextHorizontalAlignmentMap[alignment];
+            PiPiCSharpEditInvoker.InvokePiPiEditorSetFieldTextHorizontalAlignment(this.cEditor, fieldName, cAlignment);
             return this;
         }
 
@@ -236,7 +257,7 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    PiPiCSharpEditWrapper.DeletePiPiEditor(this.cEditor);
+                    PiPiCSharpEditInvoker.InvokeDeletePiPiEditor(this.cEditor);
                 }
 
                 this.disposedValue = true;

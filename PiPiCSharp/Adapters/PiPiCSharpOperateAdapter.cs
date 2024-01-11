@@ -6,7 +6,7 @@ namespace PiPiCSharp.Adapters
 {
     using System;
     using PiPiCSharp.Exceptions;
-    using PiPiCSharp.Wrappers;
+    using PiPiCSharp.Invokers;
 
     /// <summary>
     /// PDF operate adapter.
@@ -29,18 +29,18 @@ namespace PiPiCSharp.Adapters
         {
             this.multiManaged = false;
 
-            this.cOp = PiPiOperateWrapper.CreatePiPiOperator(pdfBytes, pdfBytes.Length);
+            this.cOp = PiPiCSharpOperateInvoker.InvokeCreatePiPiOperator(pdfBytes, Convert.ToUInt32(pdfBytes.Length));
 
-            IntPtr cEditor = PiPiOperateWrapper.PiPiOperatorGetEditor(this.cOp);
+            IntPtr cEditor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetEditor(this.cOp);
             this.editAdapter = new PiPiCSharpEditAdapter(cEditor);
 
-            IntPtr cFiller = PiPiOperateWrapper.PiPiOperatorGetFiller(this.cOp);
+            IntPtr cFiller = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetFiller(this.cOp);
             this.fillAdapter = new PiPiCSharpFillAdapter(cFiller);
 
-            IntPtr cExtractor = PiPiOperateWrapper.PiPiOperatorGetPiPiExtractor(this.cOp);
+            IntPtr cExtractor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiExtractor(this.cOp);
             this.extractoAdapter = new PiPiCSharpExtractAdapter(cExtractor);
 
-            IntPtr cFontManager = PiPiOperateWrapper.PiPiOperatorGetPiPiFontManager(this.cOp);
+            IntPtr cFontManager = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiFontManager(this.cOp);
             this.fontManageAdapter = new PiPiCSharpFontManageAdapter(cFontManager);
         }
 
@@ -54,16 +54,16 @@ namespace PiPiCSharp.Adapters
 
             this.cOp = cOp;
 
-            IntPtr cEditor = PiPiOperateWrapper.PiPiOperatorGetEditor(this.cOp);
+            IntPtr cEditor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetEditor(this.cOp);
             this.editAdapter = new PiPiCSharpEditAdapter(cEditor);
 
-            IntPtr cFiller = PiPiOperateWrapper.PiPiOperatorGetFiller(this.cOp);
+            IntPtr cFiller = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetFiller(this.cOp);
             this.fillAdapter = new PiPiCSharpFillAdapter(cFiller);
 
-            IntPtr cExtractor = PiPiOperateWrapper.PiPiOperatorGetPiPiExtractor(this.cOp);
+            IntPtr cExtractor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiExtractor(this.cOp);
             this.extractoAdapter = new PiPiCSharpExtractAdapter(cExtractor);
 
-            IntPtr cFontManager = PiPiOperateWrapper.PiPiOperatorGetPiPiFontManager(this.cOp);
+            IntPtr cFontManager = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiFontManager(this.cOp);
             this.fontManageAdapter = new PiPiCSharpFontManageAdapter(cFontManager);
         }
 
@@ -81,22 +81,15 @@ namespace PiPiCSharp.Adapters
         /// <returns>The output PDF binary bytes.</returns>
         internal byte[] Finalize()
         {
-            try
-            {
-                IntPtr cBytes = PiPiOperateWrapper.PiPiOperatorFinalize(this.cOp);
+            IntPtr cBytes = PiPiCSharpOperateInvoker.InvokePiPiOperatorFinalize(this.cOp);
 
-                int newPdfSize = PiPiOperateWrapper.PiPiOperatorMeasureFinalize(cBytes);
-                byte[] newPdfBytes = new byte[newPdfSize];
+            uint newPdfSize = PiPiCSharpOperateInvoker.InvokePiPiOperatorMeasureFinalize(cBytes);
+            byte[] newPdfBytes = new byte[newPdfSize];
 
-                PiPiOperateWrapper.PiPiOperatorCopyFinalize(cBytes, newPdfBytes);
-                PiPiOperateWrapper.PiPiOperatorDeleteFinalize(cBytes);
+            PiPiCSharpOperateInvoker.InvokePiPiOperatorCopyFinalize(cBytes, newPdfBytes);
+            PiPiCSharpOperateInvoker.InvokePiPiOperatorDeleteFinalize(cBytes);
 
-                return newPdfBytes;
-            }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpOperateException(PiPiCSharpOperateException.PiPiCSharpOperateExceptionCode.Unknown, e);
-            }
+            return newPdfBytes;
         }
 
         /// <summary>
@@ -147,7 +140,7 @@ namespace PiPiCSharp.Adapters
                 {
                     if (!this.multiManaged)
                     {
-                        PiPiOperateWrapper.DeletePiPiOperator(this.cOp);
+                        PiPiCSharpOperateInvoker.InvokeDeletePiPiOperator(this.cOp);
                     }
                 }
 

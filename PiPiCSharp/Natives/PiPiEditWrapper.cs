@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PiPiCSharp.Wrappers
+namespace PiPiCSharp.Natives
 {
     using System;
     using System.Runtime.InteropServices;
@@ -37,7 +37,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="width">The added field width.</param>
         /// <param name="height">The added field height.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiEditorAddField")]
-        internal static extern void PiPiEditorAddField(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor, [MarshalAs(UnmanagedType.LPStr)] string fieldName, ushort type, ushort pageIndex, double x, double y, double width, double height);
+        internal static extern void PiPiEditorAddField(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor, [MarshalAs(UnmanagedType.LPStr)] string fieldName, uint type, uint pageIndex, double x, double y, double width, double height);
 
         /// <summary>
         /// Invoke c++ PiPiEditor Flatten.
@@ -81,7 +81,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="fieldName">The added field name.</param>
         /// <param name="pageIndex">The added field page located index.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiEditorRemoveFieldInPage")]
-        internal static extern void PiPiEditorRemoveField(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor, [MarshalAs(UnmanagedType.LPStr)] string fieldName, int pageIndex);
+        internal static extern void PiPiEditorRemoveField(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor, [MarshalAs(UnmanagedType.LPStr)] string fieldName, uint pageIndex);
 
         /// <summary>
         /// Invoke c++ PiPiEditor RemoveField.
@@ -95,7 +95,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="x">The added field x position.</param>
         /// <param name="y">The added field y position.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiEditorRemoveFieldAtPosition")]
-        internal static extern void PiPiEditorRemoveField(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor, [MarshalAs(UnmanagedType.LPStr)] string fieldName, int pageIndex, double x, double y);
+        internal static extern void PiPiEditorRemoveField(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor, [MarshalAs(UnmanagedType.LPStr)] string fieldName, uint pageIndex, double x, double y);
 
         /// <summary>
         /// Invoke c++ PiPiEditor RemoveField.
@@ -111,7 +111,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="width">The added field width.</param>
         /// <param name="height">The added field height.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiEditorRemoveFieldExact")]
-        internal static extern void PiPiEditorRemoveField(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor, [MarshalAs(UnmanagedType.LPStr)] string fieldName, int pageIndex, double x, double y, double width, double height);
+        internal static extern void PiPiEditorRemoveField(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor, [MarshalAs(UnmanagedType.LPStr)] string fieldName, uint pageIndex, double x, double y, double width, double height);
 
         /// <summary>
         /// Invoke c++ PiPiEditor RenameField.
@@ -213,6 +213,6 @@ namespace PiPiCSharp.Wrappers
         /// <param name="fieldname">The field name.</param>
         /// <param name="alignment">The horizontal alignment.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiEditorSetFieldTextHorizontalAlignment")]
-        internal static extern void PiPiEditorSetFieldTextHorizontalAlignment(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor, [MarshalAs(UnmanagedType.LPStr)] string fieldname, ushort alignment);
+        internal static extern void PiPiEditorSetFieldTextHorizontalAlignment(ref int code, ref int exCode, ref int exSubCode, IntPtr cEditor, [MarshalAs(UnmanagedType.LPStr)] string fieldname, uint alignment);
     }
 }

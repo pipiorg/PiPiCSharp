@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PiPiCSharp.Wrappers
+namespace PiPiCSharp.Natives
 {
     using System;
     using System.Runtime.InteropServices;
@@ -45,6 +45,9 @@ namespace PiPiCSharp.Wrappers
         /// <summary>
         /// Invoke c++ PiPiExtractor release extracted page.
         /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedPage">Extracted page pointer.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiExtractorExtractedPage")]
         internal static extern void DeletePiPiExtractorExtractedPage(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedPage);
@@ -68,15 +71,18 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cExtractedFields">Extracted fields pointer.</param>
         /// <returns>>The extracted fields size.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorExtractedFieldsSize")]
-        internal static extern ushort PiPiExtractorExtractedFieldsSize(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedFields);
+        internal static extern uint PiPiExtractorExtractedFieldsSize(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedFields);
 
         /// <summary>
         /// Invoke c++ PiPiExtractor get extracted pages size.
         /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="cExtractedPages">Extracted pages pointer.</param>
         /// <returns>The extracted pages size.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorExtractedPagesSize")]
-        internal static extern ushort PiPiExtractorExtractedPagesSize(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedPages);
+        internal static extern uint PiPiExtractorExtractedPagesSize(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedPages);
 
         /// <summary>
         /// Invoke c++ PiPiExtractor ExtractField.
@@ -110,7 +116,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="index">The index of extracted field.</param>
         /// <returns>The extracted field pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedField")]
-        internal static extern IntPtr PiPiExtractorGetExtractedField(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedFields, int index);
+        internal static extern IntPtr PiPiExtractorGetExtractedField(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedFields, uint index);
 
         /// <summary>
         /// Invoke c++ PiPiExtractor get extracted field font name.
@@ -165,7 +171,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field page index.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldPageIndex")]
-        internal static extern ushort PiPiExtractorGetExtractedFieldPageIndex(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+        internal static extern uint PiPiExtractorGetExtractedFieldPageIndex(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
 
         /// <summary>
         /// Invoke c++ PiPiExtractor get extracted field type.
@@ -176,7 +182,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field type.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldType")]
-        internal static extern ushort PiPiExtractorGetExtractedFieldType(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+        internal static extern uint PiPiExtractorGetExtractedFieldType(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
 
         /// <summary>
         /// Invoke c++ PiPiExtractor get extracted field width.
@@ -221,7 +227,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="index">The index of extracted page.</param>
         /// <returns>The extracted page pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedPage")]
-        internal static extern IntPtr PiPiExtractorGetExtractedPage(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedPages, int index);
+        internal static extern IntPtr PiPiExtractorGetExtractedPage(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedPages, uint index);
 
         /// <summary>
         /// Invoke c++ PiPiExtractor get extracted page height.

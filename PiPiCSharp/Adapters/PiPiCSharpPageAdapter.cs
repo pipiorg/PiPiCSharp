@@ -6,7 +6,8 @@ namespace PiPiCSharp.Adapters
 {
     using System;
     using System.Collections.Generic;
-    using PiPiCSharp.Wrappers;
+    using PiPiCSharp.Invokers;
+    using PiPiCSharp.Natives;
 
     /// <summary>
     /// The PDF page adapter.
@@ -39,22 +40,22 @@ namespace PiPiCSharp.Adapters
         /// <returns>The merged PDF binary bytes.</returns>
         internal byte[] Merge(List<int> indexs)
         {
-            IntPtr cMergeIndexs = PiPiPageWrapper.CreatePiPiPagerMergeIndexs();
+            IntPtr cMergeIndexs = PiPiCSharpPageInvoker.InvokeCreatePiPiPagerMergeIndexs();
 
             for (int i = 0; i < indexs.Count; i++)
             {
                 int index = indexs[i];
-                PiPiPageWrapper.PiPiPagerAddMergeIndex(cMergeIndexs, index);
+                PiPiCSharpPageInvoker.InvokePiPiPagerAddMergeIndex(cMergeIndexs, Convert.ToUInt32(index));
             }
 
-            IntPtr cMerged = PiPiPageWrapper.PiPiPagerMerge(this.cPager, cMergeIndexs);
-            int cMergedSize = PiPiPageWrapper.PiPiPagerMergeSize(cMerged);
+            IntPtr cMerged = PiPiCSharpPageInvoker.InvokePiPiPagerMerge(this.cPager, cMergeIndexs);
+            uint cMergedSize = PiPiCSharpPageInvoker.InvokePiPiPagerMergeSize(cMerged);
 
             byte[] merged = new byte[cMergedSize];
-            PiPiPageWrapper.PiPiPagerCopyMerge(cMerged, merged);
+            PiPiCSharpPageInvoker.InvokePiPiPagerCopyMerge(cMerged, merged);
 
-            PiPiPageWrapper.DeletePiPiPagerMergeIndexs(cMergeIndexs);
-            PiPiPageWrapper.DeletePiPiPagerMerge(cMerged);
+            PiPiCSharpPageInvoker.InvokeDeletePiPiPagerMergeIndexs(cMergeIndexs);
+            PiPiCSharpPageInvoker.InvokeDeletePiPiPagerMerge(cMerged);
 
             return merged;
         }
@@ -67,25 +68,32 @@ namespace PiPiCSharp.Adapters
         /// <returns>The splitted PDF binary bytes.</returns>
         internal List<byte[]> Split(int index, string instruction)
         {
+            if (index < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            uint uIndex = Convert.ToUInt32(index);
+
             var splitted = new List<byte[]>();
 
-            IntPtr cSplitted = PiPiPageWrapper.PiPiPagerSplit(this.cPager, index, instruction);
+            IntPtr cSplitted = PiPiCSharpPageInvoker.InvokePiPiPagerSplit(this.cPager, uIndex, instruction);
 
-            int splittedSize = PiPiPageWrapper.PiPiPagerSplitSize(cSplitted);
+            uint splittedSize = PiPiCSharpPageInvoker.InvokePiPiPagerSplitSize(cSplitted);
             for (int splittedIndex = 0; splittedIndex < splittedSize; splittedIndex++)
             {
-                IntPtr cSplittedItem = PiPiPageWrapper.PiPiPagerGetSplitItem(cSplitted, splittedIndex);
+                IntPtr cSplittedItem = PiPiCSharpPageInvoker.InvokePiPiPagerGetSplitItem(cSplitted, Convert.ToUInt32(splittedIndex));
 
-                int splittedItemSize = PiPiPageWrapper.PiPiPagerSplitItemSize(cSplittedItem);
+                uint splittedItemSize = PiPiCSharpPageInvoker.InvokePiPiPagerSplitItemSize(cSplittedItem);
                 byte[] splittedItem = new byte[splittedItemSize];
 
-                PiPiPageWrapper.PiPiPagerCopySplitItem(cSplittedItem, splittedItem);
-                PiPiPageWrapper.DeletePiPiPagerSplitItem(cSplittedItem);
+                PiPiCSharpPageInvoker.InvokePiPiPagerCopySplitItem(cSplittedItem, splittedItem);
+                PiPiCSharpPageInvoker.InvokeDeletePiPiPagerSplitItem(cSplittedItem);
 
                 splitted.Add(splittedItem);
             }
 
-            PiPiPageWrapper.DeletePiPiPagerSplit(cSplitted);
+            PiPiCSharpPageInvoker.InvokeDeletePiPiPagerSplit(cSplitted);
 
             return splitted;
         }
@@ -100,7 +108,7 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    PiPiPageWrapper.DeletePiPiPager(this.cPager);
+                    PiPiCSharpPageInvoker.InvokeDeletePiPiPager(this.cPager);
                 }
 
                 this.disposedValue = true;

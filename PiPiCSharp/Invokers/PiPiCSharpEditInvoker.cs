@@ -1,24 +1,25 @@
-// <copyright file="PiPiCSharpEditWrapper.cs" company="PlaceholderCompany">
+// <copyright file="PiPiCSharpEditInvoker.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PiPiCSharp.Wrappers
+namespace PiPiCSharp.Invokers
 {
     using System;
+    using PiPiCSharp.Natives;
     using PiPiCSharp.Utils;
 
     /// <summary>
-    /// Wrapper for PiPiEditWrapper.
+    /// Invoker for PiPiEditWrapper.
     /// </summary>
-    internal static class PiPiCSharpEditWrapper
+    internal static class PiPiCSharpEditInvoker
     {
         /// <summary>
         /// Invoke PiPiEditWrapper DeletePiPiEditor.
         /// </summary>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
-        internal static void DeletePiPiEditor(IntPtr cEditor)
+        internal static void InvokeDeletePiPiEditor(IntPtr cEditor)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr>(PiPiEditWrapper.DeletePiPiEditor, cEditor);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.DeletePiPiEditor, cEditor);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -33,9 +34,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="y">The added field y position.</param>
         /// <param name="width">The added field width.</param>
         /// <param name="height">The added field height.</param>
-        internal static void PiPiEditorAddField(IntPtr cEditor, string fieldName, ushort type, ushort pageIndex, double x, double y, double width, double height)
+        internal static void InvokePiPiEditorAddField(IntPtr cEditor, string fieldName, uint type, uint pageIndex, double x, double y, double width, double height)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, ushort, ushort, double, double, double, double>(PiPiEditWrapper.PiPiEditorAddField, cEditor, fieldName, type, pageIndex, x, y, width, height);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorAddField, cEditor, fieldName, type, pageIndex, x, y, width, height);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -43,9 +44,9 @@ namespace PiPiCSharp.Wrappers
         /// Invoke PiPiEditWrapper PiPiEditorFlatten.
         /// </summary>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
-        internal static void PiPiEditorFlatten(IntPtr cEditor)
+        internal static void InvokePiPiEditorFlatten(IntPtr cEditor)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr>(PiPiEditWrapper.PiPiEditorFlatten, cEditor);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorFlatten, cEditor);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -54,11 +55,10 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <returns>The operable status.</returns>
-        internal static bool PiPiEditorIsOperable(IntPtr cEditor)
+        internal static bool InvokePiPiEditorIsOperable(IntPtr cEditor)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<bool, IntPtr>(PiPiEditWrapper.PiPiEditorIsOperable, cEditor);
-            bool operable = PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
-            return false;
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiEditWrapper.PiPiEditorIsOperable, cEditor);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
         /// <summary>
@@ -66,9 +66,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldName">The added field name.</param>
-        internal static void PiPiEditorRemoveField(IntPtr cEditor, string fieldName)
+        internal static void InvokePiPiEditorRemoveField(IntPtr cEditor, string fieldName)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string>(PiPiEditWrapper.PiPiEditorRemoveField, cEditor, fieldName);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorRemoveField, cEditor, fieldName);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -78,9 +78,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldName">The added field name.</param>
         /// <param name="pageIndex">The added field page located index.</param>
-        internal static void PiPiEditorRemoveField(IntPtr cEditor, string fieldName, int pageIndex)
+        internal static void InvokePiPiEditorRemoveField(IntPtr cEditor, string fieldName, uint pageIndex)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, int>(PiPiEditWrapper.PiPiEditorRemoveField, cEditor, fieldName, pageIndex);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorRemoveField, cEditor, fieldName, pageIndex);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -92,9 +92,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="pageIndex">The added field page located index.</param>
         /// <param name="x">The added field x position.</param>
         /// <param name="y">The added field y position.</param>
-        internal static void PiPiEditorRemoveField(IntPtr cEditor, string fieldName, int pageIndex, double x, double y)
+        internal static void InvokePiPiEditorRemoveField(IntPtr cEditor, string fieldName, uint pageIndex, double x, double y)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, int, double, double>(PiPiEditWrapper.PiPiEditorRemoveField, cEditor, fieldName, pageIndex, x, y);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorRemoveField, cEditor, fieldName, pageIndex, x, y);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -108,9 +108,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="y">The added field y position.</param>
         /// <param name="width">The added field width.</param>
         /// <param name="height">The added field height.</param>
-        internal static void PiPiEditorRemoveField(IntPtr cEditor, string fieldName, int pageIndex, double x, double y, double width, double height)
+        internal static void InvokePiPiEditorRemoveField(IntPtr cEditor, string fieldName, uint pageIndex, double x, double y, double width, double height)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, int, double, double, double, double>(PiPiEditWrapper.PiPiEditorRemoveField, cEditor, fieldName, pageIndex, x, y, width, height);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorRemoveField, cEditor, fieldName, pageIndex, x, y, width, height);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -120,9 +120,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="oldFieldName">The old field name.</param>
         /// <param name="newFieldName">The new field name.</param>
-        internal static void PiPiEditorRenameField(IntPtr cEditor, string oldFieldName, string newFieldName)
+        internal static void InvokePiPiEditorRenameField(IntPtr cEditor, string oldFieldName, string newFieldName)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, string>(PiPiEditWrapper.PiPiEditorRenameField, cEditor, oldFieldName, newFieldName);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorRenameField, cEditor, oldFieldName, newFieldName);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -134,9 +134,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="red">The red value between 0.0 to 1.0.</param>
         /// <param name="green">The green value between 0.0 to 1.0.</param>
         /// <param name="blue">The blue value between 0.0 to 1.0.</param>
-        internal static void PiPiEditorSetFieldBackgroundColor(IntPtr cEditor, string fieldname, float red, float green, float blue)
+        internal static void InvokePiPiEditorSetFieldBackgroundColor(IntPtr cEditor, string fieldname, float red, float green, float blue)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, float, float, float>(PiPiEditWrapper.PiPiEditorSetFieldBackgroundColor, cEditor, fieldname, red, green, blue);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorSetFieldBackgroundColor, cEditor, fieldname, red, green, blue);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -148,9 +148,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="red">The red value between 0.0 to 1.0.</param>
         /// <param name="green">The green value between 0.0 to 1.0.</param>
         /// <param name="blue">The blue value between 0.0 to 1.0.</param>
-        internal static void PiPiEditorSetFieldBorderColor(IntPtr cEditor, string fieldname, float red, float green, float blue)
+        internal static void InvokePiPiEditorSetFieldBorderColor(IntPtr cEditor, string fieldname, float red, float green, float blue)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, float, float, float>(PiPiEditWrapper.PiPiEditorSetFieldBorderColor, cEditor, fieldname, red, green, blue);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorSetFieldBorderColor, cEditor, fieldname, red, green, blue);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -162,9 +162,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="red">The red value between 0.0 to 1.0.</param>
         /// <param name="green">The green value between 0.0 to 1.0.</param>
         /// <param name="blue">The blue value between 0.0 to 1.0.</param>
-        internal static void PiPiEditorSetFieldColor(IntPtr cEditor, string fieldname, float red, float green, float blue)
+        internal static void InvokePiPiEditorSetFieldColor(IntPtr cEditor, string fieldname, float red, float green, float blue)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, float, float, float>(PiPiEditWrapper.PiPiEditorSetFieldColor, cEditor, fieldname, red, green, blue);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorSetFieldColor, cEditor, fieldname, red, green, blue);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -174,9 +174,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldname">The field name.</param>
         /// <param name="fontName">The font name.</param>
-        internal static void PiPiEditorSetFieldFontName(IntPtr cEditor, string fieldname, string fontName)
+        internal static void InvokePiPiEditorSetFieldFontName(IntPtr cEditor, string fieldname, string fontName)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, string>(PiPiEditWrapper.PiPiEditorSetFieldFontName, cEditor, fieldname, fontName);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorSetFieldFontName, cEditor, fieldname, fontName);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -186,9 +186,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldname">The field name.</param>
         /// <param name="fontSize">The font size.</param>
-        internal static void PiPiEditorSetFieldFontSize(IntPtr cEditor, string fieldname, float fontSize)
+        internal static void InvokePiPiEditorSetFieldFontSize(IntPtr cEditor, string fieldname, float fontSize)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, float>(PiPiEditWrapper.PiPiEditorSetFieldFontSize, cEditor, fieldname, fontSize);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorSetFieldFontSize, cEditor, fieldname, fontSize);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -198,9 +198,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldname">The field name.</param>
         /// <param name="multiline">The multi line value.</param>
-        internal static void PiPiEditorSetFieldMultiline(IntPtr cEditor, string fieldname, bool multiline)
+        internal static void InvokePiPiEditorSetFieldMultiline(IntPtr cEditor, string fieldname, bool multiline)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, bool>(PiPiEditWrapper.PiPiEditorSetFieldMultiline, cEditor, fieldname, multiline);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorSetFieldMultiline, cEditor, fieldname, multiline);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -210,9 +210,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cEditor">PiPiEditor instance pointer.</param>
         /// <param name="fieldname">The field name.</param>
         /// <param name="alignment">The horizontal alignment.</param>
-        internal static void PiPiEditorSetFieldTextHorizontalAlignment(IntPtr cEditor, string fieldname, ushort alignment)
+        internal static void InvokePiPiEditorSetFieldTextHorizontalAlignment(IntPtr cEditor, string fieldname, uint alignment)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, ushort>(PiPiEditWrapper.PiPiEditorSetFieldTextHorizontalAlignment, cEditor, fieldname, alignment);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiEditWrapper.PiPiEditorSetFieldTextHorizontalAlignment, cEditor, fieldname, alignment);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
     }

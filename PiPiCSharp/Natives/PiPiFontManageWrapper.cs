@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PiPiCSharp.Wrappers
+namespace PiPiCSharp.Natives
 {
     using System;
     using System.Runtime.InteropServices;
@@ -44,6 +44,6 @@ namespace PiPiCSharp.Wrappers
         /// <param name="fontSize">The font binary size.</param>
         /// <returns>The registered font name.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiFontManagerRegisterFont")]
-        internal static extern IntPtr PiPiFontManagerRegisterFont(ref int code, ref int exCode, ref int exSubCode, IntPtr cFontManager, byte[] fontBytes, int fontSize);
+        internal static extern IntPtr PiPiFontManagerRegisterFont(ref int code, ref int exCode, ref int exSubCode, IntPtr cFontManager, byte[] fontBytes, uint fontSize);
     }
 }

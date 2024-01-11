@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PiPiCSharp.Wrappers
+namespace PiPiCSharp.Natives
 {
     using System;
     using System.Runtime.InteropServices;
@@ -46,7 +46,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="imageBytes">The image binary bytes.</param>
         /// <param name="imageSize">The image binary size.</param>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiFillerFillImage")]
-        internal static extern void PiPiFillerFillImage(ref int code, ref int exCode, ref int exSubCode, IntPtr cFiller, [MarshalAs(UnmanagedType.LPStr)] string fieldName, byte[] imageBytes, int imageSize);
+        internal static extern void PiPiFillerFillImage(ref int code, ref int exCode, ref int exSubCode, IntPtr cFiller, [MarshalAs(UnmanagedType.LPStr)] string fieldName, byte[] imageBytes, uint imageSize);
 
         /// <summary>
         /// Invoke c++ PiPiFiller FillValue.

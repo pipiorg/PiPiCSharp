@@ -2,7 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PiPiCSharp.Wrappers
+namespace PiPiCSharp.Natives
 {
     using System;
     using System.Runtime.InteropServices;
@@ -22,7 +22,7 @@ namespace PiPiCSharp.Wrappers
         /// <param name="pdfSize">The pdf binary size.</param>
         /// <returns>PiPiOperator instance pointer.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "CreatePiPiOperator")]
-        internal static extern IntPtr CreatePiPiOperator(ref int code, ref int exCode, ref int exSubCode, byte[] pdfBytes, int pdfSize);
+        internal static extern IntPtr CreatePiPiOperator(ref int code, ref int exCode, ref int exSubCode, byte[] pdfBytes, uint pdfSize);
 
         /// <summary>
         /// Invoke c++ PiPiOperator destructor.
@@ -119,6 +119,6 @@ namespace PiPiCSharp.Wrappers
         /// <param name="output">The c++ finalize binary bytes pointer.</param>
         /// <returns>The finalize binary size.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorMeasureFinalize")]
-        internal static extern int PiPiOperatorMeasureFinalize(ref int code, ref int exCode, ref int exSubCode, IntPtr output);
+        internal static extern uint PiPiOperatorMeasureFinalize(ref int code, ref int exCode, ref int exSubCode, IntPtr output);
     }
 }

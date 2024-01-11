@@ -8,7 +8,7 @@ namespace PiPiCSharp.Adapters
     using System.Collections.Generic;
     using System.Runtime.InteropServices;
     using PiPiCSharp.Exceptions;
-    using PiPiCSharp.Wrappers;
+    using PiPiCSharp.Invokers;
 
     /// <summary>
     /// PDF extractor adapter.
@@ -41,49 +41,46 @@ namespace PiPiCSharp.Adapters
         /// <exception cref="PiPiCSharpExtractException">Extract exception.</exception>
         internal List<PiPiCSharpField> ExtractField()
         {
-            try
+            var fields = new List<PiPiCSharpField>();
+
+            IntPtr cFields = PiPiCSharpExtractInvoker.InvokePiPiExtractorExtractField(this.cExtractor);
+
+            uint cFieldSize = PiPiCSharpExtractInvoker.InvokePiPiExtractorExtractedFieldsSize(cFields);
+            for (int i = 0; i < cFieldSize; i++)
             {
-                var fields = new List<PiPiCSharpField>();
+                uint ui = Convert.ToUInt32(i);
 
-                IntPtr cFields = PiPiExtractWrapper.PiPiExtractorExtractField(this.cExtractor);
+                IntPtr cField = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedField(cFields, ui);
 
-                int cFieldSize = PiPiExtractWrapper.PiPiExtractorExtractedFieldsSize(cFields);
-                for (int i = 0; i < cFieldSize; i++)
-                {
-                    IntPtr cField = PiPiExtractWrapper.PiPiExtractorGetExtractedField(cFields, i);
+                IntPtr cName = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldName(cField);
+                string name = Marshal.PtrToStringUTF8(cName);
 
-                    IntPtr cName = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldName(cField);
-                    string name = Marshal.PtrToStringUTF8(cName);
+                IntPtr cFontName = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldFontName(cField);
+                string fontName = Marshal.PtrToStringUTF8(cFontName);
 
-                    IntPtr cFontName = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldFontName(cField);
-                    string fontName = Marshal.PtrToStringUTF8(cFontName);
+                float fontSize = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldFontSize(cField);
 
-                    float fontSize = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldFontSize(cField);
+                uint uPageIndex = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldPageIndex(cField);
+                int pageIndex = Convert.ToInt32(uPageIndex);
 
-                    ushort pageIndex = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldPageIndex(cField);
-                    ushort cType = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldType(cField);
+                uint cType = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldType(cField);
 
-                    double width = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldWidth(cField);
-                    double height = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldHeight(cField);
-                    double x = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldX(cField);
-                    double y = PiPiExtractWrapper.PiPiExtractorGetExtractedFieldY(cField);
+                double width = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldWidth(cField);
+                double height = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldHeight(cField);
+                double x = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldX(cField);
+                double y = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldY(cField);
 
-                    PiPiCSharpFieldType type = PiPiCSharpConstants.FieldTypeInvertMap[cType];
+                PiPiCSharpFieldType type = PiPiCSharpConstants.FieldTypeInvertMap[cType];
 
-                    PiPiCSharpField field = new PiPiCSharpField(name, type, pageIndex, x, y, width, height, fontName, fontSize);
-                    fields.Add(field);
+                PiPiCSharpField field = new PiPiCSharpField(name, type, pageIndex, x, y, width, height, fontName, fontSize);
+                fields.Add(field);
 
-                    PiPiExtractWrapper.DeletePiPiExtractorExtractedField(cField);
-                }
-
-                PiPiExtractWrapper.DeletePiPiExtractorExtractedFields(cFields);
-
-                return fields;
+                PiPiCSharpExtractInvoker.InvokeDeletePiPiExtractorExtractedField(cField);
             }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpExtractException(PiPiCSharpExtractException.PiPiCSharpExtractExceptionCode.Unknown, e);
-            }
+
+            PiPiCSharpExtractInvoker.InvokeDeletePiPiExtractorExtractedFields(cFields);
+
+            return fields;
         }
 
         /// <summary>
@@ -93,34 +90,27 @@ namespace PiPiCSharp.Adapters
         /// <exception cref="PiPiCSharpExtractException">Extract exception.</exception>
         internal List<PiPiCSharpPage> ExtractPage()
         {
-            try
+            var pages = new List<PiPiCSharpPage>();
+
+            IntPtr cPages = PiPiCSharpExtractInvoker.InvokePiPiExtractorExtractPage(this.cExtractor);
+
+            uint cPageSize = PiPiCSharpExtractInvoker.InvokePiPiExtractorExtractedPagesSize(cPages);
+            for (int i = 0; i < cPageSize; i++)
             {
-                var pages = new List<PiPiCSharpPage>();
+                IntPtr cPage = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedPage(cPages, Convert.ToUInt32(i));
 
-                IntPtr cPages = PiPiExtractWrapper.PiPiExtractorExtractPage(this.cExtractor);
+                double width = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedPageWidth(cPage);
+                double height = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedPageHeight(cPage);
 
-                int cPageSize = PiPiExtractWrapper.PiPiExtractorExtractedPagesSize(cPages);
-                for (int i = 0; i < cPageSize; i++)
-                {
-                    IntPtr cPage = PiPiExtractWrapper.PiPiExtractorGetExtractedPage(cPages, i);
+                PiPiCSharpPage page = new PiPiCSharpPage(width, height);
+                pages.Add(page);
 
-                    double width = PiPiExtractWrapper.PiPiExtractorGetExtractedPageWidth(cPage);
-                    double height = PiPiExtractWrapper.PiPiExtractorGetExtractedPageHeight(cPage);
-
-                    PiPiCSharpPage page = new PiPiCSharpPage(width, height);
-                    pages.Add(page);
-
-                    PiPiExtractWrapper.DeletePiPiExtractorExtractedPage(cPage);
-                }
-
-                PiPiExtractWrapper.DeletePiPiExtractorExtractedPages(cPages);
-
-                return pages;
+                PiPiCSharpExtractInvoker.InvokeDeletePiPiExtractorExtractedPage(cPage);
             }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpExtractException(PiPiCSharpExtractException.PiPiCSharpExtractExceptionCode.Unknown, e);
-            }
+
+            PiPiCSharpExtractInvoker.InvokeDeletePiPiExtractorExtractedPages(cPages);
+
+            return pages;
         }
 
         /// <summary>
@@ -130,14 +120,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The operable status.</returns>
         internal bool IsOperable()
         {
-            try
-            {
-                return PiPiExtractWrapper.PiPiExtractorIsOperable(this.cExtractor);
-            }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpExtractException(PiPiCSharpExtractException.PiPiCSharpExtractExceptionCode.Unknown, e);
-            }
+            return PiPiCSharpExtractInvoker.InvokePiPiExtractorIsOperable(this.cExtractor);
         }
 
         /// <summary>
@@ -150,7 +133,7 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    PiPiExtractWrapper.DeletePiPiExtractor(this.cExtractor);
+                    PiPiCSharpExtractInvoker.InvokeDeletePiPiExtractor(this.cExtractor);
                 }
 
                 this.disposedValue = true;

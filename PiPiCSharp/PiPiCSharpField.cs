@@ -21,7 +21,7 @@ namespace PiPiCSharp
         /// <param name="height">The field height.</param>
         /// <param name="fontName">The field font name.</param>
         /// <param name="fontSize">The field font size.</param>
-        public PiPiCSharpField(string name, PiPiCSharpFieldType type, ushort pageIndex, double x, double y, double width, double height, string fontName, float fontSize)
+        public PiPiCSharpField(string name, PiPiCSharpFieldType type, int pageIndex, double x, double y, double width, double height, string fontName, float fontSize)
         {
             this.Name = name;
             this.Type = type;
@@ -57,7 +57,7 @@ namespace PiPiCSharp
         /// <summary>
         /// Gets or sets the field page index.
         /// </summary>
-        public ushort PageIndex { get; set; }
+        public int PageIndex { get; set; }
 
         /// <summary>
         /// Gets or sets the field type.

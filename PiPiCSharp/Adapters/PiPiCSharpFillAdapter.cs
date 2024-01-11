@@ -6,7 +6,7 @@ namespace PiPiCSharp.Adapters
 {
     using System;
     using PiPiCSharp.Exceptions;
-    using PiPiCSharp.Wrappers;
+    using PiPiCSharp.Invokers;
 
     /// <summary>
     /// PDF fill adapter.
@@ -41,15 +41,8 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF fill adapter instance.</returns>
         internal PiPiCSharpFillAdapter FillImage(string fieldName, byte[] imageBytes)
         {
-            try
-            {
-                PiPiFillWrapper.PiPiFillerFillImage(this.cFiller, fieldName, imageBytes, imageBytes.Length);
-                return this;
-            }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpFillException(PiPiCSharpFillException.PiPiCSharpFillExceptionCode.Unknown, e);
-            }
+            PiPiCSharpFillInvoker.InvokePiPiFillerFillImage(this.cFiller, fieldName, imageBytes, Convert.ToUInt32(imageBytes.Length));
+            return this;
         }
 
         /// <summary>
@@ -62,15 +55,8 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF fill adapter instance.</returns>
         internal PiPiCSharpFillAdapter FillValue(string fieldName, string value, bool ellipsis)
         {
-            try
-            {
-                PiPiFillWrapper.PiPiFillerFillEllipsisValue(this.cFiller, fieldName, value, ellipsis);
-                return this;
-            }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpFillException(PiPiCSharpFillException.PiPiCSharpFillExceptionCode.Unknown, e);
-            }
+            PiPiCSharpFillInvoker.InvokePiPiFillerFillEllipsisValue(this.cFiller, fieldName, value, ellipsis);
+            return this;
         }
 
         /// <summary>
@@ -82,15 +68,8 @@ namespace PiPiCSharp.Adapters
         /// <returns>The current PDF fill adapter instance.</returns>
         internal PiPiCSharpFillAdapter FillValue(string fieldName, string value)
         {
-            try
-            {
-                PiPiFillWrapper.PiPiFillerFillValue(this.cFiller, fieldName, value);
-                return this;
-            }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpFillException(PiPiCSharpFillException.PiPiCSharpFillExceptionCode.Unknown, e);
-            }
+            PiPiCSharpFillInvoker.InvokePiPiFillerFillValue(this.cFiller, fieldName, value);
+            return this;
         }
 
         /// <summary>
@@ -100,14 +79,7 @@ namespace PiPiCSharp.Adapters
         /// <returns>The operable status.</returns>
         internal bool IsOperable()
         {
-            try
-            {
-                return PiPiFillWrapper.PiPiFillerIsOperable(this.cFiller);
-            }
-            catch (Exception e)
-            {
-                throw new PiPiCSharpFillException(PiPiCSharpFillException.PiPiCSharpFillExceptionCode.Unknown, e);
-            }
+            return PiPiCSharpFillInvoker.InvokePiPiFillerIsOperable(this.cFiller);
         }
 
         /// <summary>
@@ -120,7 +92,7 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    PiPiFillWrapper.DeletePiPiFiller(this.cFiller);
+                    PiPiCSharpFillInvoker.InvokeDeletePiPiFiller(this.cFiller);
                 }
 
                 this.disposedValue = true;

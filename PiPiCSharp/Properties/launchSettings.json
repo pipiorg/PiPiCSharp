@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PiPiCSharp": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

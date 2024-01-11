@@ -1,24 +1,25 @@
-// <copyright file="PiPiCSharpFillWrapper.cs" company="PlaceholderCompany">
+// <copyright file="PiPiCSharpFillInvoker.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace PiPiCSharp.Wrappers
+namespace PiPiCSharp.Invokers
 {
     using System;
+    using PiPiCSharp.Natives;
     using PiPiCSharp.Utils;
 
     /// <summary>
-    /// Wrapper for PiPiFillWrapper.
+    /// Invoker for PiPiFillWrapper.
     /// </summary>
-    internal static class PiPiCSharpFillWrapper
+    internal static class PiPiCSharpFillInvoker
     {
         /// <summary>
         /// Invoke PiPiFillWrapper DeletePiPiFiller.
         /// </summary>
         /// <param name="cFiller">PiPiFiller instance pointer.</param>
-        internal static void DeletePiPiFiller(IntPtr cFiller)
+        internal static void InvokeDeletePiPiFiller(IntPtr cFiller)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr>(PiPiFillWrapper.DeletePiPiFiller, cFiller);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiFillWrapper.DeletePiPiFiller, cFiller);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -29,9 +30,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="fieldName">The field name.</param>
         /// <param name="value">The value.</param>
         /// <param name="ellipsis">The ellipsis.</param>
-        internal static void PiPiFillerFillEllipsisValue(IntPtr cFiller, string fieldName, string value, bool ellipsis)
+        internal static void InvokePiPiFillerFillEllipsisValue(IntPtr cFiller, string fieldName, string value, bool ellipsis)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, string, bool>(PiPiFillWrapper.PiPiFillerFillEllipsisValue, cFiller, fieldName, value, ellipsis);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiFillWrapper.PiPiFillerFillEllipsisValue, cFiller, fieldName, value, ellipsis);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -42,9 +43,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="fieldName">The field name.</param>
         /// <param name="imageBytes">The image binary bytes.</param>
         /// <param name="imageSize">The image binary size.</param>
-        internal static void PiPiFillerFillImage(IntPtr cFiller, string fieldName, byte[] imageBytes, int imageSize)
+        internal static void InvokePiPiFillerFillImage(IntPtr cFiller, string fieldName, byte[] imageBytes, uint imageSize)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, byte[], int>(PiPiFillWrapper.PiPiFillerFillImage, cFiller, fieldName, imageBytes, imageSize);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiFillWrapper.PiPiFillerFillImage, cFiller, fieldName, imageBytes, imageSize);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -54,9 +55,9 @@ namespace PiPiCSharp.Wrappers
         /// <param name="cFiller">PiPiFiller instance pointer.</param>
         /// <param name="fieldName">The field name.</param>
         /// <param name="value">The value.</param>
-        internal static void PiPiFillerFillValue(IntPtr cFiller, string fieldName, string value)
+        internal static void InvokePiPiFillerFillValue(IntPtr cFiller, string fieldName, string value)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult<IntPtr, string, string>(PiPiFillWrapper.PiPiFillerFillValue, cFiller, fieldName, value);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiFillWrapper.PiPiFillerFillValue, cFiller, fieldName, value);
             PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 
@@ -65,9 +66,9 @@ namespace PiPiCSharp.Wrappers
         /// </summary>
         /// <param name="cFiller">PiPiFiller instance pointer.</param>
         /// <returns>The operable status.</returns>
-        internal static bool PiPiFillerIsOperable(IntPtr cFiller)
+        internal static bool InvokePiPiFillerIsOperable(IntPtr cFiller)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult<bool, IntPtr>(PiPiFillWrapper.PiPiFillerIsOperable, cFiller);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiFillWrapper.PiPiFillerIsOperable, cFiller);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
     }

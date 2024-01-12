@@ -1,1 +1,5 @@
 # PiPiCSharp
+
+## Planning
+
+- Log redirection

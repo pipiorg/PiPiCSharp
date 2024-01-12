@@ -334,6 +334,13 @@ void handleVoidException(int* code, int* exCode, int* exSubCode, std::function<v
   }
 }
 
+std::string wcharToUtf8String(const wchar_t* utf16) {
+  vector<unsigned char> utf8Result;
+  utf8::utf16to8(utf16, utf16 + wcslen(utf16), back_inserter(utf8Result));
+  std::string utf8(utf8Result.begin(), utf8Result.end());
+  return utf8;
+}
+
 template bool handleException<bool>(int* code, int* exCode, int* exSubCode, std::function<bool()> func);
 template unsigned int handleException<unsigned int>(int* code, int* exCode, int* exSubCode, std::function<unsigned int()> func);
 template float handleException<float>(int* code, int* exCode, int* exSubCode, std::function<float()> func);

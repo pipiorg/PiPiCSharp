@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pch.h"
+#include "utf8.h"
 
 static const std::map<unsigned int, PiPi::PiPiFieldType> FieldTypeMap = {
   { 0, PiPi::PiPiFieldType::TextBox },
@@ -81,3 +82,5 @@ template<typename T>
 T handleException(int* code, int* exCode, int* exSubCode, std::function<T()> func);
 
 void handleVoidException(int* code, int* exCode, int* exSubCode, std::function<void()> func);
+
+std::string wcharToUtf8String(const wchar_t* utf16);

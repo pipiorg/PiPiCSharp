@@ -11,7 +11,7 @@ namespace PiPiCSharp
     /// <summary>
     /// The PDF multi operator.
     /// </summary>
-    internal class PiPiCSharpMultiOperator : IDisposable
+    public class PiPiCSharpMultiOperator : IDisposable
     {
         private readonly PiPiCSharpMultiOperateAdapter adapter;
         private readonly Dictionary<int, int> operatorMap;

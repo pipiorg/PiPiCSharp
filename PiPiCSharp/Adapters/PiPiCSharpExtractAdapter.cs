@@ -77,6 +77,7 @@ namespace PiPiCSharp.Adapters
                 double height = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldHeight(cField);
                 double x = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldX(cField);
                 double y = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldY(cField);
+                double borderWidth = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBorderWidth(cField);
 
                 bool multiline = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldMultiline(cField);
 
@@ -86,17 +87,19 @@ namespace PiPiCSharp.Adapters
 
                 Color color = Color.FromArgb((int)(colorRed * 255), (int)(colorGreen * 255), (int)(colorBlue * 255));
 
+                bool backgroundColorExists = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBackgroundExists(cField);
                 float backgroundColorRed = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBackgroundColorRed(cField);
                 float backgroundColorGreen = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBackgroundColorGreen(cField);
                 float backgroundColorBlue = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBackgroundColorBlue(cField);
 
-                Color backgroundColor = Color.FromArgb((int)(backgroundColorRed * 255), (int)(backgroundColorGreen * 255), (int)(backgroundColorBlue * 255));
+                Color backgroundColor = !backgroundColorExists ? Color.Empty : Color.FromArgb((int)(backgroundColorRed * 255), (int)(backgroundColorGreen * 255), (int)(backgroundColorBlue * 255));
 
+                bool borderExists = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBorderExists(cField);
                 float borderColorRed = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBorderdColorRed(cField);
                 float borderColorGreen = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBorderdColorGreen(cField);
                 float borderColorBlue = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBorderdColorBlue(cField);
 
-                Color borderColor = Color.FromArgb((int)(borderColorRed * 255), (int)(borderColorGreen * 255), (int)(borderColorBlue * 255));
+                Color borderColor = !borderExists ? Color.Empty : Color.FromArgb((int)(borderColorRed * 255), (int)(borderColorGreen * 255), (int)(borderColorBlue * 255));
 
                 PiPiCSharpField field = new PiPiCSharpField(
                     name,
@@ -113,6 +116,7 @@ namespace PiPiCSharp.Adapters
                     fontSize,
                     color,
                     backgroundColor,
+                    borderWidth,
                     borderColor);
 
                 fields.Add(field);

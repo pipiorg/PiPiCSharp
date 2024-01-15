@@ -42,6 +42,7 @@ extern "C" {
   PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBackgroundColorRed(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBackgroundColorGreen(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBackgroundColorBlue(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API double CALLING_CONVENTION PiPiExtractorGetExtractedFieldBorderWidth(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API double CALLING_CONVENTION PiPiExtractorGetExtractedFieldWidth(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API double CALLING_CONVENTION PiPiExtractorGetExtractedFieldHeight(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API double CALLING_CONVENTION PiPiExtractorGetExtractedFieldX(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);

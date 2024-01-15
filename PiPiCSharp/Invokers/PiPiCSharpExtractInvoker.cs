@@ -198,6 +198,28 @@ namespace PiPiCSharp.Invokers
         }
 
         /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldBorderExists.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field border exists.</returns>
+        internal static bool InvokePiPiExtractorGetExtractedFieldBorderExists(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldBorderExists, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldBorderWidth.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field borderWidth.</returns>
+        internal static double InvokePiPiExtractorGetExtractedFieldBorderWidth(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldBorderWidth, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
         /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldColorBlue.
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>

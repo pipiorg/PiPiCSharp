@@ -28,6 +28,7 @@ namespace PiPiCSharp
         /// <param name="fontSize">The field font size.</param>
         /// <param name="color">The field text color.</param>
         /// <param name="borderColor">The field border color.</param>
+        /// <param name="borderWidth">The field border width.</param>
         /// <param name="backgroundColor">The field background color.</param>
         public PiPiCSharpField(
             string name,
@@ -44,6 +45,7 @@ namespace PiPiCSharp
             float fontSize,
             Color color,
             Color backgroundColor,
+            double borderWidth,
             Color borderColor)
         {
             this.Name = name;
@@ -60,6 +62,7 @@ namespace PiPiCSharp
             this.FontSize = fontSize;
             this.Color = color;
             this.BackgroundColor = backgroundColor;
+            this.BorderWidth = borderWidth;
             this.BorderColor = borderColor;
         }
 
@@ -72,6 +75,11 @@ namespace PiPiCSharp
         /// Gets or sets the field border color.
         /// </summary>
         public Color BorderColor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field border width.
+        /// </summary>
+        public double BorderWidth { get; set; }
 
         /// <summary>
         /// Gets or sets the field text color.

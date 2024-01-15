@@ -109,6 +109,12 @@ PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldB
     });
 }
 
+PIPI_CSHARP_WRAPPER_API double CALLING_CONVENTION PiPiExtractorGetExtractedFieldBorderWidth(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<double>(code, exCode, exSubCode, [&]() {
+    return extractedField->borderWidth;
+    });
+}
+
 PIPI_CSHARP_WRAPPER_API double CALLING_CONVENTION PiPiExtractorGetExtractedPageWidth(int* code, int* exCode, int* exSubCode, const PiPiPage* extractedPage) {
   return handleException<double>(code, exCode, exSubCode, [&]() {
     return extractedPage->width;

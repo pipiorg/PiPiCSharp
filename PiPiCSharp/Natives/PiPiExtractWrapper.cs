@@ -204,7 +204,18 @@ namespace PiPiCSharp.Natives
         /// <param name="cExtractedField">Extracted field pointer.</param>
         /// <returns>The extracted field border exists.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldBorderExists")]
-        internal static extern double PiPiExtractorGetExtractedFieldBorderExists(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+        internal static extern bool PiPiExtractorGetExtractedFieldBorderExists(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field height.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field height.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldBorderWidth")]
+        internal static extern double PiPiExtractorGetExtractedFieldBorderWidth(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
 
         /// <summary>
         /// Invoke c++ PiPiExtractor get extracted field color blue.

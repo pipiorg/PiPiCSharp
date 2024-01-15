@@ -121,6 +121,127 @@ namespace PiPiCSharp.Invokers
         }
 
         /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldBackgroundColorBlue.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field background color blue.</returns>
+        internal static float InvokePiPiExtractorGetExtractedFieldBackgroundColorBlue(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldBackgroundColorBlue, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldBackgroundColorGreen.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field background color green.</returns>
+        internal static float InvokePiPiExtractorGetExtractedFieldBackgroundColorGreen(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldBackgroundColorGreen, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldBackgroundColorRed.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field background color red.</returns>
+        internal static float InvokePiPiExtractorGetExtractedFieldBackgroundColorRed(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldBackgroundColorRed, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldBackgroundExists.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field background exists.</returns>
+        internal static bool InvokePiPiExtractorGetExtractedFieldBackgroundExists(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldBackgroundExists, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldBorderColorBlue.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field border color blue.</returns>
+        internal static float InvokePiPiExtractorGetExtractedFieldBorderdColorBlue(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldBorderColorBlue, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldBorderColorGreen.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field border color green.</returns>
+        internal static float InvokePiPiExtractorGetExtractedFieldBorderdColorGreen(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldBorderColorGreen, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldBorderColorRed.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field border color red.</returns>
+        internal static float InvokePiPiExtractorGetExtractedFieldBorderdColorRed(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldBorderColorRed, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldColorBlue.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field color blue.</returns>
+        internal static float InvokePiPiExtractorGetExtractedFieldColorBlue(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldColorBlue, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldColorGreen.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field color green.</returns>
+        internal static float InvokePiPiExtractorGetExtractedFieldColorGreen(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldColorGreen, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldColorRed.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field color red.</returns>
+        internal static float InvokePiPiExtractorGetExtractedFieldColorRed(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldColorRed, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldDefaultValue.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field default value.</returns>
+        internal static IntPtr InvokePiPiExtractorGetExtractedFieldDefaultValue(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldDefaultValue, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
         /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldFontName.
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
@@ -154,6 +275,17 @@ namespace PiPiCSharp.Invokers
         }
 
         /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldMultiline.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field multiline.</returns>
+        internal static bool InvokePiPiExtractorGetExtractedFieldMultiline(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldMultiline, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
         /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldName.
         /// </summary>
         /// <param name="cExtractedField">Extracted field pointer.</param>
@@ -172,6 +304,17 @@ namespace PiPiCSharp.Invokers
         internal static uint InvokePiPiExtractorGetExtractedFieldPageIndex(IntPtr cExtractedField)
         {
             var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldPageIndex, cExtractedField);
+            return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper PiPiExtractorGetExtractedFieldTextHorizontalAlignment.
+        /// </summary>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field text horizontal alignment.</returns>
+        internal static uint InvokePiPiExtractorGetExtractedFieldTextHorizontalAlignment(IntPtr cExtractedField)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiExtractWrapper.PiPiExtractorGetExtractedFieldTextHorizontalAlignment, cExtractedField);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 

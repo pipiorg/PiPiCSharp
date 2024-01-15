@@ -59,6 +59,11 @@ extern "C" {
   PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldBorderColorAtPosition(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, wchar_t* fieldname, unsigned int pageIndex, double x, double y, float red, float green, float blue);
   PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldBorderColorExact(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, wchar_t* fieldname, unsigned int pageIndex, double x, double y, double width, double height, float red, float green, float blue);
 
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldBorderWidth(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, wchar_t* fieldname, double borderWidth);
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldBorderWidthInPage(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, wchar_t* fieldname, unsigned int pageIndex, double borderWidth);
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldBorderWidthAtPosition(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, wchar_t* fieldname, unsigned int pageIndex, double x, double y, double borderWidth);
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldBorderWidthExact(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, wchar_t* fieldname, unsigned int pageIndex, double x, double y, double width, double height, double borderWidth);
+
   PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldMultiline(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, wchar_t* fieldname, bool multiline);
   PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldMultilineInPage(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, wchar_t* fieldname, unsigned int pageIndex, bool multiline);
   PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION PiPiEditorSetFieldMultilineAtPosition(int* code, int* exCode, int* exSubCode, PiPiEditor* editor, wchar_t* fieldname, unsigned int pageIndex, double x, double y, bool multiline);

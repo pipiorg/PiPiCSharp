@@ -48,6 +48,16 @@ namespace PiPiCSharp
         };
 
         /// <summary>
+        /// The text horizontal alignment invert map.
+        /// </summary>
+        internal static readonly Dictionary<uint, PiPiCSharpTextHorizontalAlignment> TextHorizontalAlignmentInvertMap = new Dictionary<uint, PiPiCSharpTextHorizontalAlignment>()
+        {
+            { 0, PiPiCSharpTextHorizontalAlignment.Left },
+            { 1, PiPiCSharpTextHorizontalAlignment.Center },
+            { 2, PiPiCSharpTextHorizontalAlignment.Right },
+        };
+
+        /// <summary>
         /// The text horizontal alignment map.
         /// </summary>
         internal static readonly Dictionary<PiPiCSharpTextHorizontalAlignment, uint> TextHorizontalAlignmentMap = new Dictionary<PiPiCSharpTextHorizontalAlignment, uint>()

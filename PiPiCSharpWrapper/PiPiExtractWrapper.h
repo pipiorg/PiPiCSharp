@@ -22,11 +22,26 @@ extern "C" {
   PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiExtractorExtractedField(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API unsigned int CALLING_CONVENTION PiPiExtractorExtractedFieldsSize(int* code, int* exCode, int* exSubCode, std::vector<const PiPiField*>* extractedFields);
   PIPI_CSHARP_WRAPPER_API const PiPiField* CALLING_CONVENTION PiPiExtractorGetExtractedField(int* code, int* exCode, int* exSubCode, std::vector<const PiPiField*>* extractedFields, size_t index);
+
+  PIPI_CSHARP_WRAPPER_API char* CALLING_CONVENTION PiPiExtractorGetExtractedFieldDefaultValue(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API char* CALLING_CONVENTION PiPiExtractorGetExtractedFieldName(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API char* CALLING_CONVENTION PiPiExtractorGetExtractedFieldFontName(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldFontSize(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API unsigned int CALLING_CONVENTION PiPiExtractorGetExtractedFieldPageIndex(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API unsigned int CALLING_CONVENTION PiPiExtractorGetExtractedFieldType(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API unsigned int CALLING_CONVENTION PiPiExtractorGetExtractedFieldTextHorizontalAlignment(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API bool CALLING_CONVENTION PiPiExtractorGetExtractedFieldMultiline(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API bool CALLING_CONVENTION PiPiExtractorGetExtractedFieldBorderExists(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API bool CALLING_CONVENTION PiPiExtractorGetExtractedFieldBackgroundExists(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldColorRed(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldColorGreen(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldColorBlue(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBorderColorRed(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBorderColorGreen(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBorderColorBlue(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBackgroundColorRed(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBackgroundColorGreen(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
+  PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBackgroundColorBlue(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API double CALLING_CONVENTION PiPiExtractorGetExtractedFieldWidth(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API double CALLING_CONVENTION PiPiExtractorGetExtractedFieldHeight(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API double CALLING_CONVENTION PiPiExtractorGetExtractedFieldX(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);

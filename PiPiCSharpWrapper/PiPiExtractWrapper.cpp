@@ -31,6 +31,84 @@ PIPI_CSHARP_WRAPPER_API const PiPiPage* CALLING_CONVENTION PiPiExtractorGetExtra
     });
 }
 
+PIPI_CSHARP_WRAPPER_API unsigned int CALLING_CONVENTION PiPiExtractorGetExtractedFieldTextHorizontalAlignment(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<unsigned int>(code, exCode, exSubCode, [&]() {
+    return InvertTextHorizontalAlignmentMap.at(extractedField->textHorizontalAlignment);
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API bool CALLING_CONVENTION PiPiExtractorGetExtractedFieldMultiline(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<bool>(code, exCode, exSubCode, [&]() {
+    return extractedField->multiline;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API bool CALLING_CONVENTION PiPiExtractorGetExtractedFieldBorderExists(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<bool>(code, exCode, exSubCode, [&]() {
+    return extractedField->borderExists;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API bool CALLING_CONVENTION PiPiExtractorGetExtractedFieldBackgroundExists(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<bool>(code, exCode, exSubCode, [&]() {
+    return extractedField->backgroundExists;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldColorRed(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<float>(code, exCode, exSubCode, [&]() {
+    return extractedField->colorRed;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldColorGreen(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<float>(code, exCode, exSubCode, [&]() {
+    return extractedField->colorGreen;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldColorBlue(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<float>(code, exCode, exSubCode, [&]() {
+    return extractedField->colorBlue;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBorderColorRed(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<float>(code, exCode, exSubCode, [&]() {
+    return extractedField->borderColorRed;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBorderColorGreen(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<float>(code, exCode, exSubCode, [&]() {
+    return extractedField->borderColorGreen;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBorderColorBlue(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<float>(code, exCode, exSubCode, [&]() {
+    return extractedField->borderColorBlue;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBackgroundColorRed(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<float>(code, exCode, exSubCode, [&]() {
+    return extractedField->backgroundColorRed;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBackgroundColorGreen(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<float>(code, exCode, exSubCode, [&]() {
+    return extractedField->backgroundColorGreen;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API float CALLING_CONVENTION PiPiExtractorGetExtractedFieldBackgroundColorBlue(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<float>(code, exCode, exSubCode, [&]() {
+    return extractedField->backgroundColorBlue;
+    });
+}
+
 PIPI_CSHARP_WRAPPER_API double CALLING_CONVENTION PiPiExtractorGetExtractedPageWidth(int* code, int* exCode, int* exSubCode, const PiPiPage* extractedPage) {
   return handleException<double>(code, exCode, exSubCode, [&]() {
     return extractedPage->width;
@@ -63,6 +141,15 @@ PIPI_CSHARP_WRAPPER_API unsigned int CALLING_CONVENTION PiPiExtractorExtractedFi
 PIPI_CSHARP_WRAPPER_API const PiPiField* CALLING_CONVENTION PiPiExtractorGetExtractedField(int* code, int* exCode, int* exSubCode, std::vector<const PiPiField*>* extractedFields, size_t index) {
   return handleException<const PiPiField*>(code, exCode, exSubCode, [&]() {
     return extractedFields->at(index);
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API char* CALLING_CONVENTION PiPiExtractorGetExtractedFieldDefaultValue(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
+  return handleException<char*>(code, exCode, exSubCode, [&]() {
+    const std::string defaultValue = extractedField->defaultValue;
+    char* cDefaultValue = new char[defaultValue.length() + 1];
+    strcpy(cDefaultValue, defaultValue.c_str());
+    return cDefaultValue;
     });
 }
 

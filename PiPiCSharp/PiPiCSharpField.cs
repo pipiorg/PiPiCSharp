@@ -4,6 +4,8 @@
 
 namespace PiPiCSharp
 {
+    using System.Drawing;
+
     /// <summary>
     /// The field model object.
     /// </summary>
@@ -19,9 +21,30 @@ namespace PiPiCSharp
         /// <param name="y">The field located y.</param>
         /// <param name="width">The field width.</param>
         /// <param name="height">The field height.</param>
+        /// <param name="defaultValue">The default value.</param>
+        /// <param name="textHorizontalAlignment">The text horizontal alignment.</param>
+        /// <param name="multiline">The multiline.</param>
         /// <param name="fontName">The field font name.</param>
         /// <param name="fontSize">The field font size.</param>
-        public PiPiCSharpField(string name, PiPiCSharpFieldType type, int pageIndex, double x, double y, double width, double height, string fontName, float fontSize)
+        /// <param name="color">The field text color.</param>
+        /// <param name="borderColor">The field border color.</param>
+        /// <param name="backgroundColor">The field background color.</param>
+        public PiPiCSharpField(
+            string name,
+            PiPiCSharpFieldType type,
+            int pageIndex,
+            double x,
+            double y,
+            double width,
+            double height,
+            string defaultValue,
+            PiPiCSharpTextHorizontalAlignment textHorizontalAlignment,
+            bool multiline,
+            string fontName,
+            float fontSize,
+            Color color,
+            Color backgroundColor,
+            Color borderColor)
         {
             this.Name = name;
             this.Type = type;
@@ -30,9 +53,35 @@ namespace PiPiCSharp
             this.Y = y;
             this.Width = width;
             this.Height = height;
+            this.DefaultValue = defaultValue;
+            this.TextHorizontalAlignment = textHorizontalAlignment;
+            this.Multiline = multiline;
             this.FontName = fontName;
             this.FontSize = fontSize;
+            this.Color = color;
+            this.BackgroundColor = backgroundColor;
+            this.BorderColor = borderColor;
         }
+
+        /// <summary>
+        /// Gets or sets the field background color.
+        /// </summary>
+        public Color BackgroundColor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field border color.
+        /// </summary>
+        public Color BorderColor { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field text color.
+        /// </summary>
+        public Color Color { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field default value.
+        /// </summary>
+        public string DefaultValue { get; set; }
 
         /// <summary>
         /// Gets or sets the field font name.
@@ -50,6 +99,11 @@ namespace PiPiCSharp
         public double Height { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether the field multiline.
+        /// </summary>
+        public bool Multiline { get; set; }
+
+        /// <summary>
         /// Gets or sets the field name.
         /// </summary>
         public string Name { get; set; }
@@ -58,6 +112,11 @@ namespace PiPiCSharp
         /// Gets or sets the field page index.
         /// </summary>
         public int PageIndex { get; set; }
+
+        /// <summary>
+        /// Gets or sets the field text horizontal alignment.
+        /// </summary>
+        public PiPiCSharpTextHorizontalAlignment TextHorizontalAlignment { get; set; }
 
         /// <summary>
         /// Gets or sets the field type.

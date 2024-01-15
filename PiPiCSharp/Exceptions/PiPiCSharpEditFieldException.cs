@@ -19,10 +19,6 @@ namespace PiPiCSharp.Exceptions
         {
             { PiPiCSharpEditFieldExceptionCode.InOperable, "In operable." },
             { PiPiCSharpEditFieldExceptionCode.NotImplementate, "Not implementate" },
-            { PiPiCSharpEditFieldExceptionCode.MultilineNotSupported, "Multiline not supported" },
-            { PiPiCSharpEditFieldExceptionCode.NotRegisterFont, "Not register font" },
-            { PiPiCSharpEditFieldExceptionCode.InvalidColor, "Invalid color" },
-            { PiPiCSharpEditFieldExceptionCode.Unknown, "Unknown error" },
         };
 
         /// <summary>
@@ -60,21 +56,6 @@ namespace PiPiCSharp.Exceptions
             /// Not implementate.
             /// </summary>
             NotImplementate = 2,
-
-            /// <summary>
-            /// Multiline not supported.
-            /// </summary>
-            MultilineNotSupported = 3,
-
-            /// <summary>
-            /// Not register font.
-            /// </summary>
-            NotRegisterFont = 4,
-
-            /// <summary>
-            /// Invalid color.
-            /// </summary>
-            InvalidColor = 5,
 
             /// <summary>
             /// Unknown.

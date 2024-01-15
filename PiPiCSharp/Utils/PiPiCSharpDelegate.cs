@@ -5,6 +5,96 @@
 namespace PiPiCSharp.Utils
 {
     /// <summary>
+    /// Params delegate with 11 arguments.
+    /// </summary>
+    /// <typeparam name="TResult">The type of result.</typeparam>
+    /// <typeparam name="T1">The type of argument 1.</typeparam>
+    /// <typeparam name="T2">The type of argument 2.</typeparam>
+    /// <typeparam name="T3">The type of argument 3.</typeparam>
+    /// <typeparam name="T4">The type of argument 4.</typeparam>
+    /// <typeparam name="T5">The type of argument 5.</typeparam>
+    /// <typeparam name="T6">The type of argument 6.</typeparam>
+    /// <typeparam name="T7">The type of argument 7.</typeparam>
+    /// <typeparam name="T8">The type of argument 8.</typeparam>
+    /// <typeparam name="T9">The type of argument 9.</typeparam>
+    /// <typeparam name="T10">The type of argument 10.</typeparam>
+    /// <typeparam name="T11">The type of argument 11.</typeparam>
+    /// <param name="code">The return code.</param>
+    /// <param name="exCode">The exception code.</param>
+    /// <param name="exSubCode">The exception sub code.</param>
+    /// <param name="arg1">argument 1.</param>
+    /// <param name="arg2">argument 2.</param>
+    /// <param name="arg3">argument 3.</param>
+    /// <param name="arg4">argument 4.</param>
+    /// <param name="arg5">argument 5.</param>
+    /// <param name="arg6">argument 6.</param>
+    /// <param name="arg7">argument 7.</param>
+    /// <param name="arg8">argument 8.</param>
+    /// <param name="arg9">argument 9.</param>
+    /// <param name="arg10">argument 10.</param>
+    /// <param name="arg11">argument 11.</param>
+    /// <returns>The result.</returns>
+    internal delegate TResult PiPiCSharpParamsDelegate<TResult, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(ref int code, ref int exCode, ref int exSubCode, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+
+    /// <summary>
+    /// Params delegate with 10 arguments.
+    /// </summary>
+    /// <typeparam name="TResult">The type of result.</typeparam>
+    /// <typeparam name="T1">The type of argument 1.</typeparam>
+    /// <typeparam name="T2">The type of argument 2.</typeparam>
+    /// <typeparam name="T3">The type of argument 3.</typeparam>
+    /// <typeparam name="T4">The type of argument 4.</typeparam>
+    /// <typeparam name="T5">The type of argument 5.</typeparam>
+    /// <typeparam name="T6">The type of argument 6.</typeparam>
+    /// <typeparam name="T7">The type of argument 7.</typeparam>
+    /// <typeparam name="T8">The type of argument 8.</typeparam>
+    /// <typeparam name="T9">The type of argument 9.</typeparam>
+    /// <typeparam name="T10">The type of argument 10.</typeparam>
+    /// <param name="code">The return code.</param>
+    /// <param name="exCode">The exception code.</param>
+    /// <param name="exSubCode">The exception sub code.</param>
+    /// <param name="arg1">argument 1.</param>
+    /// <param name="arg2">argument 2.</param>
+    /// <param name="arg3">argument 3.</param>
+    /// <param name="arg4">argument 4.</param>
+    /// <param name="arg5">argument 5.</param>
+    /// <param name="arg6">argument 6.</param>
+    /// <param name="arg7">argument 7.</param>
+    /// <param name="arg8">argument 8.</param>
+    /// <param name="arg9">argument 9.</param>
+    /// <param name="arg10">argument 10.</param>
+    /// <returns>The result.</returns>
+    internal delegate TResult PiPiCSharpParamsDelegate<TResult, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(ref int code, ref int exCode, ref int exSubCode, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+
+    /// <summary>
+    /// Params delegate with 9 arguments.
+    /// </summary>
+    /// <typeparam name="TResult">The type of result.</typeparam>
+    /// <typeparam name="T1">The type of argument 1.</typeparam>
+    /// <typeparam name="T2">The type of argument 2.</typeparam>
+    /// <typeparam name="T3">The type of argument 3.</typeparam>
+    /// <typeparam name="T4">The type of argument 4.</typeparam>
+    /// <typeparam name="T5">The type of argument 5.</typeparam>
+    /// <typeparam name="T6">The type of argument 6.</typeparam>
+    /// <typeparam name="T7">The type of argument 7.</typeparam>
+    /// <typeparam name="T8">The type of argument 8.</typeparam>
+    /// <typeparam name="T9">The type of argument 9.</typeparam>
+    /// <param name="code">The return code.</param>
+    /// <param name="exCode">The exception code.</param>
+    /// <param name="exSubCode">The exception sub code.</param>
+    /// <param name="arg1">argument 1.</param>
+    /// <param name="arg2">argument 2.</param>
+    /// <param name="arg3">argument 3.</param>
+    /// <param name="arg4">argument 4.</param>
+    /// <param name="arg5">argument 5.</param>
+    /// <param name="arg6">argument 6.</param>
+    /// <param name="arg7">argument 7.</param>
+    /// <param name="arg8">argument 8.</param>
+    /// <param name="arg9">argument 9.</param>
+    /// <returns>The result.</returns>
+    internal delegate TResult PiPiCSharpParamsDelegate<TResult, T1, T2, T3, T4, T5, T6, T7, T8, T9>(ref int code, ref int exCode, ref int exSubCode, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
+
+    /// <summary>
     /// Params delegate with 8 arguments.
     /// </summary>
     /// <typeparam name="TResult">The type of result.</typeparam>
@@ -165,6 +255,90 @@ namespace PiPiCSharp.Utils
     /// <param name="exSubCode">The exception sub code.</param>
     /// <returns>The result.</returns>
     internal delegate TResult PiPiCSharpResultDelegate<TResult>(ref int code, ref int exCode, ref int exSubCode);
+
+    /// <summary>
+    /// Void params delegate with 11 arguments.
+    /// </summary>
+    /// <typeparam name="T1">The type of argument 1.</typeparam>
+    /// <typeparam name="T2">The type of argument 2.</typeparam>
+    /// <typeparam name="T3">The type of argument 3.</typeparam>
+    /// <typeparam name="T4">The type of argument 4.</typeparam>
+    /// <typeparam name="T5">The type of argument 5.</typeparam>
+    /// <typeparam name="T6">The type of argument 6.</typeparam>
+    /// <typeparam name="T7">The type of argument 7.</typeparam>
+    /// <typeparam name="T8">The type of argument 8.</typeparam>
+    /// <typeparam name="T9">The type of argument 9.</typeparam>
+    /// <typeparam name="T10">The type of argument 10.</typeparam>
+    /// <typeparam name="T11">The type of argument 11.</typeparam>
+    /// <param name="code">The return code.</param>
+    /// <param name="exCode">The exception code.</param>
+    /// <param name="exSubCode">The exception sub code.</param>
+    /// <param name="arg1">argument 1.</param>
+    /// <param name="arg2">argument 2.</param>
+    /// <param name="arg3">argument 3.</param>
+    /// <param name="arg4">argument 4.</param>
+    /// <param name="arg5">argument 5.</param>
+    /// <param name="arg6">argument 6.</param>
+    /// <param name="arg7">argument 7.</param>
+    /// <param name="arg8">argument 8.</param>
+    /// <param name="arg9">argument 9.</param>
+    /// <param name="arg10">argument 10.</param>
+    /// <param name="arg11">argument 11.</param>
+    internal delegate void PiPiCSharpVoidParamsDelegate<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(ref int code, ref int exCode, ref int exSubCode, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, T11 arg11);
+
+    /// <summary>
+    /// Void params delegate with 10 arguments.
+    /// </summary>
+    /// <typeparam name="T1">The type of argument 1.</typeparam>
+    /// <typeparam name="T2">The type of argument 2.</typeparam>
+    /// <typeparam name="T3">The type of argument 3.</typeparam>
+    /// <typeparam name="T4">The type of argument 4.</typeparam>
+    /// <typeparam name="T5">The type of argument 5.</typeparam>
+    /// <typeparam name="T6">The type of argument 6.</typeparam>
+    /// <typeparam name="T7">The type of argument 7.</typeparam>
+    /// <typeparam name="T8">The type of argument 8.</typeparam>
+    /// <typeparam name="T9">The type of argument 9.</typeparam>
+    /// <typeparam name="T10">The type of argument 10.</typeparam>
+    /// <param name="code">The return code.</param>
+    /// <param name="exCode">The exception code.</param>
+    /// <param name="exSubCode">The exception sub code.</param>
+    /// <param name="arg1">argument 1.</param>
+    /// <param name="arg2">argument 2.</param>
+    /// <param name="arg3">argument 3.</param>
+    /// <param name="arg4">argument 4.</param>
+    /// <param name="arg5">argument 5.</param>
+    /// <param name="arg6">argument 6.</param>
+    /// <param name="arg7">argument 7.</param>
+    /// <param name="arg8">argument 8.</param>
+    /// <param name="arg9">argument 9.</param>
+    /// <param name="arg10">argument 10.</param>
+    internal delegate void PiPiCSharpVoidParamsDelegate<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(ref int code, ref int exCode, ref int exSubCode, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10);
+
+    /// <summary>
+    /// Void params delegate with 9 arguments.
+    /// </summary>
+    /// <typeparam name="T1">The type of argument 1.</typeparam>
+    /// <typeparam name="T2">The type of argument 2.</typeparam>
+    /// <typeparam name="T3">The type of argument 3.</typeparam>
+    /// <typeparam name="T4">The type of argument 4.</typeparam>
+    /// <typeparam name="T5">The type of argument 5.</typeparam>
+    /// <typeparam name="T6">The type of argument 6.</typeparam>
+    /// <typeparam name="T7">The type of argument 7.</typeparam>
+    /// <typeparam name="T8">The type of argument 8.</typeparam>
+    /// <typeparam name="T9">The type of argument 9.</typeparam>
+    /// <param name="code">The return code.</param>
+    /// <param name="exCode">The exception code.</param>
+    /// <param name="exSubCode">The exception sub code.</param>
+    /// <param name="arg1">argument 1.</param>
+    /// <param name="arg2">argument 2.</param>
+    /// <param name="arg3">argument 3.</param>
+    /// <param name="arg4">argument 4.</param>
+    /// <param name="arg5">argument 5.</param>
+    /// <param name="arg6">argument 6.</param>
+    /// <param name="arg7">argument 7.</param>
+    /// <param name="arg8">argument 8.</param>
+    /// <param name="arg9">argument 9.</param>
+    internal delegate void PiPiCSharpVoidParamsDelegate<T1, T2, T3, T4, T5, T6, T7, T8, T9>(ref int code, ref int exCode, ref int exSubCode, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9);
 
     /// <summary>
     /// Void params delegate with 8 arguments.

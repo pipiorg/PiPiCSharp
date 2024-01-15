@@ -62,6 +62,10 @@ namespace PiPiCSharp.Utils
                     DispatchPageException(exSubCode);
                     break;
 
+                case 10:
+                    DispatchFieldStyleManageException(exSubCode);
+                    break;
+
                 default:
                     throw new PiPiCSharpUnknownException("Unknown exception code exception");
             }
@@ -93,15 +97,6 @@ namespace PiPiCSharp.Utils
                 case 2:
                     throw new PiPiCSharpEditFieldException(PiPiCSharpEditFieldException.PiPiCSharpEditFieldExceptionCode.NotImplementate);
 
-                case 3:
-                    throw new PiPiCSharpEditFieldException(PiPiCSharpEditFieldException.PiPiCSharpEditFieldExceptionCode.MultilineNotSupported);
-
-                case 4:
-                    throw new PiPiCSharpEditFieldException(PiPiCSharpEditFieldException.PiPiCSharpEditFieldExceptionCode.NotRegisterFont);
-
-                case 5:
-                    throw new PiPiCSharpEditFieldException(PiPiCSharpEditFieldException.PiPiCSharpEditFieldExceptionCode.InvalidColor);
-
                 case 0:
                 default:
                     throw new PiPiCSharpEditFieldException(PiPiCSharpEditFieldException.PiPiCSharpEditFieldExceptionCode.Unknown);
@@ -131,6 +126,25 @@ namespace PiPiCSharp.Utils
                 case 0:
                 default:
                     throw new PiPiCSharpFieldCompatibilityException(PiPiCSharpFieldCompatibilityException.PiPiCSharpFieldCompatibilityExceptionCode.Unknown);
+            }
+        }
+
+        private static void DispatchFieldStyleManageException(int exSubCode)
+        {
+            switch (exSubCode)
+            {
+                case 1:
+                    throw new PiPiCSharpFieldStyleManageException(PiPiCSharpFieldStyleManageException.PiPiCSharpFieldStyleManageExceptionCode.NotRegisterFont);
+
+                case 2:
+                    throw new PiPiCSharpFieldStyleManageException(PiPiCSharpFieldStyleManageException.PiPiCSharpFieldStyleManageExceptionCode.InvalidColor);
+
+                case 3:
+                    throw new PiPiCSharpFieldStyleManageException(PiPiCSharpFieldStyleManageException.PiPiCSharpFieldStyleManageExceptionCode.MultilineNotSupported);
+
+                case 0:
+                default:
+                    throw new PiPiCSharpFieldStyleManageException(PiPiCSharpFieldStyleManageException.PiPiCSharpFieldStyleManageExceptionCode.Unknown);
             }
         }
 

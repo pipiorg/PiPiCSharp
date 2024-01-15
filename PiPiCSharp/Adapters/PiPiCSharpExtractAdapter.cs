@@ -6,6 +6,7 @@ namespace PiPiCSharp.Adapters
 {
     using System;
     using System.Collections.Generic;
+    using System.Drawing;
     using System.Runtime.InteropServices;
     using PiPiCSharp.Exceptions;
     using PiPiCSharp.Invokers;
@@ -58,21 +59,62 @@ namespace PiPiCSharp.Adapters
                 IntPtr cFontName = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldFontName(cField);
                 string fontName = Marshal.PtrToStringUTF8(cFontName);
 
-                float fontSize = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldFontSize(cField);
+                IntPtr cDefaultValue = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldDefaultValue(cField);
+                string defaultValue = Marshal.PtrToStringUTF8(cDefaultValue);
 
                 uint uPageIndex = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldPageIndex(cField);
                 int pageIndex = Convert.ToInt32(uPageIndex);
 
                 uint cType = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldType(cField);
+                PiPiCSharpFieldType type = PiPiCSharpConstants.FieldTypeInvertMap[cType];
+
+                uint cTextHorizontalAlignment = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldTextHorizontalAlignment(cField);
+                PiPiCSharpTextHorizontalAlignment textHorizontalAlignment = PiPiCSharpConstants.TextHorizontalAlignmentInvertMap[cTextHorizontalAlignment];
+
+                float fontSize = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldFontSize(cField);
 
                 double width = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldWidth(cField);
                 double height = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldHeight(cField);
                 double x = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldX(cField);
                 double y = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldY(cField);
 
-                PiPiCSharpFieldType type = PiPiCSharpConstants.FieldTypeInvertMap[cType];
+                bool multiline = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldMultiline(cField);
 
-                PiPiCSharpField field = new PiPiCSharpField(name, type, pageIndex, x, y, width, height, fontName, fontSize);
+                float colorRed = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldColorRed(cField);
+                float colorGreen = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldColorGreen(cField);
+                float colorBlue = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldColorBlue(cField);
+
+                Color color = Color.FromArgb((int)(colorRed * 255), (int)(colorGreen * 255), (int)(colorBlue * 255));
+
+                float backgroundColorRed = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBackgroundColorRed(cField);
+                float backgroundColorGreen = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBackgroundColorGreen(cField);
+                float backgroundColorBlue = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBackgroundColorBlue(cField);
+
+                Color backgroundColor = Color.FromArgb((int)(backgroundColorRed * 255), (int)(backgroundColorGreen * 255), (int)(backgroundColorBlue * 255));
+
+                float borderColorRed = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBorderdColorRed(cField);
+                float borderColorGreen = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBorderdColorGreen(cField);
+                float borderColorBlue = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldBorderdColorBlue(cField);
+
+                Color borderColor = Color.FromArgb((int)(borderColorRed * 255), (int)(borderColorGreen * 255), (int)(borderColorBlue * 255));
+
+                PiPiCSharpField field = new PiPiCSharpField(
+                    name,
+                    type,
+                    pageIndex,
+                    x,
+                    y,
+                    width,
+                    height,
+                    defaultValue,
+                    textHorizontalAlignment,
+                    multiline,
+                    fontName,
+                    fontSize,
+                    color,
+                    backgroundColor,
+                    borderColor);
+
                 fields.Add(field);
 
                 PiPiCSharpExtractInvoker.InvokeDeletePiPiExtractorExtractedField(cField);

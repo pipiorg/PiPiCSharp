@@ -37,17 +37,8 @@ T handleException(int* code, int* exCode, int* exSubCode, std::function<T()> fun
     case PiPi::PiPiEditFieldException::InOperable:
       *exSubCode = PiPiCSharpEditFieldExceptionSubCodeInOperable;
       break;
-    case PiPi::PiPiEditFieldException::InvalidColor:
-      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeInvalidColor;
-      break;
-    case PiPi::PiPiEditFieldException::MultilineNotSupported:
-      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeMultilineNotSupported;
-      break;
     case PiPi::PiPiEditFieldException::NotImplementate:
       *exSubCode = PiPiCSharpEditFieldExceptionSubCodeNotImplementate;
-      break;
-    case PiPi::PiPiEditFieldException::NotRegisterFont:
-      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeNotRegisterFont;
       break;
     default:
       *exSubCode = PiPiCSharpEditFieldExceptionSubCodeUnknown;
@@ -165,6 +156,24 @@ T handleException(int* code, int* exCode, int* exSubCode, std::function<T()> fun
       break;
     case PiPi::PiPiPageException::InvalidSplitInstruction:
       *exSubCode = PiPiCSharpPageExceptionSubCodeInvalidSplitInstruction;
+      break;
+    }
+
+    return T();
+  }
+  catch (PiPi::PiPiFieldStyleManageException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpFieldStyleManageExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiFieldStyleManageException::NotRegisterFont:
+      *exSubCode = PiPiCSharpFieldStyleManageExceptionSubCodeNotRegisterFont;
+      break;
+    case PiPi::PiPiFieldStyleManageException::InvalidColor:
+      *exSubCode = PiPiCSharpFieldStyleManageExceptionSubCodeInvalidColor;
+      break;
+    case PiPi::PiPiFieldStyleManageException::MultilineNotSupported:
+      *exSubCode = PiPiCSharpFieldStyleManageExceptionSubCodeMultilineNotSupported;
       break;
     }
 
@@ -210,17 +219,8 @@ void handleVoidException(int* code, int* exCode, int* exSubCode, std::function<v
     case PiPi::PiPiEditFieldException::InOperable:
       *exSubCode = PiPiCSharpEditFieldExceptionSubCodeInOperable;
       break;
-    case PiPi::PiPiEditFieldException::InvalidColor:
-      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeInvalidColor;
-      break;
-    case PiPi::PiPiEditFieldException::MultilineNotSupported:
-      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeMultilineNotSupported;
-      break;
     case PiPi::PiPiEditFieldException::NotImplementate:
       *exSubCode = PiPiCSharpEditFieldExceptionSubCodeNotImplementate;
-      break;
-    case PiPi::PiPiEditFieldException::NotRegisterFont:
-      *exSubCode = PiPiCSharpEditFieldExceptionSubCodeNotRegisterFont;
       break;
     default:
       *exSubCode = PiPiCSharpEditFieldExceptionSubCodeUnknown;
@@ -324,6 +324,22 @@ void handleVoidException(int* code, int* exCode, int* exSubCode, std::function<v
       break;
     case PiPi::PiPiPageException::InvalidSplitInstruction:
       *exSubCode = PiPiCSharpPageExceptionSubCodeInvalidSplitInstruction;
+      break;
+    }
+  }
+  catch (PiPi::PiPiFieldStyleManageException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpFieldStyleManageExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiFieldStyleManageException::NotRegisterFont:
+      *exSubCode = PiPiCSharpFieldStyleManageExceptionSubCodeNotRegisterFont;
+      break;
+    case PiPi::PiPiFieldStyleManageException::InvalidColor:
+      *exSubCode = PiPiCSharpFieldStyleManageExceptionSubCodeInvalidColor;
+      break;
+    case PiPi::PiPiFieldStyleManageException::MultilineNotSupported:
+      *exSubCode = PiPiCSharpFieldStyleManageExceptionSubCodeMultilineNotSupported;
       break;
     }
   }

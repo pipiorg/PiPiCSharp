@@ -36,9 +36,6 @@ static const unsigned int PiPiCSharpEditFieldExceptionCode = 2;
 static const unsigned int PiPiCSharpEditFieldExceptionSubCodeUnknown = 0;
 static const unsigned int PiPiCSharpEditFieldExceptionSubCodeInOperable = 1;
 static const unsigned int PiPiCSharpEditFieldExceptionSubCodeNotImplementate = 2;
-static const unsigned int PiPiCSharpEditFieldExceptionSubCodeMultilineNotSupported = 3;
-static const unsigned int PiPiCSharpEditFieldExceptionSubCodeNotRegisterFont = 4;
-static const unsigned int PiPiCSharpEditFieldExceptionSubCodeInvalidColor = 5;
 
 static const unsigned int PiPiCSharpExtractExceptionCode = 3;
 static const unsigned int PiPiCSharpExtractExceptionSubCodeUnknown = 0;
@@ -77,6 +74,12 @@ static const unsigned int PiPiCSharpPageExceptionSubCodeUnknown = 0;
 static const unsigned int PiPiCSharpPageExceptionSubCodeInOperable = 1;
 static const unsigned int PiPiCSharpPageExceptionSubCodeInvalidSplitInstruction = 2;
 static const unsigned int PiPiCSharpPageExceptionSubCodeIndexOutOfRange = 3;
+
+static const unsigned int PiPiCSharpFieldStyleManageExceptionCode = 10;
+static const unsigned int PiPiCSharpFieldStyleManageExceptionSubCodeUnknown = 0;
+static const unsigned int PiPiCSharpFieldStyleManageExceptionSubCodeNotRegisterFont = 1;
+static const unsigned int PiPiCSharpFieldStyleManageExceptionSubCodeInvalidColor = 2;
+static const unsigned int PiPiCSharpFieldStyleManageExceptionSubCodeMultilineNotSupported = 3;
 
 template<typename T>
 T handleException(int* code, int* exCode, int* exSubCode, std::function<T()> func);

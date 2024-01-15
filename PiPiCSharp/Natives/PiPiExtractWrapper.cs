@@ -119,6 +119,138 @@ namespace PiPiCSharp.Natives
         internal static extern IntPtr PiPiExtractorGetExtractedField(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedFields, uint index);
 
         /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field background color blue.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field background color blue.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldBackgroundColorBlue")]
+        internal static extern float PiPiExtractorGetExtractedFieldBackgroundColorBlue(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field background color green.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field background color green.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldBackgroundColorGreen")]
+        internal static extern float PiPiExtractorGetExtractedFieldBackgroundColorGreen(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field background color red.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field background color red.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldBackgroundColorRed")]
+        internal static extern float PiPiExtractorGetExtractedFieldBackgroundColorRed(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field background exists.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field background exists.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldBackgroundExists")]
+        internal static extern bool PiPiExtractorGetExtractedFieldBackgroundExists(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field border color blue.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field border color blue.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldBorderColorBlue")]
+        internal static extern float PiPiExtractorGetExtractedFieldBorderColorBlue(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field border color green.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field border color green.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldBorderColorGreen")]
+        internal static extern float PiPiExtractorGetExtractedFieldBorderColorGreen(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field border color red.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field border color red.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldBorderColorRed")]
+        internal static extern float PiPiExtractorGetExtractedFieldBorderColorRed(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field border exists.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field border exists.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldBorderExists")]
+        internal static extern double PiPiExtractorGetExtractedFieldBorderExists(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field color blue.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field color blue.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldColorBlue")]
+        internal static extern float PiPiExtractorGetExtractedFieldColorBlue(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field color green.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field color green.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldColorGreen")]
+        internal static extern float PiPiExtractorGetExtractedFieldColorGreen(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field color red.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field color red.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldColorRed")]
+        internal static extern float PiPiExtractorGetExtractedFieldColorRed(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field default value.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field default value.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldDefaultValue")]
+        internal static extern IntPtr PiPiExtractorGetExtractedFieldDefaultValue(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
         /// Invoke c++ PiPiExtractor get extracted field font name.
         /// </summary>
         /// <param name="code">Return code.</param>
@@ -152,6 +284,17 @@ namespace PiPiCSharp.Natives
         internal static extern double PiPiExtractorGetExtractedFieldHeight(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
 
         /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field multiline.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field multiline.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldMultiline")]
+        internal static extern bool PiPiExtractorGetExtractedFieldMultiline(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
         /// Invoke c++ PiPiExtractor get extracted field name.
         /// </summary>
         /// <param name="code">Return code.</param>
@@ -172,6 +315,17 @@ namespace PiPiCSharp.Natives
         /// <returns>The extracted field page index.</returns>
         [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldPageIndex")]
         internal static extern uint PiPiExtractorGetExtractedFieldPageIndex(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor get extracted field text horizontal alignment.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cExtractedField">Extracted field pointer.</param>
+        /// <returns>The extracted field text horizontal alignment.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiExtractorGetExtractedFieldTextHorizontalAlignment")]
+        internal static extern uint PiPiExtractorGetExtractedFieldTextHorizontalAlignment(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
 
         /// <summary>
         /// Invoke c++ PiPiExtractor get extracted field type.

@@ -23,6 +23,8 @@ T handleException(int* code, int* exCode, int* exSubCode, std::function<T()> fun
     default:
       *exSubCode = PiPiCSharpManageFlattenExceptionSubCodeUnknown;
     }
+
+    return T();
   }
   catch (PiPi::PiPiManageAppearanceException& e) {
     *code = 0;
@@ -35,6 +37,8 @@ T handleException(int* code, int* exCode, int* exSubCode, std::function<T()> fun
     default:
       *exSubCode = PiPiCSharpManageAppearanceExceptionSubCodeUnknown;
     }
+
+    return T();
   }
   catch (PiPi::PiPiEditFieldException& e) {
     *code = 0;

@@ -25,7 +25,7 @@ namespace PiPiCSharp
         /// <summary>
         /// The pipi dll name define.
         /// </summary>
-        internal const string DllName = "PiPiCSharpWrapper.dll";
+        internal const string DllName = "PiPiCSharpWrapper";
 
         /// <summary>
         /// The field type map.

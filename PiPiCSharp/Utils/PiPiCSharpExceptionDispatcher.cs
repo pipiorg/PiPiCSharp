@@ -27,7 +27,7 @@ namespace PiPiCSharp.Utils
             switch (exCode)
             {
                 case 1:
-                    DispatchAppearanceException(exSubCode);
+                    DispatchManageAppearanceException(exSubCode);
                     break;
 
                 case 2:
@@ -66,24 +66,12 @@ namespace PiPiCSharp.Utils
                     DispatchFieldStyleManageException(exSubCode);
                     break;
 
+                case 11:
+                    DispatchManageFlattenException(exSubCode);
+                    break;
+
                 default:
                     throw new PiPiCSharpUnknownException("Unknown exception code exception");
-            }
-        }
-
-        private static void DispatchAppearanceException(int exSubCode)
-        {
-            switch (exSubCode)
-            {
-                case 1:
-                    throw new PiPiCSharpAppearanceException(PiPiCSharpAppearanceException.PiPiCSharpAppearanceExceptionCode.CreateFormObjectFromAppearanceFail);
-
-                case 2:
-                    throw new PiPiCSharpAppearanceException(PiPiCSharpAppearanceException.PiPiCSharpAppearanceExceptionCode.UnsupportedFieldType);
-
-                case 0:
-                default:
-                    throw new PiPiCSharpAppearanceException(PiPiCSharpAppearanceException.PiPiCSharpAppearanceExceptionCode.Unknown);
             }
         }
 
@@ -177,6 +165,19 @@ namespace PiPiCSharp.Utils
             }
         }
 
+        private static void DispatchManageAppearanceException(int exSubCode)
+        {
+            switch (exSubCode)
+            {
+                case 1:
+                    throw new PiPiCSharpManageAppearanceException(PiPiCSharpManageAppearanceException.PiPiCSharpManageAppearanceExceptionCode.UnsupportedFieldType);
+
+                case 0:
+                default:
+                    throw new PiPiCSharpManageAppearanceException(PiPiCSharpManageAppearanceException.PiPiCSharpManageAppearanceExceptionCode.Unknown);
+            }
+        }
+
         private static void DispatchManageFieldException(int exSubCode)
         {
             switch (exSubCode)
@@ -208,6 +209,19 @@ namespace PiPiCSharp.Utils
                 case 0:
                 default:
                     throw new PiPiCSharpManageFieldException(PiPiCSharpManageFieldException.PiPiCSharpManageExceptionCode.Unknown);
+            }
+        }
+
+        private static void DispatchManageFlattenException(int exSubCode)
+        {
+            switch (exSubCode)
+            {
+                case 1:
+                    throw new PiPiCSharpManageFlattenException(PiPiCSharpManageFlattenException.PiPiCSharpManageFlattenExceptionCode.CreateFormObjectFromAppearanceFail);
+
+                case 0:
+                default:
+                    throw new PiPiCSharpManageFlattenException(PiPiCSharpManageFlattenException.PiPiCSharpManageFlattenExceptionCode.Unknown);
             }
         }
 

@@ -12,22 +12,29 @@ T handleException(int* code, int* exCode, int* exSubCode, std::function<T()> fun
 
     return res;
   }
-  catch (PiPi::PiPiAppearanceException& e) {
+  catch (PiPi::PiPiManageFlattenException& e) {
     *code = 0;
-    *exCode = PiPiCSharpAppearanceExceptionCode;
+    *exCode = PiPiCSharpManageFlattenExceptionCode;
 
     switch (e.getCode()) {
-    case PiPi::PiPiAppearanceException::CreateFormObjectFromAppearanceFail:
-      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeCreateFormObjectFromAppearanceFail;
-      break;
-    case PiPi::PiPiAppearanceException::UnsupportedFieldType:
-      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeUnsupportedFieldType;
+    case PiPi::PiPiManageFlattenException::CreateFormObjectFromAppearanceFail:
+      *exSubCode = PiPiCSharpManageFlattenExceptionSubCodeCreateFormObjectFromAppearanceFail;
       break;
     default:
-      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeUnknown;
+      *exSubCode = PiPiCSharpManageFlattenExceptionSubCodeUnknown;
     }
+  }
+  catch (PiPi::PiPiManageAppearanceException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpManageAppearanceExceptionCode;
 
-    return T();
+    switch (e.getCode()) {
+    case PiPi::PiPiManageAppearanceException::UnsupportedFieldType:
+      *exSubCode = PiPiCSharpManageAppearanceExceptionSubCodeUnsupportedFieldType;
+      break;
+    default:
+      *exSubCode = PiPiCSharpManageAppearanceExceptionSubCodeUnknown;
+    }
   }
   catch (PiPi::PiPiEditFieldException& e) {
     *code = 0;
@@ -196,19 +203,28 @@ void handleVoidException(int* code, int* exCode, int* exSubCode, std::function<v
     *exCode = -1;
     *exSubCode = -1;
   }
-  catch (PiPi::PiPiAppearanceException& e) {
+  catch (PiPi::PiPiManageFlattenException& e) {
     *code = 0;
-    *exCode = PiPiCSharpAppearanceExceptionCode;
+    *exCode = PiPiCSharpManageFlattenExceptionCode;
 
     switch (e.getCode()) {
-    case PiPi::PiPiAppearanceException::CreateFormObjectFromAppearanceFail:
-      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeCreateFormObjectFromAppearanceFail;
-      break;
-    case PiPi::PiPiAppearanceException::UnsupportedFieldType:
-      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeUnsupportedFieldType;
+    case PiPi::PiPiManageFlattenException::CreateFormObjectFromAppearanceFail:
+      *exSubCode = PiPiCSharpManageFlattenExceptionSubCodeCreateFormObjectFromAppearanceFail;
       break;
     default:
-      *exSubCode = PiPiCSharpAppearanceExceptionSubCodeUnknown;
+      *exSubCode = PiPiCSharpManageFlattenExceptionSubCodeUnknown;
+    }
+  }
+  catch (PiPi::PiPiManageAppearanceException& e) {
+    *code = 0;
+    *exCode = PiPiCSharpManageAppearanceExceptionCode;
+
+    switch (e.getCode()) {
+    case PiPi::PiPiManageAppearanceException::UnsupportedFieldType:
+      *exSubCode = PiPiCSharpManageAppearanceExceptionSubCodeUnsupportedFieldType;
+      break;
+    default:
+      *exSubCode = PiPiCSharpManageAppearanceExceptionSubCodeUnknown;
     }
   }
   catch (PiPi::PiPiEditFieldException& e) {

@@ -27,10 +27,9 @@ static const std::map<PiPi::PiPiTextHorizontalAlignment, unsigned int> InvertTex
   { PiPi::PiPiTextHorizontalAlignment::Right, 2 },
 };
 
-static const unsigned int PiPiCSharpAppearanceExceptionCode = 1;
-static const unsigned int PiPiCSharpAppearanceExceptionSubCodeUnknown = 0;
-static const unsigned int PiPiCSharpAppearanceExceptionSubCodeCreateFormObjectFromAppearanceFail = 1;
-static const unsigned int PiPiCSharpAppearanceExceptionSubCodeUnsupportedFieldType = 2;
+static const unsigned int PiPiCSharpManageAppearanceExceptionCode = 1;
+static const unsigned int PiPiCSharpManageAppearanceExceptionSubCodeUnknown = 0;
+static const unsigned int PiPiCSharpManageAppearanceExceptionSubCodeUnsupportedFieldType = 1;
 
 static const unsigned int PiPiCSharpEditFieldExceptionCode = 2;
 static const unsigned int PiPiCSharpEditFieldExceptionSubCodeUnknown = 0;
@@ -80,6 +79,10 @@ static const unsigned int PiPiCSharpFieldStyleManageExceptionSubCodeUnknown = 0;
 static const unsigned int PiPiCSharpFieldStyleManageExceptionSubCodeNotRegisterFont = 1;
 static const unsigned int PiPiCSharpFieldStyleManageExceptionSubCodeInvalidColor = 2;
 static const unsigned int PiPiCSharpFieldStyleManageExceptionSubCodeMultilineNotSupported = 3;
+
+static const unsigned int PiPiCSharpManageFlattenExceptionCode = 11;
+static const unsigned int PiPiCSharpManageFlattenExceptionSubCodeUnknown = 0;
+static const unsigned int PiPiCSharpManageFlattenExceptionSubCodeCreateFormObjectFromAppearanceFail = 1;
 
 template<typename T>
 T handleException(int* code, int* exCode, int* exSubCode, std::function<T()> func);

@@ -35,7 +35,7 @@ namespace PiPiCSharp
         /// <param name="width">The added field width.</param>
         /// <param name="height">The added field height.</param>
         /// <returns>The current PDF edit instance.</returns>
-        public PiPiCSharpEditor AddField(string fieldName, PiPiCSharpFieldType type, ushort pageIndex, double x, double y, double width, double height)
+        public PiPiCSharpEditor AddField(string fieldName, PiPiCSharpFieldType type, int pageIndex, double x, double y, double width, double height)
         {
             this.adapter.AddField(fieldName, type, pageIndex, x, y, width, height);
             return this;

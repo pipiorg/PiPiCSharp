@@ -44,10 +44,18 @@ namespace PiPiCSharp.Adapters
         /// <param name="height">The added field height.</param>
         /// <exception cref="PiPiCSharpEditFieldException">Edit exception.</exception>
         /// <returns>The current PDF edit adatper instance.</returns>
-        internal PiPiCSharpEditAdapter AddField(string fieldName, PiPiCSharpFieldType type, uint pageIndex, double x, double y, double width, double height)
+        internal PiPiCSharpEditAdapter AddField(string fieldName, PiPiCSharpFieldType type, int pageIndex, double x, double y, double width, double height)
         {
+            if (pageIndex < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            uint uPageIndex = Convert.ToUInt32(pageIndex);
             uint cType = PiPiCSharpConstants.FieldTypeMap[type];
-            PiPiCSharpEditInvoker.InvokePiPiEditorAddField(this.cEditor, fieldName, cType, pageIndex, x, y, width, height);
+
+            PiPiCSharpEditInvoker.InvokePiPiEditorAddField(this.cEditor, fieldName, cType, uPageIndex, x, y, width, height);
+
             return this;
         }
 

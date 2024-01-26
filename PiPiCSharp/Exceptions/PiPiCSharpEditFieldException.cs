@@ -64,8 +64,8 @@ namespace PiPiCSharp.Exceptions
         }
 
         /// <summary>
-        /// Gets or sets the edit PDF field exception code.
+        /// Gets the edit PDF field exception code.
         /// </summary>
-        public PiPiCSharpEditFieldExceptionCode Code { get; set; }
+        public PiPiCSharpEditFieldExceptionCode Code { get; private set; }
     }
 }

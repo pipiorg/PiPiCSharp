@@ -243,17 +243,20 @@ namespace PiPiCSharp.Utils
             switch (exSubCode)
             {
                 case 1:
-                    throw new PiPiCSharpPageException(PiPiCSharpPageException.PiPiCSharpEditExceptionCode.InOperable);
+                    throw new PiPiCSharpPageException(PiPiCSharpPageException.PiPiCSharpPageExceptionCode.InOperable);
 
                 case 2:
-                    throw new PiPiCSharpPageException(PiPiCSharpPageException.PiPiCSharpEditExceptionCode.InvalidSplitInstruction);
+                    throw new PiPiCSharpPageException(PiPiCSharpPageException.PiPiCSharpPageExceptionCode.InvalidSplitInstruction);
 
                 case 3:
-                    throw new PiPiCSharpPageException(PiPiCSharpPageException.PiPiCSharpEditExceptionCode.IndexOutOfRange);
+                    throw new PiPiCSharpPageException(PiPiCSharpPageException.PiPiCSharpPageExceptionCode.IndexOutOfRange);
+
+                case 4:
+                    throw new PiPiCSharpPageException(PiPiCSharpPageException.PiPiCSharpPageExceptionCode.MergeFieldConflict);
 
                 case 0:
                 default:
-                    throw new PiPiCSharpPageException(PiPiCSharpPageException.PiPiCSharpEditExceptionCode.Unknown);
+                    throw new PiPiCSharpPageException(PiPiCSharpPageException.PiPiCSharpPageExceptionCode.Unknown);
             }
         }
     }

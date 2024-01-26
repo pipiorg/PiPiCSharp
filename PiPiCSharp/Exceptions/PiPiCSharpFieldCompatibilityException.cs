@@ -59,8 +59,8 @@ namespace PiPiCSharp.Exceptions
         }
 
         /// <summary>
-        /// Gets or sets the patch field compatibility exception code.
+        /// Gets the patch field compatibility exception code.
         /// </summary>
-        public PiPiCSharpFieldCompatibilityExceptionCode Code { get; set; }
+        public PiPiCSharpFieldCompatibilityExceptionCode Code { get; private set; }
     }
 }

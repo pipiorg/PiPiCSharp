@@ -59,8 +59,8 @@ namespace PiPiCSharp.Exceptions
         }
 
         /// <summary>
-        /// Gets or sets the font manage PDF exception code.
+        /// Gets the font manage PDF exception code.
         /// </summary>
-        public PiPiCSharpFontManageExceptionCode Code { get; set; }
+        public PiPiCSharpFontManageExceptionCode Code { get; private set; }
     }
 }

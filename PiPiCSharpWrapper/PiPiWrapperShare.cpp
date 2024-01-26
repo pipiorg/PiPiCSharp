@@ -168,6 +168,9 @@ T handleException(int* code, int* exCode, int* exSubCode, std::function<T()> fun
     case PiPi::PiPiPageException::InvalidSplitInstruction:
       *exSubCode = PiPiCSharpPageExceptionSubCodeInvalidSplitInstruction;
       break;
+    case PiPi::PiPiPageException::MergeFieldConflict:
+      *exSubCode = PiPiCSharpPageExceptionSubCodeMergeFieldConflict;
+      break;
     }
 
     return T();
@@ -344,6 +347,9 @@ void handleVoidException(int* code, int* exCode, int* exSubCode, std::function<v
       break;
     case PiPi::PiPiPageException::InvalidSplitInstruction:
       *exSubCode = PiPiCSharpPageExceptionSubCodeInvalidSplitInstruction;
+      break;
+    case PiPi::PiPiPageException::MergeFieldConflict:
+      *exSubCode = PiPiCSharpPageExceptionSubCodeMergeFieldConflict;
       break;
     }
   }

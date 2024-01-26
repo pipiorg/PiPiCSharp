@@ -101,8 +101,8 @@ namespace PiPiCSharp.Exceptions
         }
 
         /// <summary>
-        /// Gets or sets the manage PDF field exception code.
+        /// Gets the manage PDF field exception code.
         /// </summary>
-        public PiPiCSharpManageExceptionCode Code { get; set; }
+        public PiPiCSharpManageExceptionCode Code { get; private set; }
     }
 }

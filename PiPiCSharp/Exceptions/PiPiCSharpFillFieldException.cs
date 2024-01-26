@@ -65,8 +65,8 @@ namespace PiPiCSharp.Exceptions
         }
 
         /// <summary>
-        /// Gets or sets the fill PDF field exception code.
+        /// Gets the fill PDF field exception code.
         /// </summary>
-        public PiPiCSharpFillFieldExceptionCode Code { get; set; }
+        public PiPiCSharpFillFieldExceptionCode Code { get; private set; }
     }
 }

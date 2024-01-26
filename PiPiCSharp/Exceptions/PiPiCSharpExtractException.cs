@@ -59,8 +59,8 @@ namespace PiPiCSharp.Exceptions
         }
 
         /// <summary>
-        /// Gets or sets the extract PDF exception code.
+        /// Gets the extract PDF exception code.
         /// </summary>
-        public PiPiCSharpExtractExceptionCode Code { get; set; }
+        public PiPiCSharpExtractExceptionCode Code { get; private set; }
     }
 }

@@ -53,8 +53,8 @@ namespace PiPiCSharp.Exceptions
         }
 
         /// <summary>
-        /// Gets or sets the operate PDF exception code.
+        /// Gets the operate PDF exception code.
         /// </summary>
-        public PiPiCSharpOperateExceptionCode Code { get; set; }
+        public PiPiCSharpOperateExceptionCode Code { get; private set; }
     }
 }

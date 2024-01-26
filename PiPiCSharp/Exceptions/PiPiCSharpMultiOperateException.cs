@@ -59,8 +59,8 @@ namespace PiPiCSharp.Exceptions
         }
 
         /// <summary>
-        /// Gets or sets the multi operate PDF exception code.
+        /// Gets the multi operate PDF exception code.
         /// </summary>
-        public PiPiCSharpEditExceptionCode Code { get; set; }
+        public PiPiCSharpEditExceptionCode Code { get; private set; }
     }
 }

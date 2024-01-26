@@ -59,8 +59,8 @@ namespace PiPiCSharp.Exceptions
         }
 
         /// <summary>
-        /// Gets or sets the generate PDF appearance exception code.
+        /// Gets the generate PDF appearance exception code.
         /// </summary>
-        public PiPiCSharpManageAppearanceExceptionCode Code { get; set; }
+        public PiPiCSharpManageAppearanceExceptionCode Code { get; private set; }
     }
 }

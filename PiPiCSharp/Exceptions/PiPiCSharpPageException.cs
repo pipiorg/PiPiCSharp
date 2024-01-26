@@ -15,19 +15,20 @@ namespace PiPiCSharp.Exceptions
         /// <summary>
         /// The page PDF exception code map.
         /// </summary>
-        public static readonly Dictionary<PiPiCSharpEditExceptionCode, string> PiPiCSharpEditExceptionCodeMap = new Dictionary<PiPiCSharpEditExceptionCode, string>()
+        public static readonly Dictionary<PiPiCSharpPageExceptionCode, string> PiPiCSharpEditExceptionCodeMap = new Dictionary<PiPiCSharpPageExceptionCode, string>()
         {
-            { PiPiCSharpEditExceptionCode.InOperable, "In operable" },
-            { PiPiCSharpEditExceptionCode.InvalidSplitInstruction, "Invalid split instruction" },
-            { PiPiCSharpEditExceptionCode.IndexOutOfRange, "Index out of range" },
-            { PiPiCSharpEditExceptionCode.Unknown, "Unknown error" },
+            { PiPiCSharpPageExceptionCode.InOperable, "In operable" },
+            { PiPiCSharpPageExceptionCode.InvalidSplitInstruction, "Invalid split instruction" },
+            { PiPiCSharpPageExceptionCode.IndexOutOfRange, "Index out of range" },
+            { PiPiCSharpPageExceptionCode.MergeFieldConflict, "Merge field conflict" },
+            { PiPiCSharpPageExceptionCode.Unknown, "Unknown error" },
         };
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PiPiCSharpPageException"/> class.
         /// </summary>
         /// <param name="code">The page PDF exception code.</param>
-        public PiPiCSharpPageException(PiPiCSharpEditExceptionCode code)
+        public PiPiCSharpPageException(PiPiCSharpPageExceptionCode code)
             : base(PiPiCSharpEditExceptionCodeMap[code])
         {
             this.Code = code;
@@ -38,7 +39,7 @@ namespace PiPiCSharp.Exceptions
         /// </summary>
         /// <param name="code">The page PDF exception code.</param>
         /// <param name="innerException">The inner exception.</param>
-        public PiPiCSharpPageException(PiPiCSharpEditExceptionCode code, Exception innerException)
+        public PiPiCSharpPageException(PiPiCSharpPageExceptionCode code, Exception innerException)
             : base(PiPiCSharpEditExceptionCodeMap[code], innerException)
         {
             this.Code = code;
@@ -47,7 +48,7 @@ namespace PiPiCSharp.Exceptions
         /// <summary>
         /// The page PDF exception code.
         /// </summary>
-        public enum PiPiCSharpEditExceptionCode
+        public enum PiPiCSharpPageExceptionCode
         {
             /// <summary>
             /// In operable.
@@ -65,14 +66,19 @@ namespace PiPiCSharp.Exceptions
             IndexOutOfRange = 3,
 
             /// <summary>
+            /// Merge field conflict
+            /// </summary>
+            MergeFieldConflict = 4,
+
+            /// <summary>
             /// Unknown.
             /// </summary>
             Unknown = 0,
         }
 
         /// <summary>
-        /// Gets or sets the page PDF exception code.
+        /// Gets the page PDF exception code.
         /// </summary>
-        public PiPiCSharpEditExceptionCode Code { get; set; }
+        public PiPiCSharpPageExceptionCode Code { get; private set; }
     }
 }

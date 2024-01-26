@@ -73,6 +73,7 @@ static const unsigned int PiPiCSharpPageExceptionSubCodeUnknown = 0;
 static const unsigned int PiPiCSharpPageExceptionSubCodeInOperable = 1;
 static const unsigned int PiPiCSharpPageExceptionSubCodeInvalidSplitInstruction = 2;
 static const unsigned int PiPiCSharpPageExceptionSubCodeIndexOutOfRange = 3;
+static const unsigned int PiPiCSharpPageExceptionSubCodeMergeFieldConflict = 4;
 
 static const unsigned int PiPiCSharpFieldStyleManageExceptionCode = 10;
 static const unsigned int PiPiCSharpFieldStyleManageExceptionSubCodeUnknown = 0;

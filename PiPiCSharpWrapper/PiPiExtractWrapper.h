@@ -23,6 +23,10 @@ extern "C" {
   PIPI_CSHARP_WRAPPER_API unsigned int CALLING_CONVENTION PiPiExtractorExtractedFieldsSize(int* code, int* exCode, int* exSubCode, std::vector<const PiPiField*>* extractedFields);
   PIPI_CSHARP_WRAPPER_API const PiPiField* CALLING_CONVENTION PiPiExtractorGetExtractedField(int* code, int* exCode, int* exSubCode, std::vector<const PiPiField*>* extractedFields, size_t index);
 
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiExtractorExtractedFieldName(int* code, int* exCode, int* exSubCode, char* name);
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiExtractorExtractedFieldDefaultValue(int* code, int* exCode, int* exSubCode, char* defaultValue);
+  PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiExtractorExtractedFieldFontName(int* code, int* exCode, int* exSubCode, char* fontName);
+
   PIPI_CSHARP_WRAPPER_API char* CALLING_CONVENTION PiPiExtractorGetExtractedFieldDefaultValue(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API char* CALLING_CONVENTION PiPiExtractorGetExtractedFieldName(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);
   PIPI_CSHARP_WRAPPER_API char* CALLING_CONVENTION PiPiExtractorGetExtractedFieldFontName(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField);

@@ -24,6 +24,16 @@ namespace PiPiCSharp.Invokers
         }
 
         /// <summary>
+        /// Invoke PiPiFontRegisterWrapper DeletePiPiFontRegisterFontName.
+        /// </summary>
+        /// <param name="cFontName">Registered font name.</param>
+        internal static void InvokeDeletePiPiFontRegisterFontName(IntPtr cFontName)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiFontRegisterWrapper.DeletePiPiFontRegisterFontName, cFontName);
+            PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
         /// Invoke PiPiFontRegisterWrapper PiPiFontRegisterIsOperable.
         /// </summary>
         /// <param name="cFontRegister">PiPiFontRegister instance pointer.</param>

@@ -150,6 +150,24 @@ PIPI_CSHARP_WRAPPER_API const PiPiField* CALLING_CONVENTION PiPiExtractorGetExtr
     });
 }
 
+PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiExtractorExtractedFieldName(int* code, int* exCode, int* exSubCode, char* name) {
+  handleVoidException(code, exCode, exSubCode, [&]() {
+    delete[] name;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiExtractorExtractedFieldDefaultValue(int* code, int* exCode, int* exSubCode, char* defaultValue) {
+  handleVoidException(code, exCode, exSubCode, [&]() {
+    delete[] defaultValue;
+    });
+}
+
+PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiExtractorExtractedFieldFontName(int* code, int* exCode, int* exSubCode, char* fontName) {
+  handleVoidException(code, exCode, exSubCode, [&]() {
+    delete[] fontName;
+    });
+}
+
 PIPI_CSHARP_WRAPPER_API char* CALLING_CONVENTION PiPiExtractorGetExtractedFieldDefaultValue(int* code, int* exCode, int* exSubCode, const PiPiField* extractedField) {
   return handleException<char*>(code, exCode, exSubCode, [&]() {
     const std::string defaultValue = extractedField->defaultValue;

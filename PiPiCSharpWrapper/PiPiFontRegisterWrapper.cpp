@@ -7,6 +7,12 @@ PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiFontRegister(int* code
     });
 }
 
+PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiFontRegisterFontName(int* code, int* exCode, int* exSubCode, char* fontName) {
+  handleVoidException(code, exCode, exSubCode, [&]() {
+    delete[] fontName;
+    });
+}
+
 PIPI_CSHARP_WRAPPER_API bool CALLING_CONVENTION PiPiFontRegisterIsOperable(int* code, int* exCode, int* exSubCode, PiPiFontRegister* fontRegister) {
   return handleException<bool>(code, exCode, exSubCode, [&]() {
     return fontRegister->IsOperable();

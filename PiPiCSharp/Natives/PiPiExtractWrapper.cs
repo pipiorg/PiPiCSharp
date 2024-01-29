@@ -33,6 +33,36 @@ namespace PiPiCSharp.Natives
         internal static extern void DeletePiPiExtractorExtractedField(ref int code, ref int exCode, ref int exSubCode, IntPtr cExtractedField);
 
         /// <summary>
+        /// Invoke c++ PiPiExtractor release extracted field default value.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cDefaultValue">Extracted field default value pointer.</param>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiExtractorExtractedFieldDefaultValue")]
+        internal static extern void DeletePiPiExtractorExtractedFieldDefaultValue(ref int code, ref int exCode, ref int exSubCode, IntPtr cDefaultValue);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor release extracted field font name.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cFontName">Extracted field font name pointer.</param>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiExtractorExtractedFieldFontName")]
+        internal static extern void DeletePiPiExtractorExtractedFieldFontName(ref int code, ref int exCode, ref int exSubCode, IntPtr cFontName);
+
+        /// <summary>
+        /// Invoke c++ PiPiExtractor release extracted field name.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cName">Extracted field name pointer.</param>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiExtractorExtractedFieldName")]
+        internal static extern void DeletePiPiExtractorExtractedFieldName(ref int code, ref int exCode, ref int exSubCode, IntPtr cName);
+
+        /// <summary>
         /// Invoke c++ PiPiExtractor release extracted fields.
         /// </summary>
         /// <param name="code">Return code.</param>

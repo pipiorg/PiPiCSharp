@@ -53,6 +53,7 @@ namespace PiPiCSharp.Adapters
         {
             IntPtr cFontName = PiPiCSharpFontRegisterInvoker.InvokePiPiFontRegisterRegisterFont(this.cFontRegister, fontBytes, Convert.ToUInt32(fontBytes.Length));
             string fontName = Marshal.PtrToStringUTF8(cFontName);
+            PiPiCSharpFontRegisterInvoker.InvokeDeletePiPiFontRegisterFontName(cFontName);
             return fontName;
         }
 

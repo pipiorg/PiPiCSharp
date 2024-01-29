@@ -55,12 +55,15 @@ namespace PiPiCSharp.Adapters
 
                 IntPtr cName = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldName(cField);
                 string name = Marshal.PtrToStringUTF8(cName);
+                PiPiCSharpExtractInvoker.InvokeDeletePiPiExtractorExtractedFieldName(cName);
 
                 IntPtr cFontName = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldFontName(cField);
                 string fontName = Marshal.PtrToStringUTF8(cFontName);
+                PiPiCSharpExtractInvoker.InvokeDeletePiPiExtractorExtractedFieldFontName(cFontName);
 
                 IntPtr cDefaultValue = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldDefaultValue(cField);
                 string defaultValue = Marshal.PtrToStringUTF8(cDefaultValue);
+                PiPiCSharpExtractInvoker.InvokeDeletePiPiExtractorExtractedFieldDefaultValue(cDefaultValue);
 
                 uint uPageIndex = PiPiCSharpExtractInvoker.InvokePiPiExtractorGetExtractedFieldPageIndex(cField);
                 int pageIndex = Convert.ToInt32(uPageIndex);

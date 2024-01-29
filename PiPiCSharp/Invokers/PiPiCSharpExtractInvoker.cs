@@ -35,6 +35,36 @@ namespace PiPiCSharp.Invokers
         }
 
         /// <summary>
+        /// Invoke PiPiEditWrapper DeletePiPiExtractorExtractedFieldDefaultValue.
+        /// </summary>
+        /// <param name="cDefaultValue">Extracted field default value.</param>
+        internal static void InvokeDeletePiPiExtractorExtractedFieldDefaultValue(IntPtr cDefaultValue)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiExtractWrapper.DeletePiPiExtractorExtractedFieldDefaultValue, cDefaultValue);
+            PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper DeletePiPiExtractorExtractedFieldFontName.
+        /// </summary>
+        /// <param name="cFontName">Extracted field font name.</param>
+        internal static void InvokeDeletePiPiExtractorExtractedFieldFontName(IntPtr cFontName)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiExtractWrapper.DeletePiPiExtractorExtractedFieldFontName, cFontName);
+            PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
+        /// Invoke PiPiEditWrapper DeletePiPiExtractorExtractedFieldName.
+        /// </summary>
+        /// <param name="cName">Extracted field name.</param>
+        internal static void InvokeDeletePiPiExtractorExtractedFieldName(IntPtr cName)
+        {
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToVoidResult(PiPiExtractWrapper.DeletePiPiExtractorExtractedFieldName, cName);
+            PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
+        }
+
+        /// <summary>
         /// Invoke PiPiEditWrapper DeletePiPiExtractorExtractedFields.
         /// </summary>
         /// <param name="cExtractedFields">Extracted fields pointer.</param>

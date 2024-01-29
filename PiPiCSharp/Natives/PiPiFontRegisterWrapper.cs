@@ -23,6 +23,16 @@ namespace PiPiCSharp.Natives
         internal static extern void DeletePiPiFontRegister(ref int code, ref int exCode, ref int exSubCode, IntPtr cFontRegister);
 
         /// <summary>
+        /// Invoke c++ delete registered font name.
+        /// </summary>
+        /// <param name="code">Return code.</param>
+        /// <param name="exCode">Return ex code.</param>
+        /// <param name="exSubCode">Return ex sub code.</param>
+        /// <param name="cFontName">Registered font name.</param>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "DeletePiPiFontRegisterFontName")]
+        internal static extern void DeletePiPiFontRegisterFontName(ref int code, ref int exCode, ref int exSubCode, IntPtr cFontName);
+
+        /// <summary>
         /// Invoke c++ PiPiFontRegister IsOperable.
         /// </summary>
         /// <param name="code">Return code.</param>

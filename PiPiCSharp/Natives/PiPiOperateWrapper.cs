@@ -100,15 +100,15 @@ namespace PiPiCSharp.Natives
         internal static extern IntPtr PiPiOperatorGetPiPiExtractor(ref int code, ref int exCode, ref int exSubCode, IntPtr op);
 
         /// <summary>
-        /// Invoke c++ PiPiOperator GetFontManager.
+        /// Invoke c++ PiPiOperator GetFontRegister.
         /// </summary>
         /// <param name="code">Return code.</param>
         /// <param name="exCode">Return ex code.</param>
         /// <param name="exSubCode">Return ex sub code.</param>
         /// <param name="op">PiPiOperator instance pointer.</param>
-        /// <returns>PiPiFontManager instance pointer.</returns>
-        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorGetFontManager")]
-        internal static extern IntPtr PiPiOperatorGetPiPiFontManager(ref int code, ref int exCode, ref int exSubCode, IntPtr op);
+        /// <returns>PiPiFontRegister instance pointer.</returns>
+        [DllImport(PiPiCSharpConstants.DllName, CallingConvention = PiPiCSharpConstants.CC, CharSet = PiPiCSharpConstants.CS, EntryPoint = "PiPiOperatorGetFontRegister")]
+        internal static extern IntPtr PiPiOperatorGetPiPiFontRegister(ref int code, ref int exCode, ref int exSubCode, IntPtr op);
 
         /// <summary>
         /// Invoke c++ PiPiOperator Finalize size getter.

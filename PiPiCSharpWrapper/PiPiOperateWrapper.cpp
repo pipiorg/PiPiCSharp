@@ -34,10 +34,10 @@ PIPI_CSHARP_WRAPPER_API PiPiExtractor* CALLING_CONVENTION PiPiOperatorGetExtract
     });
 }
 
-PIPI_CSHARP_WRAPPER_API PiPiFontManager* CALLING_CONVENTION PiPiOperatorGetFontManager(int* code, int* exCode, int* exSubCode, PiPiOperator* op) {
-  return handleException<PiPiFontManager*>(code, exCode, exSubCode, [&]() {
-    PiPiFontManager* fontManager = op->GetFontManager();
-    return fontManager;
+PIPI_CSHARP_WRAPPER_API PiPiFontRegister* CALLING_CONVENTION PiPiOperatorGetFontRegister(int* code, int* exCode, int* exSubCode, PiPiOperator* op) {
+  return handleException<PiPiFontRegister*>(code, exCode, exSubCode, [&]() {
+    PiPiFontRegister* fontRegister = op->GetFontRegister();
+    return fontRegister;
     });
 }
 

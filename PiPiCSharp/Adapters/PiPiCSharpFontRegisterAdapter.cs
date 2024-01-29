@@ -1,4 +1,4 @@
-// <copyright file="PiPiCSharpFontManageAdapter.cs" company="PlaceholderCompany">
+// <copyright file="PiPiCSharpFontRegisterAdapter.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -10,20 +10,20 @@ namespace PiPiCSharp.Adapters
     using PiPiCSharp.Invokers;
 
     /// <summary>
-    /// PDF font manager adapter.
+    /// PDF font register adapter.
     /// </summary>
-    internal class PiPiCSharpFontManageAdapter : IDisposable
+    internal class PiPiCSharpFontRegisterAdapter : IDisposable
     {
-        private readonly IntPtr cFontManager;
+        private readonly IntPtr cFontRegister;
         private bool disposedValue;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PiPiCSharpFontManageAdapter"/> class.
+        /// Initializes a new instance of the <see cref="PiPiCSharpFontRegisterAdapter"/> class.
         /// </summary>
-        /// <param name="cFontManager">The PiPiFontManager instance pointer.</param>
-        internal PiPiCSharpFontManageAdapter(IntPtr cFontManager)
+        /// <param name="cFontRegister">The PiPiFontRegister instance pointer.</param>
+        internal PiPiCSharpFontRegisterAdapter(IntPtr cFontRegister)
         {
-            this.cFontManager = cFontManager;
+            this.cFontRegister = cFontRegister;
         }
 
         /// <inheritdoc/>
@@ -36,11 +36,11 @@ namespace PiPiCSharp.Adapters
         /// <summary>
         /// Get operable status.
         /// </summary>
-        /// <exception cref="PiPiCSharpFontManageException">Font manage exception.</exception>
+        /// <exception cref="PiPiCSharpFontRegisterException">Font manage exception.</exception>
         /// <returns>The operable status.</returns>
         internal bool IsOperable()
         {
-            return PiPiCSharpFontManageInvoker.InvokePiPiFontManagerIsOperable(this.cFontManager);
+            return PiPiCSharpFontRegisterInvoker.InvokePiPiFontRegisterIsOperable(this.cFontRegister);
         }
 
         /// <summary>
@@ -48,10 +48,10 @@ namespace PiPiCSharp.Adapters
         /// </summary>
         /// <param name="fontBytes">The font binary bytes.</param>
         /// <returns>The current font manage adapter instance.</returns>
-        /// <exception cref="PiPiCSharpFontManageException">Font manage exception.</exception>
+        /// <exception cref="PiPiCSharpFontRegisterException">Font manage exception.</exception>
         internal string RegisterFont(byte[] fontBytes)
         {
-            IntPtr cFontName = PiPiCSharpFontManageInvoker.InvokePiPiFontManagerRegisterFont(this.cFontManager, fontBytes, Convert.ToUInt32(fontBytes.Length));
+            IntPtr cFontName = PiPiCSharpFontRegisterInvoker.InvokePiPiFontRegisterRegisterFont(this.cFontRegister, fontBytes, Convert.ToUInt32(fontBytes.Length));
             string fontName = Marshal.PtrToStringUTF8(cFontName);
             return fontName;
         }
@@ -66,7 +66,7 @@ namespace PiPiCSharp.Adapters
             {
                 if (disposing)
                 {
-                    PiPiCSharpFontManageInvoker.InvokeDeletePiPiFontManager(this.cFontManager);
+                    PiPiCSharpFontRegisterInvoker.InvokeDeletePiPiFontRegister(this.cFontRegister);
                 }
 
                 this.disposedValue = true;

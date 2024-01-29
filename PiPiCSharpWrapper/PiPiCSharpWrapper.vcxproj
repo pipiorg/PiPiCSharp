@@ -164,7 +164,7 @@
     <ClInclude Include="PiPiEditWrapper.h" />
     <ClInclude Include="PiPiExtractWrapper.h" />
     <ClInclude Include="PiPiFillWrapper.h" />
-    <ClInclude Include="PiPiFontManageWrapper.h" />
+    <ClInclude Include="PiPiFontRegisterWrapper.h" />
     <ClInclude Include="PiPiPageWrapper.h" />
     <ClInclude Include="PiPiWrapperShare.h" />
   </ItemGroup>
@@ -179,7 +179,7 @@
     <ClCompile Include="PiPiEditWrapper.cpp" />
     <ClCompile Include="PiPiExtractWrapper.cpp" />
     <ClCompile Include="PiPiFillWrapper.cpp" />
-    <ClCompile Include="PiPiFontManageWrapper.cpp" />
+    <ClCompile Include="PiPiFontRegisterWrapper.cpp" />
     <ClCompile Include="PiPiMultiOperateWrapper.cpp" />
     <ClCompile Include="PiPiMultiOperateWrapper.h" />
     <ClCompile Include="PiPiOperateWrapper.cpp" />

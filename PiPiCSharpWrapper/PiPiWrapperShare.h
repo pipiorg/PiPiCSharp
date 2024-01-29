@@ -49,9 +49,9 @@ static const unsigned int PiPiCSharpFillFieldExceptionSubCodeUnknown = 0;
 static const unsigned int PiPiCSharpFillFieldExceptionSubCodeInOperable = 1;
 static const unsigned int PiPiCSharpFillFieldExceptionSubCodeUnsupportedPdfFieldType = 2;
 
-static const unsigned int PiPiCSharpFontManageExceptionCode = 6;
-static const unsigned int PiPiCSharpFontManageExceptionSubCodeUnknown = 0;
-static const unsigned int PiPiCSharpFontManageExceptionSubCodeInOperable = 1;
+static const unsigned int PiPiCSharpFontRegisterExceptionCode = 6;
+static const unsigned int PiPiCSharpFontRegisterExceptionSubCodeUnknown = 0;
+static const unsigned int PiPiCSharpFontRegisterExceptionSubCodeInOperable = 1;
 
 static const unsigned int PiPiCSharpManageFieldExceptionCode = 7;
 static const unsigned int PiPiCSharpManageFieldExceptionSubCodeUnknown = 0;

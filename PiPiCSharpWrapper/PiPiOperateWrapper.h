@@ -15,7 +15,7 @@ extern "C" {
   PIPI_CSHARP_WRAPPER_API PiPiEditor* CALLING_CONVENTION PiPiOperatorGetEditor(int* code, int* exCode, int* exSubCode, PiPiOperator* op);
   PIPI_CSHARP_WRAPPER_API PiPiFiller* CALLING_CONVENTION PiPiOperatorGetFiller(int* code, int* exCode, int* exSubCode, PiPiOperator* op);
   PIPI_CSHARP_WRAPPER_API PiPiExtractor* CALLING_CONVENTION PiPiOperatorGetExtractor(int* code, int* exCode, int* exSubCode, PiPiOperator* op);
-  PIPI_CSHARP_WRAPPER_API PiPiFontManager* CALLING_CONVENTION PiPiOperatorGetFontManager(int* code, int* exCode, int* exSubCode, PiPiOperator* op);
+  PIPI_CSHARP_WRAPPER_API PiPiFontRegister* CALLING_CONVENTION PiPiOperatorGetFontRegister(int* code, int* exCode, int* exSubCode, PiPiOperator* op);
 
   PIPI_CSHARP_WRAPPER_API vector<char>* CALLING_CONVENTION PiPiOperatorFinalize(int* code, int* exCode, int* exSubCode, PiPiOperator* op);
   PIPI_CSHARP_WRAPPER_API size_t CALLING_CONVENTION PiPiOperatorMeasureFinalize(int* code, int* exCode, int* exSubCode, vector<char>* out);

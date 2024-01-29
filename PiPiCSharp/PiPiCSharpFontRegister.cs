@@ -1,4 +1,4 @@
-// <copyright file="PiPiCSharpFontManager.cs" company="PlaceholderCompany">
+// <copyright file="PiPiCSharpFontRegister.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -10,16 +10,16 @@ namespace PiPiCSharp
     /// <summary>
     /// The PDF font manager.
     /// </summary>
-    public class PiPiCSharpFontManager : IDisposable
+    public class PiPiCSharpFontRegister : IDisposable
     {
-        private readonly PiPiCSharpFontManageAdapter adapter;
+        private readonly PiPiCSharpFontRegisterAdapter adapter;
         private bool disposedValue;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PiPiCSharpFontManager"/> class.
+        /// Initializes a new instance of the <see cref="PiPiCSharpFontRegister"/> class.
         /// </summary>
         /// <param name="adapter">The filler adapter.</param>
-        internal PiPiCSharpFontManager(PiPiCSharpFontManageAdapter adapter)
+        internal PiPiCSharpFontRegister(PiPiCSharpFontRegisterAdapter adapter)
         {
             this.adapter = adapter;
         }

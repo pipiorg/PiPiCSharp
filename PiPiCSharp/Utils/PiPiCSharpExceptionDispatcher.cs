@@ -47,7 +47,7 @@ namespace PiPiCSharp.Utils
                     break;
 
                 case 6:
-                    DispatchFontManageException(exSubCode);
+                    DispatchFontRegisterException(exSubCode);
                     break;
 
                 case 7:
@@ -152,16 +152,16 @@ namespace PiPiCSharp.Utils
             }
         }
 
-        private static void DispatchFontManageException(int exSubCode)
+        private static void DispatchFontRegisterException(int exSubCode)
         {
             switch (exSubCode)
             {
                 case 1:
-                    throw new PiPiCSharpFontManageException(PiPiCSharpFontManageException.PiPiCSharpFontManageExceptionCode.InOperable);
+                    throw new PiPiCSharpFontRegisterException(PiPiCSharpFontRegisterException.PiPiCSharpFontRegisterExceptionCode.InOperable);
 
                 case 0:
                 default:
-                    throw new PiPiCSharpFontManageException(PiPiCSharpFontManageException.PiPiCSharpFontManageExceptionCode.Unknown);
+                    throw new PiPiCSharpFontRegisterException(PiPiCSharpFontRegisterException.PiPiCSharpFontRegisterExceptionCode.Unknown);
             }
         }
 

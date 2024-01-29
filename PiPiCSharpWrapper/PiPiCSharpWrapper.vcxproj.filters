@@ -27,7 +27,7 @@
     <ClInclude Include="PiPiFillWrapper.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="PiPiFontManageWrapper.h">
+    <ClInclude Include="PiPiFontRegisterWrapper.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="PiPiExtractWrapper.h">
@@ -56,7 +56,7 @@
     <ClCompile Include="PiPiFillWrapper.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
-    <ClCompile Include="PiPiFontManageWrapper.cpp">
+    <ClCompile Include="PiPiFontRegisterWrapper.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
     <ClCompile Include="PiPiExtractWrapper.cpp">

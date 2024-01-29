@@ -17,7 +17,7 @@ namespace PiPiCSharp.Adapters
         private readonly PiPiCSharpEditAdapter editAdapter;
         private readonly PiPiCSharpExtractAdapter extractoAdapter;
         private readonly PiPiCSharpFillAdapter fillAdapter;
-        private readonly PiPiCSharpFontManageAdapter fontManageAdapter;
+        private readonly PiPiCSharpFontRegisterAdapter fontRegisterAdapter;
         private readonly bool multiManaged;
         private bool disposedValue;
 
@@ -40,8 +40,8 @@ namespace PiPiCSharp.Adapters
             IntPtr cExtractor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiExtractor(this.cOp);
             this.extractoAdapter = new PiPiCSharpExtractAdapter(cExtractor);
 
-            IntPtr cFontManager = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiFontManager(this.cOp);
-            this.fontManageAdapter = new PiPiCSharpFontManageAdapter(cFontManager);
+            IntPtr cFontRegister = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiFontRegister(this.cOp);
+            this.fontRegisterAdapter = new PiPiCSharpFontRegisterAdapter(cFontRegister);
         }
 
         /// <summary>
@@ -63,8 +63,8 @@ namespace PiPiCSharp.Adapters
             IntPtr cExtractor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiExtractor(this.cOp);
             this.extractoAdapter = new PiPiCSharpExtractAdapter(cExtractor);
 
-            IntPtr cFontManager = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiFontManager(this.cOp);
-            this.fontManageAdapter = new PiPiCSharpFontManageAdapter(cFontManager);
+            IntPtr cFontRegister = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiFontRegister(this.cOp);
+            this.fontRegisterAdapter = new PiPiCSharpFontRegisterAdapter(cFontRegister);
         }
 
         /// <inheritdoc/>
@@ -120,12 +120,12 @@ namespace PiPiCSharp.Adapters
         }
 
         /// <summary>
-        /// Get <see cref="PiPiCSharpFontManageAdapter"/>.
+        /// Get <see cref="PiPiCSharpFontRegisterAdapter"/>.
         /// </summary>
-        /// <returns><see cref="PiPiCSharpFontManageAdapter"/> instance.</returns>
-        internal PiPiCSharpFontManageAdapter GetFontManager()
+        /// <returns><see cref="PiPiCSharpFontRegisterAdapter"/> instance.</returns>
+        internal PiPiCSharpFontRegisterAdapter GetFontRegister()
         {
-            return this.fontManageAdapter;
+            return this.fontRegisterAdapter;
         }
 
         /// <summary>

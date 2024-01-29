@@ -97,13 +97,13 @@ T handleException(int* code, int* exCode, int* exSubCode, std::function<T()> fun
 
     return T();
   }
-  catch (PiPi::PiPiFontManageException& e) {
+  catch (PiPi::PiPiFontRegisterException& e) {
     *code = 0;
-    *exCode = PiPiCSharpFontManageExceptionCode;
+    *exCode = PiPiCSharpFontRegisterExceptionCode;
 
     switch (e.getCode()) {
-    case PiPi::PiPiFontManageException::InOperable:
-      *exSubCode = PiPiCSharpFontManageExceptionSubCodeInOperable;
+    case PiPi::PiPiFontRegisterException::InOperable:
+      *exSubCode = PiPiCSharpFontRegisterExceptionSubCodeInOperable;
       break;
     }
 
@@ -283,13 +283,13 @@ void handleVoidException(int* code, int* exCode, int* exSubCode, std::function<v
       break;
     }
   }
-  catch (PiPi::PiPiFontManageException& e) {
+  catch (PiPi::PiPiFontRegisterException& e) {
     *code = 0;
-    *exCode = PiPiCSharpFontManageExceptionCode;
+    *exCode = PiPiCSharpFontRegisterExceptionCode;
 
     switch (e.getCode()) {
-    case PiPi::PiPiFontManageException::InOperable:
-      *exSubCode = PiPiCSharpFontManageExceptionSubCodeInOperable;
+    case PiPi::PiPiFontRegisterException::InOperable:
+      *exSubCode = PiPiCSharpFontRegisterExceptionSubCodeInOperable;
       break;
     }
   }
@@ -404,5 +404,5 @@ template PiPi::PiPiMultiOperator* handleException<PiPi::PiPiMultiOperator*>(int*
 template PiPi::PiPiPager* handleException<PiPi::PiPiPager*>(int* code, int* exCode, int* exSubCode, std::function<PiPi::PiPiPager* ()> func);
 template PiPi::PiPiEditor* handleException<PiPi::PiPiEditor*>(int* code, int* exCode, int* exSubCode, std::function<PiPi::PiPiEditor* ()> func);
 template PiPi::PiPiExtractor* handleException<PiPi::PiPiExtractor*>(int* code, int* exCode, int* exSubCode, std::function<PiPi::PiPiExtractor* ()> func);
-template PiPi::PiPiFontManager* handleException<PiPi::PiPiFontManager*>(int* code, int* exCode, int* exSubCode, std::function<PiPi::PiPiFontManager* ()> func);
+template PiPi::PiPiFontRegister* handleException<PiPi::PiPiFontRegister*>(int* code, int* exCode, int* exSubCode, std::function<PiPi::PiPiFontRegister* ()> func);
 template PiPi::PiPiFiller* handleException<PiPi::PiPiFiller*>(int* code, int* exCode, int* exSubCode, std::function<PiPi::PiPiFiller* ()> func);

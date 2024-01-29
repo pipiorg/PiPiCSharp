@@ -101,13 +101,13 @@ namespace PiPiCSharp.Invokers
         }
 
         /// <summary>
-        /// Invoke PiPiOperateWrapper PiPiOperatorGetPiPiFontManager.
+        /// Invoke PiPiOperateWrapper PiPiOperatorGetPiPiFontRegister.
         /// </summary>
         /// <param name="op">PiPiOperator instance pointer.</param>
-        /// <returns>PiPiFontManager instance pointer.</returns>
-        internal static IntPtr InvokePiPiOperatorGetPiPiFontManager(IntPtr op)
+        /// <returns>PiPiFontRegister instance pointer.</returns>
+        internal static IntPtr InvokePiPiOperatorGetPiPiFontRegister(IntPtr op)
         {
-            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiOperateWrapper.PiPiOperatorGetPiPiFontManager, op);
+            var resultDelegate = PiPiCSharpDelegateTransformer.TransformParamsToResult(PiPiOperateWrapper.PiPiOperatorGetPiPiFontRegister, op);
             return PiPiCSharpDelegateInvoker.Invoke(resultDelegate);
         }
 

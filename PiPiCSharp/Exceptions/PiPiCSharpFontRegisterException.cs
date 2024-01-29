@@ -1,4 +1,4 @@
-// <copyright file="PiPiCSharpFontManageException.cs" company="PlaceholderCompany">
+// <copyright file="PiPiCSharpFontRegisterException.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -10,34 +10,34 @@ namespace PiPiCSharp.Exceptions
     /// <summary>
     /// The font manage PDF exception.
     /// </summary>
-    public class PiPiCSharpFontManageException : Exception
+    public class PiPiCSharpFontRegisterException : Exception
     {
         /// <summary>
         /// The font manage PDF exception code map.
         /// </summary>
-        public static readonly Dictionary<PiPiCSharpFontManageExceptionCode, string> PiPiCSharpFontManageExceptionCodeMap = new Dictionary<PiPiCSharpFontManageExceptionCode, string>()
+        public static readonly Dictionary<PiPiCSharpFontRegisterExceptionCode, string> PiPiCSharpFontRegisterExceptionCodeMap = new Dictionary<PiPiCSharpFontRegisterExceptionCode, string>()
         {
-            { PiPiCSharpFontManageExceptionCode.InOperable, "In operable" },
-            { PiPiCSharpFontManageExceptionCode.Unknown, "Unknown error" },
+            { PiPiCSharpFontRegisterExceptionCode.InOperable, "In operable" },
+            { PiPiCSharpFontRegisterExceptionCode.Unknown, "Unknown error" },
         };
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PiPiCSharpFontManageException"/> class.
+        /// Initializes a new instance of the <see cref="PiPiCSharpFontRegisterException"/> class.
         /// </summary>
         /// <param name="code">The font manage PDF exception code.</param>
-        public PiPiCSharpFontManageException(PiPiCSharpFontManageExceptionCode code)
-            : base(PiPiCSharpFontManageExceptionCodeMap[code])
+        public PiPiCSharpFontRegisterException(PiPiCSharpFontRegisterExceptionCode code)
+            : base(PiPiCSharpFontRegisterExceptionCodeMap[code])
         {
             this.Code = code;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PiPiCSharpFontManageException"/> class.
+        /// Initializes a new instance of the <see cref="PiPiCSharpFontRegisterException"/> class.
         /// </summary>
         /// <param name="code">The font manage PDF exception code.</param>
         /// <param name="innerException">The inner exception.</param>
-        public PiPiCSharpFontManageException(PiPiCSharpFontManageExceptionCode code, Exception innerException)
-            : base(PiPiCSharpFontManageExceptionCodeMap[code], innerException)
+        public PiPiCSharpFontRegisterException(PiPiCSharpFontRegisterExceptionCode code, Exception innerException)
+            : base(PiPiCSharpFontRegisterExceptionCodeMap[code], innerException)
         {
             this.Code = code;
         }
@@ -45,7 +45,7 @@ namespace PiPiCSharp.Exceptions
         /// <summary>
         /// The font manage PDF exception code.
         /// </summary>
-        public enum PiPiCSharpFontManageExceptionCode
+        public enum PiPiCSharpFontRegisterExceptionCode
         {
             /// <summary>
             /// In operable.
@@ -61,6 +61,6 @@ namespace PiPiCSharp.Exceptions
         /// <summary>
         /// Gets the font manage PDF exception code.
         /// </summary>
-        public PiPiCSharpFontManageExceptionCode Code { get; private set; }
+        public PiPiCSharpFontRegisterExceptionCode Code { get; private set; }
     }
 }

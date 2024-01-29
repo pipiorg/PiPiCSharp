@@ -16,7 +16,7 @@ namespace PiPiCSharp
         private readonly PiPiCSharpEditor editor;
         private readonly PiPiCSharpExtractor extractor;
         private readonly PiPiCSharpFiller filler;
-        private readonly PiPiCSharpFontManager fontManager;
+        private readonly PiPiCSharpFontRegister fontRegister;
         private bool disposedValue;
 
         /// <summary>
@@ -36,8 +36,8 @@ namespace PiPiCSharp
             PiPiCSharpExtractAdapter extractAdapter = this.adapter.GetExtractor();
             this.extractor = new PiPiCSharpExtractor(extractAdapter);
 
-            PiPiCSharpFontManageAdapter fontManageAdapter = this.adapter.GetFontManager();
-            this.fontManager = new PiPiCSharpFontManager(fontManageAdapter);
+            PiPiCSharpFontRegisterAdapter fontRegisterAdapter = this.adapter.GetFontRegister();
+            this.fontRegister = new PiPiCSharpFontRegister(fontRegisterAdapter);
         }
 
         /// <summary>
@@ -57,8 +57,8 @@ namespace PiPiCSharp
             PiPiCSharpExtractAdapter extractAdapter = this.adapter.GetExtractor();
             this.extractor = new PiPiCSharpExtractor(extractAdapter);
 
-            PiPiCSharpFontManageAdapter fontManageAdapter = this.adapter.GetFontManager();
-            this.fontManager = new PiPiCSharpFontManager(fontManageAdapter);
+            PiPiCSharpFontRegisterAdapter fontRegisterAdapter = this.adapter.GetFontRegister();
+            this.fontRegister = new PiPiCSharpFontRegister(fontRegisterAdapter);
         }
 
         /// <inheritdoc/>
@@ -105,12 +105,12 @@ namespace PiPiCSharp
         }
 
         /// <summary>
-        /// Get <see cref="PiPiCSharpFontManager"/>.
+        /// Get <see cref="PiPiCSharpFontRegister"/>.
         /// </summary>
-        /// <returns><see cref="PiPiCSharpFontManager"/> instance.</returns>
-        public PiPiCSharpFontManager GetFontManager()
+        /// <returns><see cref="PiPiCSharpFontRegister"/> instance.</returns>
+        public PiPiCSharpFontRegister GetFontRegister()
         {
-            return this.fontManager;
+            return this.fontRegister;
         }
 
         /// <summary>

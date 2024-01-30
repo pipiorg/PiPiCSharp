@@ -16,8 +16,8 @@ namespace PiPiCSharp
         private readonly PiPiCSharpMultiOperateAdapter adapter;
         private readonly Dictionary<int, int> operatorMap;
         private readonly List<PiPiCSharpOperator> operators;
-        private readonly PiPiCSharpPager pager;
         private bool disposedValue;
+        private PiPiCSharpPager? pager;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PiPiCSharpMultiOperator"/> class.
@@ -26,11 +26,10 @@ namespace PiPiCSharp
         {
             this.adapter = new PiPiCSharpMultiOperateAdapter();
 
-            PiPiCSharpPageAdapter pageAdapter = this.adapter.GetPager();
-            this.pager = new PiPiCSharpPager(pageAdapter);
-
             this.operators = new List<PiPiCSharpOperator>();
             this.operatorMap = new Dictionary<int, int>();
+
+            this.pager = null;
         }
 
         /// <summary>
@@ -75,6 +74,12 @@ namespace PiPiCSharp
         /// <returns>The pager.</returns>
         public PiPiCSharpPager GetPager()
         {
+            if (this.pager == null)
+            {
+                PiPiCSharpPageAdapter pageAdapter = this.adapter.GetPager();
+                this.pager = new PiPiCSharpPager(pageAdapter);
+            }
+
             return this.pager;
         }
 
@@ -88,6 +93,11 @@ namespace PiPiCSharp
             {
                 if (disposing)
                 {
+                    foreach (var op in this.operators)
+                    {
+                        op.Dispose();
+                    }
+
                     this.adapter.Dispose();
                 }
 

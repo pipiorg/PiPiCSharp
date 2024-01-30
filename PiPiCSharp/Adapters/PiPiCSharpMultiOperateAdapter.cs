@@ -17,8 +17,9 @@ namespace PiPiCSharp.Adapters
         private readonly IntPtr cMultiOp;
         private readonly Dictionary<int, uint> operateAdapterMap;
         private readonly List<PiPiCSharpOperateAdapter> operateAdapters;
-        private readonly PiPiCSharpPageAdapter pageAdapter;
+
         private bool disposedValue;
+        private PiPiCSharpPageAdapter? pageAdapter;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PiPiCSharpMultiOperateAdapter"/> class.
@@ -27,11 +28,9 @@ namespace PiPiCSharp.Adapters
         {
             this.cMultiOp = PiPiCSharpMultiOperateInvoker.InvokeCreatePiPiMultiOperator();
 
-            IntPtr cPager = PiPiCSharpMultiOperateInvoker.InvokePiPiMultiOperatorGetPager(this.cMultiOp);
-            this.pageAdapter = new PiPiCSharpPageAdapter(cPager);
-
             this.operateAdapterMap = new Dictionary<int, uint>();
             this.operateAdapters = new List<PiPiCSharpOperateAdapter>();
+            this.pageAdapter = null;
         }
 
         /// <inheritdoc/>
@@ -78,6 +77,12 @@ namespace PiPiCSharp.Adapters
         /// <returns>The pager.</returns>
         internal PiPiCSharpPageAdapter GetPager()
         {
+            if (this.pageAdapter == null)
+            {
+                IntPtr cPager = PiPiCSharpMultiOperateInvoker.InvokePiPiMultiOperatorGetPager(this.cMultiOp);
+                this.pageAdapter = new PiPiCSharpPageAdapter(cPager);
+            }
+
             return this.pageAdapter;
         }
 

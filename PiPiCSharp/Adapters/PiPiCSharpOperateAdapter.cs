@@ -14,12 +14,13 @@ namespace PiPiCSharp.Adapters
     internal class PiPiCSharpOperateAdapter : IDisposable
     {
         private readonly IntPtr cOp;
-        private readonly PiPiCSharpEditAdapter editAdapter;
-        private readonly PiPiCSharpExtractAdapter extractoAdapter;
-        private readonly PiPiCSharpFillAdapter fillAdapter;
-        private readonly PiPiCSharpFontRegisterAdapter fontRegisterAdapter;
         private readonly bool multiManaged;
+
         private bool disposedValue;
+        private PiPiCSharpEditAdapter? editAdapter;
+        private PiPiCSharpExtractAdapter? extractoAdapter;
+        private PiPiCSharpFillAdapter? fillAdapter;
+        private PiPiCSharpFontRegisterAdapter? fontRegisterAdapter;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PiPiCSharpOperateAdapter"/> class.
@@ -30,18 +31,10 @@ namespace PiPiCSharp.Adapters
             this.multiManaged = false;
 
             this.cOp = PiPiCSharpOperateInvoker.InvokeCreatePiPiOperator(pdfBytes, Convert.ToUInt32(pdfBytes.Length));
-
-            IntPtr cEditor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetEditor(this.cOp);
-            this.editAdapter = new PiPiCSharpEditAdapter(cEditor);
-
-            IntPtr cFiller = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetFiller(this.cOp);
-            this.fillAdapter = new PiPiCSharpFillAdapter(cFiller);
-
-            IntPtr cExtractor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiExtractor(this.cOp);
-            this.extractoAdapter = new PiPiCSharpExtractAdapter(cExtractor);
-
-            IntPtr cFontRegister = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiFontRegister(this.cOp);
-            this.fontRegisterAdapter = new PiPiCSharpFontRegisterAdapter(cFontRegister);
+            this.editAdapter = null;
+            this.extractoAdapter = null;
+            this.fillAdapter = null;
+            this.fontRegisterAdapter = null;
         }
 
         /// <summary>
@@ -53,18 +46,10 @@ namespace PiPiCSharp.Adapters
             this.multiManaged = true;
 
             this.cOp = cOp;
-
-            IntPtr cEditor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetEditor(this.cOp);
-            this.editAdapter = new PiPiCSharpEditAdapter(cEditor);
-
-            IntPtr cFiller = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetFiller(this.cOp);
-            this.fillAdapter = new PiPiCSharpFillAdapter(cFiller);
-
-            IntPtr cExtractor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiExtractor(this.cOp);
-            this.extractoAdapter = new PiPiCSharpExtractAdapter(cExtractor);
-
-            IntPtr cFontRegister = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiFontRegister(this.cOp);
-            this.fontRegisterAdapter = new PiPiCSharpFontRegisterAdapter(cFontRegister);
+            this.editAdapter = null;
+            this.extractoAdapter = null;
+            this.fillAdapter = null;
+            this.fontRegisterAdapter = null;
         }
 
         /// <inheritdoc/>
@@ -98,6 +83,12 @@ namespace PiPiCSharp.Adapters
         /// <returns><see cref="PiPiCSharpOperateAdapter"/> instance.</returns>
         internal PiPiCSharpEditAdapter GetEditor()
         {
+            if (this.editAdapter == null)
+            {
+                IntPtr cEditor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetEditor(this.cOp);
+                this.editAdapter = new PiPiCSharpEditAdapter(cEditor);
+            }
+
             return this.editAdapter;
         }
 
@@ -107,6 +98,12 @@ namespace PiPiCSharp.Adapters
         /// <returns><see cref="PiPiCSharpExtractAdapter"/> instance.</returns>
         internal PiPiCSharpExtractAdapter GetExtractor()
         {
+            if (this.extractoAdapter == null)
+            {
+                IntPtr cExtractor = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiExtractor(this.cOp);
+                this.extractoAdapter = new PiPiCSharpExtractAdapter(cExtractor);
+            }
+
             return this.extractoAdapter;
         }
 
@@ -116,6 +113,12 @@ namespace PiPiCSharp.Adapters
         /// <returns><see cref="PiPiCSharpFillAdapter"/> instance.</returns>
         internal PiPiCSharpFillAdapter GetFiller()
         {
+            if (this.fillAdapter == null)
+            {
+                IntPtr cFiller = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetFiller(this.cOp);
+                this.fillAdapter = new PiPiCSharpFillAdapter(cFiller);
+            }
+
             return this.fillAdapter;
         }
 
@@ -125,6 +128,12 @@ namespace PiPiCSharp.Adapters
         /// <returns><see cref="PiPiCSharpFontRegisterAdapter"/> instance.</returns>
         internal PiPiCSharpFontRegisterAdapter GetFontRegister()
         {
+            if (this.fontRegisterAdapter == null)
+            {
+                IntPtr cFontRegister = PiPiCSharpOperateInvoker.InvokePiPiOperatorGetPiPiFontRegister(this.cOp);
+                this.fontRegisterAdapter = new PiPiCSharpFontRegisterAdapter(cFontRegister);
+            }
+
             return this.fontRegisterAdapter;
         }
 

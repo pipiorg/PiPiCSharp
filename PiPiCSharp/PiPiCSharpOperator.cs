@@ -13,11 +13,12 @@ namespace PiPiCSharp
     public class PiPiCSharpOperator : IDisposable
     {
         private readonly PiPiCSharpOperateAdapter adapter;
-        private readonly PiPiCSharpEditor editor;
-        private readonly PiPiCSharpExtractor extractor;
-        private readonly PiPiCSharpFiller filler;
-        private readonly PiPiCSharpFontRegister fontRegister;
+
         private bool disposedValue;
+        private PiPiCSharpEditor? editor;
+        private PiPiCSharpExtractor? extractor;
+        private PiPiCSharpFiller? filler;
+        private PiPiCSharpFontRegister? fontRegister;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PiPiCSharpOperator"/> class.
@@ -26,18 +27,10 @@ namespace PiPiCSharp
         public PiPiCSharpOperator(byte[] pdfBytes)
         {
             this.adapter = new PiPiCSharpOperateAdapter(pdfBytes);
-
-            PiPiCSharpEditAdapter editAdapter = this.adapter.GetEditor();
-            this.editor = new PiPiCSharpEditor(editAdapter);
-
-            PiPiCSharpFillAdapter fillAdapter = this.adapter.GetFiller();
-            this.filler = new PiPiCSharpFiller(fillAdapter);
-
-            PiPiCSharpExtractAdapter extractAdapter = this.adapter.GetExtractor();
-            this.extractor = new PiPiCSharpExtractor(extractAdapter);
-
-            PiPiCSharpFontRegisterAdapter fontRegisterAdapter = this.adapter.GetFontRegister();
-            this.fontRegister = new PiPiCSharpFontRegister(fontRegisterAdapter);
+            this.editor = null;
+            this.filler = null;
+            this.extractor = null;
+            this.fontRegister = null;
         }
 
         /// <summary>
@@ -47,18 +40,10 @@ namespace PiPiCSharp
         internal PiPiCSharpOperator(PiPiCSharpOperateAdapter adapter)
         {
             this.adapter = adapter;
-
-            PiPiCSharpEditAdapter editAdapter = this.adapter.GetEditor();
-            this.editor = new PiPiCSharpEditor(editAdapter);
-
-            PiPiCSharpFillAdapter fillAdapter = this.adapter.GetFiller();
-            this.filler = new PiPiCSharpFiller(fillAdapter);
-
-            PiPiCSharpExtractAdapter extractAdapter = this.adapter.GetExtractor();
-            this.extractor = new PiPiCSharpExtractor(extractAdapter);
-
-            PiPiCSharpFontRegisterAdapter fontRegisterAdapter = this.adapter.GetFontRegister();
-            this.fontRegister = new PiPiCSharpFontRegister(fontRegisterAdapter);
+            this.editor = null;
+            this.filler = null;
+            this.extractor = null;
+            this.fontRegister = null;
         }
 
         /// <inheritdoc/>
@@ -83,6 +68,12 @@ namespace PiPiCSharp
         /// <returns><see cref="PiPiCSharpEditor"/> instance.</returns>
         public PiPiCSharpEditor GetEditor()
         {
+            if (this.editor == null)
+            {
+                PiPiCSharpEditAdapter editAdapter = this.adapter.GetEditor();
+                this.editor = new PiPiCSharpEditor(editAdapter);
+            }
+
             return this.editor;
         }
 
@@ -92,6 +83,12 @@ namespace PiPiCSharp
         /// <returns><see cref="PiPiCSharpExtractor"/> instance.</returns>
         public PiPiCSharpExtractor GetExtractor()
         {
+            if (this.extractor == null)
+            {
+                PiPiCSharpExtractAdapter extractAdapter = this.adapter.GetExtractor();
+                this.extractor = new PiPiCSharpExtractor(extractAdapter);
+            }
+
             return this.extractor;
         }
 
@@ -101,6 +98,12 @@ namespace PiPiCSharp
         /// <returns><see cref="PiPiCSharpFiller"/> instance.</returns>
         public PiPiCSharpFiller GetFiller()
         {
+            if (this.filler == null)
+            {
+                PiPiCSharpFillAdapter fillAdapter = this.adapter.GetFiller();
+                this.filler = new PiPiCSharpFiller(fillAdapter);
+            }
+
             return this.filler;
         }
 
@@ -110,6 +113,12 @@ namespace PiPiCSharp
         /// <returns><see cref="PiPiCSharpFontRegister"/> instance.</returns>
         public PiPiCSharpFontRegister GetFontRegister()
         {
+            if (this.fontRegister == null)
+            {
+                PiPiCSharpFontRegisterAdapter fontRegisterAdapter = this.adapter.GetFontRegister();
+                this.fontRegister = new PiPiCSharpFontRegister(fontRegisterAdapter);
+            }
+
             return this.fontRegister;
         }
 

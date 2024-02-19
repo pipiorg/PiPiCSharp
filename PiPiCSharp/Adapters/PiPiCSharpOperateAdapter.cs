@@ -5,6 +5,7 @@
 namespace PiPiCSharp.Adapters
 {
     using System;
+    using System.Runtime.InteropServices;
     using PiPiCSharp.Exceptions;
     using PiPiCSharp.Invokers;
 
@@ -13,6 +14,8 @@ namespace PiPiCSharp.Adapters
     /// </summary>
     internal class PiPiCSharpOperateAdapter : IDisposable
     {
+        private readonly GCHandle pdfBytesHandle;
+
         private readonly IntPtr cOp;
         private readonly bool multiManaged;
 
@@ -30,6 +33,8 @@ namespace PiPiCSharp.Adapters
         {
             this.multiManaged = false;
 
+            this.pdfBytesHandle = GCHandle.Alloc(pdfBytes, GCHandleType.Pinned);
+
             this.cOp = PiPiCSharpOperateInvoker.InvokeCreatePiPiOperator(pdfBytes, Convert.ToUInt32(pdfBytes.Length));
             this.editAdapter = null;
             this.extractoAdapter = null;
@@ -41,11 +46,13 @@ namespace PiPiCSharp.Adapters
         /// Initializes a new instance of the <see cref="PiPiCSharpOperateAdapter"/> class.
         /// </summary>
         /// <param name="cOp">The c++ operate pointer.</param>
-        internal PiPiCSharpOperateAdapter(IntPtr cOp)
+        /// <param name="pdfBytesHandle">The GCHandle for pdf bytes.</param>
+        internal PiPiCSharpOperateAdapter(IntPtr cOp, GCHandle pdfBytesHandle)
         {
             this.multiManaged = true;
 
             this.cOp = cOp;
+            this.pdfBytesHandle = pdfBytesHandle;
             this.editAdapter = null;
             this.extractoAdapter = null;
             this.fillAdapter = null;
@@ -71,7 +78,10 @@ namespace PiPiCSharp.Adapters
             uint newPdfSize = PiPiCSharpOperateInvoker.InvokePiPiOperatorMeasureFinalize(cBytes);
             byte[] newPdfBytes = new byte[newPdfSize];
 
+            GCHandle newPdfBytesGCHandle = GCHandle.Alloc(newPdfBytes, GCHandleType.Pinned);
             PiPiCSharpOperateInvoker.InvokePiPiOperatorCopyFinalize(cBytes, newPdfBytes);
+            newPdfBytesGCHandle.Free();
+
             PiPiCSharpOperateInvoker.InvokePiPiOperatorDeleteFinalize(cBytes);
 
             return newPdfBytes;
@@ -150,6 +160,7 @@ namespace PiPiCSharp.Adapters
                     if (!this.multiManaged)
                     {
                         PiPiCSharpOperateInvoker.InvokeDeletePiPiOperator(this.cOp);
+                        this.pdfBytesHandle.Free();
                     }
                 }
 

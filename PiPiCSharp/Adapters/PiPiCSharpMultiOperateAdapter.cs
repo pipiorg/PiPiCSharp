@@ -6,6 +6,7 @@ namespace PiPiCSharp.Adapters
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.InteropServices;
     using PiPiCSharp.Exceptions;
     using PiPiCSharp.Invokers;
 
@@ -17,6 +18,7 @@ namespace PiPiCSharp.Adapters
         private readonly IntPtr cMultiOp;
         private readonly Dictionary<int, uint> operateAdapterMap;
         private readonly List<PiPiCSharpOperateAdapter> operateAdapters;
+        private readonly List<GCHandle> pdfBytesHandles;
 
         private bool disposedValue;
         private PiPiCSharpPageAdapter? pageAdapter;
@@ -30,6 +32,7 @@ namespace PiPiCSharp.Adapters
 
             this.operateAdapterMap = new Dictionary<int, uint>();
             this.operateAdapters = new List<PiPiCSharpOperateAdapter>();
+            this.pdfBytesHandles = new List<GCHandle>();
             this.pageAdapter = null;
         }
 
@@ -48,11 +51,14 @@ namespace PiPiCSharp.Adapters
         /// <exception cref="PiPiCSharpMultiOperateException">Multi operate exception.</exception>
         internal int Add(byte[] pdfBytes)
         {
+            var pdfBytesGCHandle = GCHandle.Alloc(pdfBytes, GCHandleType.Pinned);
+            this.pdfBytesHandles.Add(pdfBytesGCHandle);
+
             uint cIndex = PiPiCSharpMultiOperateInvoker.InvokePiPiMultiOperatorAdd(this.cMultiOp, pdfBytes, Convert.ToUInt32(pdfBytes.Length));
             int index = this.operateAdapters.Count;
 
             IntPtr cOp = PiPiCSharpMultiOperateInvoker.InvokePiPiMultiOperatorGetOperator(this.cMultiOp, cIndex);
-            PiPiCSharpOperateAdapter opAdapter = new PiPiCSharpOperateAdapter(cOp);
+            PiPiCSharpOperateAdapter opAdapter = new PiPiCSharpOperateAdapter(cOp, pdfBytesGCHandle);
 
             this.operateAdapters.Add(opAdapter);
             this.operateAdapterMap.Add(index, cIndex);
@@ -97,6 +103,11 @@ namespace PiPiCSharp.Adapters
                 if (disposing)
                 {
                     PiPiCSharpMultiOperateInvoker.InvokeDeletePiPiMultiOperator(this.cMultiOp);
+
+                    foreach (GCHandle pdfByteGCHandle in this.pdfBytesHandles)
+                    {
+                        pdfByteGCHandle.Free();
+                    }
                 }
 
                 this.disposedValue = true;

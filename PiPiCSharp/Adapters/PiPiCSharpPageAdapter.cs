@@ -6,8 +6,8 @@ namespace PiPiCSharp.Adapters
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.InteropServices;
     using PiPiCSharp.Invokers;
-    using PiPiCSharp.Natives;
 
     /// <summary>
     /// The PDF page adapter.
@@ -52,7 +52,10 @@ namespace PiPiCSharp.Adapters
             uint cMergedSize = PiPiCSharpPageInvoker.InvokePiPiPagerMergeSize(cMerged);
 
             byte[] merged = new byte[cMergedSize];
+
+            GCHandle mergedGCHandle = GCHandle.Alloc(merged);
             PiPiCSharpPageInvoker.InvokePiPiPagerCopyMerge(cMerged, merged);
+            mergedGCHandle.Free();
 
             PiPiCSharpPageInvoker.InvokeDeletePiPiPagerMergeIndexs(cMergeIndexs);
             PiPiCSharpPageInvoker.InvokeDeletePiPiPagerMerge(cMerged);
@@ -87,7 +90,10 @@ namespace PiPiCSharp.Adapters
                 uint splittedItemSize = PiPiCSharpPageInvoker.InvokePiPiPagerSplitItemSize(cSplittedItem);
                 byte[] splittedItem = new byte[splittedItemSize];
 
+                GCHandle splittedItemGCHandle = GCHandle.Alloc(splittedItem, GCHandleType.Pinned);
                 PiPiCSharpPageInvoker.InvokePiPiPagerCopySplitItem(cSplittedItem, splittedItem);
+                splittedItemGCHandle.Free();
+
                 PiPiCSharpPageInvoker.InvokeDeletePiPiPagerSplitItem(cSplittedItem);
 
                 splitted.Add(splittedItem);

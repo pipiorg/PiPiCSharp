@@ -53,10 +53,11 @@ PIPI_CSHARP_WRAPPER_API void CALLING_CONVENTION DeletePiPiPagerMerge(int* code, 
     });
 }
 
-PIPI_CSHARP_WRAPPER_API std::vector<std::vector<char>*>* CALLING_CONVENTION PiPiPagerSplit(int* code, int* exCode, int* exSubCode, PiPiPager* pager, size_t index, char* instruction) {
+PIPI_CSHARP_WRAPPER_API std::vector<std::vector<char>*>* CALLING_CONVENTION PiPiPagerSplit(int* code, int* exCode, int* exSubCode, PiPiPager* pager, size_t index, wchar_t* instruction) {
   return handleException<std::vector<std::vector<char>*>*>(code, exCode, exSubCode, [&]() {
     std::vector<std::vector<char>*>* newPdfs;
-    pager->Split(index, instruction, &newPdfs);
+    std::string sInstruction = wcharToUtf8String(instruction);
+    pager->Split(index, sInstruction, &newPdfs);
     return newPdfs;
     });
 }

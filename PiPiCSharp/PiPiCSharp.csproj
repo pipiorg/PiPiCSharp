@@ -4,9 +4,9 @@
     <TargetFrameworks>netstandard2.1;netcoreapp3.1;net6.0</TargetFrameworks>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <Nullable>enable</Nullable>
-    <PackageVersion>0.0.13-alpha</PackageVersion>
-	  <Version>0.0.13</Version>
-	  <AssemblyVersion>0.0.13</AssemblyVersion>
+    <PackageVersion>0.0.14-alpha</PackageVersion>
+	  <Version>0.0.14</Version>
+	  <AssemblyVersion>0.0.14</AssemblyVersion>
 	  <Authors>pipiorg</Authors>
 	  <Company>pipiorg</Company>
 	  <Product>PiPiCSharp</Product>
